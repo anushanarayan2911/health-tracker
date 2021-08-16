@@ -1,0 +1,19 @@
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\bin\Debug\netcoreapp3.1\Health Tracker.exe
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\bin\Debug\netcoreapp3.1\Health Tracker.deps.json
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\bin\Debug\netcoreapp3.1\Health Tracker.runtimeconfig.json
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\bin\Debug\netcoreapp3.1\Health Tracker.runtimeconfig.dev.json
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\bin\Debug\netcoreapp3.1\Health Tracker.dll
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\bin\Debug\netcoreapp3.1\Health Tracker.pdb
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker.csproj.AssemblyReference.cache
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker_MarkupCompile.cache
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker_MarkupCompile.lref
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker.g.resources
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker.AssemblyInfoInputs.cache
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker.AssemblyInfo.cs
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker.csproj.CoreCompileInputs.cache
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker.dll
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker.pdb
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker.genruntimeconfig.cache

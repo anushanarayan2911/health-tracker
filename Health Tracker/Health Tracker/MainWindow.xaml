@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:Health_Tracker"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <Canvas>
+        <Button x:Name="Food" Content="Food" Width="40" Height="20" Canvas.Left="20" Canvas.Top="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button x:Name="Exercise" Content="Exercise" Width="45" Height="20" Canvas.Left="20" Canvas.Top="60" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button x:Name="exerciseCalendar" Content="Exercse Calendar" Width="95" Height="20" Canvas.Left="20" Canvas.Top="100" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button x:Name="yourDay" Content="Your Day" Width="55" Height="20" Canvas.Left="20" Canvas.Top="140" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button x:Name="yourGoals" Content="Your Goals" Width="60" Height="20" Canvas.Left="20" Canvas.Top="180" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+    </Canvas>
 </Window>
