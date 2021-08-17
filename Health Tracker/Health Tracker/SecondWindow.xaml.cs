@@ -18,18 +18,11 @@ namespace Health_Tracker
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SecondWindow : Window
     {
-        public MainWindow()
+        public SecondWindow()
         {
             InitializeComponent();
-        }
-
-        private void FoodButtonClick(object sender, RoutedEventArgs e)
-        {
-            SecondWindow foodWindow = new SecondWindow();
-            this.Visibility = Visibility.Hidden;
-            foodWindow.Show();
         }
     }
 }

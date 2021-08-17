@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\App.xaml
-11407045341
+2-1083591755
 
-5-1350547507
+6-1156186964
 192-1533232326
-MainWindow.xaml;
+MainWindow.xaml;SecondWindow.xaml;
 
-False
+True
 

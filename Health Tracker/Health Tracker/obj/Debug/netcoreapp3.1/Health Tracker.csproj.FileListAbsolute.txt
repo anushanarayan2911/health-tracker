@@ -17,3 +17,5 @@ C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Deb
 C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker.dll
 C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker.pdb
 C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker.genruntimeconfig.cache
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\SecondWindow.g.cs
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\SecondWindow.baml
