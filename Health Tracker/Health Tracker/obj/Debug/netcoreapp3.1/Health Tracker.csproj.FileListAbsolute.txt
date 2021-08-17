@@ -17,5 +17,13 @@ C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Deb
 C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker.dll
 C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker.pdb
 C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker.genruntimeconfig.cache
-C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\SecondWindow.g.cs
-C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\SecondWindow.baml
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\FoodWindow.g.cs
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\FoodWindow.baml
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\ExerciseWindow.g.cs
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\ExerciseWindow.baml
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\ExerciseCalendarWindow.g.cs
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\ExerciseCalendarWindow.baml
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\YourDayWindow.g.cs
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\YourDayWindow.baml
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\YourGoalsWindow.g.cs
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\YourGoalsWindow.baml

@@ -18,9 +18,9 @@ namespace Health_Tracker
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class SecondWindow : Window
+    public partial class YourDayWindow : Window
     {
-        public SecondWindow()
+        public YourDayWindow()
         {
             InitializeComponent();
         }

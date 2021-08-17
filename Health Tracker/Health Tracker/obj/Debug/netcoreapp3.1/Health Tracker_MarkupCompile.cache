@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\App.xaml
-2-1083591755
+6316482376
 
-4-1038809014
+81728653708
 192-1533232326
-MainWindow.xaml;SecondWindow.xaml;
+ExerciseCalendarWindow.xaml;ExerciseWindow.xaml;FoodWindow.xaml;MainWindow.xaml;YourDayWindow.xaml;YourGoalsWindow.xaml;
 
 False
 
