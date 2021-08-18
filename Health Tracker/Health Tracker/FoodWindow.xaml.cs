@@ -24,5 +24,11 @@ namespace Health_Tracker
         {
             InitializeComponent();
         }
-    }
+
+        public void BackButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            CommonElements.goBack();
+        }
+    };
 }

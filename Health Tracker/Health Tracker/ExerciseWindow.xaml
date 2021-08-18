@@ -6,4 +6,7 @@
         xmlns:local="clr-namespace:Health_Tracker"
         mc:Ignorable="d"
         Title="Exercise" Height="450" Width="800">
+    <Canvas>
+        <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+    </Canvas>
 </Window>
