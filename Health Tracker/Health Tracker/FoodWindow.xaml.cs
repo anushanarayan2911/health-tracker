@@ -20,6 +20,7 @@ namespace Health_Tracker
     /// </summary>
     public partial class FoodWindow : Window
     {
+        string[] foodArray = new String[10];
         public FoodWindow()
         {
             InitializeComponent();
@@ -29,6 +30,14 @@ namespace Health_Tracker
         {
             this.Visibility = Visibility.Hidden;
             CommonElements.goBack();
+        }
+
+        private void SendInfo(object sender, RoutedEventArgs e)
+        {
+            string result = (string)((CheckBox)sender).Content;
+            int index = Array.IndexOf(foodArray, null);
+            foodArray[index] = result;
+            Result.Text = string.Join(" ", foodArray).ToString();
         }
     };
 }
