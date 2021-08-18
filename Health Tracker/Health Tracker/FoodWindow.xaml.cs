@@ -20,7 +20,8 @@ namespace Health_Tracker
     /// </summary>
     public partial class FoodWindow : Window
     {
-        string[] foodArray = new String[10];
+        string[] mealNameArray = new String[10];
+        string[] mealInfoArray = new string[10];
         public FoodWindow()
         {
             InitializeComponent();
@@ -32,12 +33,19 @@ namespace Health_Tracker
             CommonElements.goBack();
         }
 
-        private void SendInfo(object sender, RoutedEventArgs e)
+        private void SendMealName(object sender, RoutedEventArgs e)
         {
-            string result = (string)((CheckBox)sender).Content;
-            int index = Array.IndexOf(foodArray, null);
-            foodArray[index] = result;
-            Result.Text = string.Join(" ", foodArray).ToString();
+            string mealName = (string)((CheckBox)sender).Content;
+            int index = Array.IndexOf(mealNameArray, null);
+            mealNameArray[index] = mealName;
+        }
+
+        private void SendMealInfo(object sender, RoutedEventArgs e)
+        {
+            string mealInfo = (string)UserMealDetails.Text;
+            int index = Array.IndexOf(mealInfoArray, null);
+            mealInfoArray[index] = mealInfo;
+            Result.Text = string.Join(" ", mealInfoArray).ToString();
         }
     };
 }

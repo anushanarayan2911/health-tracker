@@ -9,10 +9,13 @@
     <Canvas>
         <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Label x:Name="ChooseMeal" Content="Meal:" Canvas.Top="20" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <CheckBox x:Name="BreakfastBox" Checked="SendInfo" Content="Breakfast" Canvas.Top="27" Canvas.Left="150" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <CheckBox x:Name="LunchBox" Checked="SendInfo" Content="Lunch" Canvas.Top="27" Canvas.Left="250" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <CheckBox x:Name="DinnerBox" Checked="SendInfo" Content="Dinner" Canvas.Top="27" Canvas.Left="340" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <CheckBox x:Name="SnackBox" Checked="SendInfo" Content="Snack" Canvas.Top="27" Canvas.Left="430" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="BreakfastBox" Checked="SendMealName" Content="Breakfast" Canvas.Top="27" Canvas.Left="150" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="LunchBox" Checked="SendMealName" Content="Lunch" Canvas.Top="27" Canvas.Left="250" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="DinnerBox" Checked="SendMealName" Content="Dinner" Canvas.Top="27" Canvas.Left="340" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="SnackBox" Checked="SendMealName" Content="Snack" Canvas.Top="27" Canvas.Left="430" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label x:Name="MealDetails" Content="Meal Details" Canvas.Top="55" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <TextBox x:Name="UserMealDetails" Width="300" Canvas.Top="60" Canvas.Left="200" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Button x:Name="OKButton" Content="OK" Canvas.Top="80" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" Click="SendMealInfo"/>
         <TextBox x:Name="Result" Width="150" Canvas.Top="100" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" />
     </Canvas>
 </Window>
