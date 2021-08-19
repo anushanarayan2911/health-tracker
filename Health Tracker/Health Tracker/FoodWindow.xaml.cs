@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace Health_Tracker
 {
@@ -20,11 +21,12 @@ namespace Health_Tracker
     /// </summary>
     public partial class FoodWindow : Window
     {
-        string[] mealNameArray = new String[10];
-        string[] mealInfoArray = new string[10];
+        string[] mealNameArray = new String[30];
+        ObservableCollection<Meal> allMealsView = new ObservableCollection<Meal>();
         public FoodWindow()
         {
             InitializeComponent();
+            TodayMeals.ItemsSource = allMealsView;
         }
 
         public void BackButtonClick(object sender, RoutedEventArgs e)
@@ -33,19 +35,28 @@ namespace Health_Tracker
             CommonElements.goBack();
         }
 
-        private void SendMealName(object sender, RoutedEventArgs e)
+        public void SendMealName(object sender, RoutedEventArgs e)
         {
-            string mealName = (string)((CheckBox)sender).Content;
+            string name = (string)((CheckBox)sender).Content;
             int index = Array.IndexOf(mealNameArray, null);
-            mealNameArray[index] = mealName;
+            mealNameArray[index] = name;
         }
 
-        private void SendMealInfo(object sender, RoutedEventArgs e)
+        public void SendMealInfo(object sender, RoutedEventArgs e)
         {
-            string mealInfo = (string)UserMealDetails.Text;
-            int index = Array.IndexOf(mealInfoArray, null);
-            mealInfoArray[index] = mealInfo;
-            Result.Text = string.Join(" ", mealInfoArray).ToString();
+            int index = Array.IndexOf(mealNameArray, null) - 1;
+            if (index < 0)
+            {
+                index = 0;
+            }
+            
+            string name = mealNameArray[index];
+            string mealDetails = (string)UserMealDetails.Text;
+
+            allMealsView.Add(new Meal() { mealName = name, mealDetails = mealDetails });
+            
+            TodayMeals.Items.Refresh();
+            Result.Text = allMealsView[0].mealName.ToString();
         }
     };
 }

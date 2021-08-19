@@ -17,5 +17,11 @@
         <TextBox x:Name="UserMealDetails" Width="300" Canvas.Top="60" Canvas.Left="200" VerticalAlignment="Top" HorizontalAlignment="Left" />
         <Button x:Name="OKButton" Content="OK" Canvas.Top="80" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" Click="SendMealInfo"/>
         <TextBox x:Name="Result" Width="150" Canvas.Top="100" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <DataGrid x:Name="TodayMeals" ItemsSource="{Binding Path=allMeals}" AutoGenerateColumns="False" Height="200" Width="150" Canvas.Top="55" Canvas.Left="600">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Name" Binding="{Binding mealName}"/>
+                <DataGridTextColumn Width="*" Header="Details" Binding="{Binding mealDetails}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Canvas>
 </Window>
