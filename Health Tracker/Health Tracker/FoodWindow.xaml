@@ -8,20 +8,44 @@
         Title="Food" Height="450" Width="800">
     <Canvas>
         <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label x:Name="ChooseMeal" Content="Meal:" Canvas.Top="20" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <CheckBox x:Name="BreakfastBox" Checked="SendMealName" Content="Breakfast" Canvas.Top="27" Canvas.Left="150" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <CheckBox x:Name="LunchBox" Checked="SendMealName" Content="Lunch" Canvas.Top="27" Canvas.Left="250" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <CheckBox x:Name="DinnerBox" Checked="SendMealName" Content="Dinner" Canvas.Top="27" Canvas.Left="340" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <CheckBox x:Name="SnackBox" Checked="SendMealName" Content="Snack" Canvas.Top="27" Canvas.Left="430" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label x:Name="MealDetails" Content="Meal Details" Canvas.Top="55" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <TextBox x:Name="UserMealDetails" Width="300" Canvas.Top="60" Canvas.Left="200" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <Button x:Name="OKButton" Content="OK" Canvas.Top="80" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" Click="SendMealInfo"/>
-        <TextBox x:Name="Result" Width="150" Canvas.Top="100" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <DataGrid x:Name="TodayMeals" ItemsSource="{Binding Path=allMeals}" AutoGenerateColumns="False" Height="200" Width="150" Canvas.Top="55" Canvas.Left="600">
+        <Button x:Name="AddMealButton" Content="Add Meal" Click="AddMealClick" Canvas.Top="50" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button x:Name="ViewMealsButton" Content="View Meals" Click="ViewMealsClick" Canvas.Top="90" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Label x:Name="ChooseDay" Visibility="Hidden" Content="Day: " Canvas.Top="20" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <CheckBox x:Name="MondayBox" Visibility="Hidden" Content="Monday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="150" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="TuesdayBox" Visibility="Hidden" Content="Tuesday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="250" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="WednesdayBox" Visibility="Hidden" Content="Wednesday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="350" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="ThursdayBox" Visibility="Hidden" Content="Thursday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="450" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="FridayBox" Visibility="Hidden" Content="Friday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="550" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="SaturdayBox" Visibility="Hidden" Content="Saturday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="650" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="SundayBox" Visibility="Hidden" Content="Sunday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="750" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label x:Name="ChooseMeal" Visibility="Hidden" Content="Meal:" Canvas.Top="40" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="BreakfastBox" Visibility="Hidden" Checked="SendMealName" Content="Breakfast" Canvas.Top="47" Canvas.Left="150" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="LunchBox" Visibility="Hidden" Checked="SendMealName" Content="Lunch" Canvas.Top="47" Canvas.Left="250" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="DinnerBox" Visibility="Hidden" Checked="SendMealName" Content="Dinner" Canvas.Top="47" Canvas.Left="340" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="SnackBox" Visibility="Hidden" Checked="SendMealName" Content="Snack" Canvas.Top="47" Canvas.Left="430" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label x:Name="MealDetailsLabel" Visibility="Hidden" Content="Meal Details" Canvas.Top="75" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <TextBox x:Name="MealDetailsInput" Visibility="Hidden" Width="300" Canvas.Top="80" Canvas.Left="200" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Button x:Name="OKButton" Visibility="Hidden" Content="OK" Canvas.Top="100" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" Click="SendMealInfo"/>
+        <TextBox x:Name="Result" Visibility="Hidden" Width="150" Canvas.Top="120" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <DataGrid x:Name="AddedMeals" Visibility="Hidden" ItemsSource="{Binding Path=addedMealsView}" AutoGenerateColumns="False" Height="200" Width="200" Canvas.Top="55" Canvas.Left="600">
             <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Day" Binding="{Binding dayOfMeal}" />
                 <DataGridTextColumn Width="*" Header="Name" Binding="{Binding mealName}"/>
                 <DataGridTextColumn Width="*" Header="Details" Binding="{Binding mealDetails}"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <DataGrid x:Name="WeekMeals" Visibility="Hidden" ItemsSource="{Binding Path=allMealsView}" AutoGenerateColumns="False" Height="600" Width="600" Canvas.Top="30" Canvas.Left="300">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Monday" />
+                <DataGridTextColumn Width="*" Header="Tuesday" />
+                <DataGridTextColumn Width="*" Header="Wednesday" />
+                <DataGridTextColumn Width="*" Header="Thursday" />
+                <DataGridTextColumn Width="*" Header="Friday" />
+                <DataGridTextColumn Width="*" Header="Saturday" />
+                <DataGridTextColumn Width="*" Header="Sunday" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="hi" Visibility="Hidden" Width="100" Canvas.Top="50" Canvas.Left="1000" />
     </Canvas>
 </Window>

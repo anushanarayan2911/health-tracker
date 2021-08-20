@@ -8,6 +8,8 @@ namespace Health_Tracker
     {
         public string mealName { get; set; }
         public string mealDetails { get; set; }
+
+        public string dayOfMeal { get; set; }
         
     }
 }
