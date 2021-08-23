@@ -165,27 +165,87 @@ namespace Health_Tracker
                         break;
 
                     case "Tuesday":
-                        TuesdayList.Add(m);
+
+                        string[] existingTuesdayMeals = new string[30];
+                        foreach (weekMeal w in weekMealsView)
+                        {
+                            existingTuesdayMeals[Array.IndexOf(existingTuesdayMeals, null)] = w.IfTuesday;
+                        }
+
+                        if (!existingTuesdayMeals.Contains(m.mealDetails))
+                        {
+                            weekMealsView.Add(new weekMeal { IfTuesday = m.mealDetails });
+                        }
                         break;
 
                     case "Wednesday":
-                        WednesdayList.Add(m);
+
+                        string[] existingWednesdayMeals = new string[30];
+                        foreach (weekMeal w in weekMealsView)
+                        {
+                            existingWednesdayMeals[Array.IndexOf(existingWednesdayMeals, null)] = w.IfWednesday;
+                        }
+
+                        if (!existingWednesdayMeals.Contains(m.mealDetails))
+                        {
+                            weekMealsView.Add(new weekMeal { IfWednesday = m.mealDetails });
+                        }
                         break;
 
                     case "Thursday":
-                        ThursdayList.Add(m);
+
+                        string[] existingThursdayMeals = new string[30];
+                        foreach (weekMeal w in weekMealsView)
+                        {
+                            existingThursdayMeals[Array.IndexOf(existingThursdayMeals, null)] = w.IfThursday;
+                        }
+
+                        if (!existingThursdayMeals.Contains(m.mealDetails))
+                        {
+                            weekMealsView.Add(new weekMeal { IfThursday = m.mealDetails });
+                        }
                         break;
 
                     case "Friday":
-                        FridayList.Add(m);
+
+                        string[] existingFridayMeals = new string[30];
+                        foreach (weekMeal w in weekMealsView)
+                        {
+                            existingFridayMeals[Array.IndexOf(existingFridayMeals, null)] = w.IfFriday;
+                        }
+
+                        if (!existingFridayMeals.Contains(m.mealDetails))
+                        {
+                            weekMealsView.Add(new weekMeal { IfFriday = m.mealDetails });
+                        }
                         break;
 
                     case "Saturday":
-                        SaturdayList.Add(m);
+
+                        string[] existingSaturdayMeals = new string[30];
+                        foreach (weekMeal w in weekMealsView)
+                        {
+                            existingSaturdayMeals[Array.IndexOf(existingSaturdayMeals, null)] = w.IfSaturday;
+                        }
+
+                        if (!existingSaturdayMeals.Contains(m.mealDetails))
+                        {
+                            weekMealsView.Add(new weekMeal { IfSaturday = m.mealDetails });
+                        }
                         break;
 
                     case "Sunday":
-                        SundayList.Add(m);
+
+                        string[] existingSundayMeals = new string[30];
+                        foreach (weekMeal w in weekMealsView)
+                        {
+                            existingSundayMeals[Array.IndexOf(existingSundayMeals, null)] = w.IfSunday;
+                        }
+
+                        if (!existingSundayMeals.Contains(m.mealDetails))
+                        {
+                            weekMealsView.Add(new weekMeal { IfSunday = m.mealDetails });
+                        }
                         break;
                 }
             }

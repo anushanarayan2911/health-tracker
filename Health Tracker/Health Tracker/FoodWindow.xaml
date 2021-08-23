@@ -38,12 +38,12 @@
         <DataGrid x:Name="WeekMeals" Visibility="Hidden" AutoGenerateColumns="False" Height="600" Width="600" Canvas.Top="30" Canvas.Left="300">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Monday" Binding="{Binding Path=IfMonday}"/>
-                <DataGridTextColumn Width="*" Header="Tuesday" />
-                <DataGridTextColumn Width="*" Header="Wednesday" />
-                <DataGridTextColumn Width="*" Header="Thursday" />
-                <DataGridTextColumn Width="*" Header="Friday" />
-                <DataGridTextColumn Width="*" Header="Saturday" />
-                <DataGridTextColumn Width="*" Header="Sunday" />
+                <DataGridTextColumn Width="*" Header="Tuesday" Binding="{Binding Path=IfTuesday}"/>
+                <DataGridTextColumn Width="*" Header="Wednesday" Binding="{Binding Path=IfWednesday}"/>
+                <DataGridTextColumn Width="*" Header="Thursday" Binding="{Binding Path=IfThursday}"/>
+                <DataGridTextColumn Width="*" Header="Friday" Binding="{Binding Path=IfFriday}"/>
+                <DataGridTextColumn Width="*" Header="Saturday" Binding="{Binding Path=IfSaturday}"/>
+                <DataGridTextColumn Width="*" Header="Sunday" Binding="{Binding Path=IfSunday}"/>
             </DataGrid.Columns>
         </DataGrid>
         <TextBox x:Name="hi" Visibility="Hidden" Width="100" Canvas.Top="50" Canvas.Left="1000" />
