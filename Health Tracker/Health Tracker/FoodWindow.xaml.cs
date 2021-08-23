@@ -151,8 +151,17 @@ namespace Health_Tracker
                 {
                     case "Monday":
 
-                        MondayList.Add(m.mealDetails);
-                        weekMealsView.Add(new weekMeal { IfMonday = String.Join(" ", MondayList) }) ;
+                        string[] existingMondayMeals = new string[30];
+                        //MondayList.Add(m.mealDetails);
+                        foreach (weekMeal w in weekMealsView)
+                        {
+                            existingMondayMeals[Array.IndexOf(existingMondayMeals, null)] = w.IfMonday;
+                        }
+                        
+                        if (!existingMondayMeals.Contains(m.mealDetails))
+                        {
+                            weekMealsView.Add(new weekMeal { IfMonday = m.mealDetails });
+                        }
                         break;
 
                     case "Tuesday":
@@ -181,7 +190,6 @@ namespace Health_Tracker
                 }
             }
 
-            hi.Text = string.Join(" ", weekMealsView[0].IfMonday);
             WeekMeals.Items.Refresh();
             
         }
