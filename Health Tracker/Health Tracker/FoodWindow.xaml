@@ -35,15 +35,39 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid x:Name="WeekMeals" Visibility="Hidden" AutoGenerateColumns="False" Height="600" Width="600" Canvas.Top="30" Canvas.Left="300">
+        <DataGrid x:Name="MondayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="55" Canvas.Left="100">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Monday" Binding="{Binding Path=IfMonday}"/>
-                <DataGridTextColumn Width="*" Header="Tuesday" Binding="{Binding Path=IfTuesday}"/>
-                <DataGridTextColumn Width="*" Header="Wednesday" Binding="{Binding Path=IfWednesday}"/>
-                <DataGridTextColumn Width="*" Header="Thursday" Binding="{Binding Path=IfThursday}"/>
-                <DataGridTextColumn Width="*" Header="Friday" Binding="{Binding Path=IfFriday}"/>
-                <DataGridTextColumn Width="*" Header="Saturday" Binding="{Binding Path=IfSaturday}"/>
-                <DataGridTextColumn Width="*" Header="Sunday" Binding="{Binding Path=IfSunday}"/>
+                <DataGridTextColumn Width="*" Header="Details" Binding="{Binding mealDetails}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="TuesdayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="55" Canvas.Left="250">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Tuesday" Binding="{Binding mealDetails}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="WednesdayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="55" Canvas.Left="400">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Wednesday" Binding="{Binding mealDetails}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="ThursdayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="55" Canvas.Left="550">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Thursday" Binding="{Binding mealDetails}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="FridayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="55" Canvas.Left="700">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Friday" Binding="{Binding mealDetails}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="SaturdayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="55" Canvas.Left="850">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Saturday" Binding="{Binding mealDetails}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="SundayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="55" Canvas.Left="1000">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Sunday" Binding="{Binding mealDetails}" />
             </DataGrid.Columns>
         </DataGrid>
         <TextBox x:Name="hi" Visibility="Hidden" Width="100" Canvas.Top="50" Canvas.Left="1000" />

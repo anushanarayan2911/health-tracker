@@ -15,14 +15,8 @@ namespace Health_Tracker
 
     public class weekMeal
     {
-        public string IfMonday { get; set; }
-        public string IfTuesday { get; set; }
-        public string IfWednesday { get; set; }
-        public string IfThursday { get; set; }
-        public string IfFriday { get; set; }
-        public string IfSaturday { get; set; }
-        public string IfSunday { get; set; }
+        public string mealName { get; set; }
 
-
+        public string mealDetails { get; set; }
     }
 }

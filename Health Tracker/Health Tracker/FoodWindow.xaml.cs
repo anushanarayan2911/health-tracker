@@ -24,13 +24,25 @@ namespace Health_Tracker
         string[] mealNameArray = new String[30];
         string[] mealDayArray = new String[30];
         ObservableCollection<Meal> addedMealsView = new ObservableCollection<Meal>();
-        ObservableCollection<weekMeal> weekMealsView = new ObservableCollection<weekMeal>();
         List<Meal> OrderedList;
+        ObservableCollection<weekMeal> MondayMealsView = new ObservableCollection<weekMeal>();
+        ObservableCollection<weekMeal> TuesdayMealsView = new ObservableCollection<weekMeal>();
+        ObservableCollection<weekMeal> WednesdayMealsView = new ObservableCollection<weekMeal>();
+        ObservableCollection<weekMeal> ThursdayMealsView = new ObservableCollection<weekMeal>();
+        ObservableCollection<weekMeal> FridayMealsView = new ObservableCollection<weekMeal>();
+        ObservableCollection<weekMeal> SaturdayMealsView = new ObservableCollection<weekMeal>();
+        ObservableCollection<weekMeal> SundayMealsView = new ObservableCollection<weekMeal>();
         public FoodWindow()
         {
             InitializeComponent();
             AddedMeals.ItemsSource = addedMealsView;
-            WeekMeals.ItemsSource = weekMealsView;
+            MondayCol.ItemsSource = MondayMealsView;
+            TuesdayCol.ItemsSource = TuesdayMealsView;
+            WednesdayCol.ItemsSource = WednesdayMealsView;
+            ThursdayCol.ItemsSource = ThursdayMealsView;
+            FridayCol.ItemsSource = FridayMealsView;
+            SaturdayCol.ItemsSource = SaturdayMealsView;
+            SundayCol.ItemsSource = SundayMealsView;
         }
 
         public void BackButtonClick(object sender, RoutedEventArgs e)
@@ -42,7 +54,15 @@ namespace Health_Tracker
         private void AddMealClick(object sender, RoutedEventArgs e)
         {
             AddMealButton.Visibility = Visibility.Hidden;
-            WeekMeals.Visibility = Visibility.Hidden;
+
+            MondayCol.Visibility = Visibility.Hidden;
+            TuesdayCol.Visibility = Visibility.Hidden;
+            WednesdayCol.Visibility = Visibility.Hidden;
+            ThursdayCol.Visibility = Visibility.Hidden;
+            FridayCol.Visibility = Visibility.Hidden;
+            SaturdayCol.Visibility = Visibility.Hidden;
+            SundayCol.Visibility = Visibility.Hidden;
+
             hi.Visibility = Visibility.Hidden;
             ViewMealsButton.Visibility = Visibility.Visible;
             ViewMealsButton.Margin = new Thickness(-95, -40, 0, 0); 
@@ -108,7 +128,14 @@ namespace Health_Tracker
 
         private void ViewMealsClick(object sender, RoutedEventArgs e)
         {
-            WeekMeals.Visibility = Visibility.Visible;
+            MondayCol.Visibility = Visibility.Visible;
+            TuesdayCol.Visibility = Visibility.Visible;
+            WednesdayCol.Visibility = Visibility.Visible;
+            ThursdayCol.Visibility = Visibility.Visible;
+            FridayCol.Visibility = Visibility.Visible;
+            SaturdayCol.Visibility = Visibility.Visible;
+            SundayCol.Visibility = Visibility.Visible;
+
             hi.Visibility = Visibility.Visible;
             AddMealButton.Visibility = Visibility.Visible;
             AddMealButton.Margin = new Thickness(-90, -10, 0, 0);
@@ -136,122 +163,118 @@ namespace Health_Tracker
             AddedMeals.Visibility = Visibility.Hidden;
 
             OrderedList = addedMealsView.OrderBy(x => x.dayOfMeal).ToList();
-
-            List<string> MondayList = new List<string>();
-            List<Meal> TuesdayList = new List<Meal>();
-            List<Meal> WednesdayList = new List<Meal>();
-            List<Meal> ThursdayList = new List<Meal>();
-            List<Meal> FridayList = new List<Meal>();
-            List<Meal> SaturdayList = new List<Meal>();
-            List<Meal> SundayList = new List<Meal>();
             
             foreach (Meal m in OrderedList)
             {
                 switch(m.dayOfMeal)
                 {
                     case "Monday":
-
+                        
                         string[] existingMondayMeals = new string[30];
-                        //MondayList.Add(m.mealDetails);
-                        foreach (weekMeal w in weekMealsView)
+                        foreach (weekMeal w in MondayMealsView)
                         {
-                            existingMondayMeals[Array.IndexOf(existingMondayMeals, null)] = w.IfMonday;
+                            existingMondayMeals[Array.IndexOf(existingMondayMeals, null)] = w.mealDetails;
                         }
                         
                         if (!existingMondayMeals.Contains(m.mealDetails))
                         {
-                            weekMealsView.Add(new weekMeal { IfMonday = m.mealDetails });
+                            MondayMealsView.Add(new weekMeal { mealName = m.mealName, mealDetails = m.mealDetails });
                         }
                         break;
-
+                    
                     case "Tuesday":
 
                         string[] existingTuesdayMeals = new string[30];
-                        foreach (weekMeal w in weekMealsView)
+                        foreach (weekMeal w in TuesdayMealsView)
                         {
-                            existingTuesdayMeals[Array.IndexOf(existingTuesdayMeals, null)] = w.IfTuesday;
+                            existingTuesdayMeals[Array.IndexOf(existingTuesdayMeals, null)] = w.mealDetails;
                         }
 
                         if (!existingTuesdayMeals.Contains(m.mealDetails))
                         {
-                            weekMealsView.Add(new weekMeal { IfTuesday = m.mealDetails });
+                            TuesdayMealsView.Add(new weekMeal { mealName = m.mealName, mealDetails = m.mealDetails });
                         }
                         break;
 
                     case "Wednesday":
 
                         string[] existingWednesdayMeals = new string[30];
-                        foreach (weekMeal w in weekMealsView)
+                        foreach (weekMeal w in WednesdayMealsView)
                         {
-                            existingWednesdayMeals[Array.IndexOf(existingWednesdayMeals, null)] = w.IfWednesday;
+                            existingWednesdayMeals[Array.IndexOf(existingWednesdayMeals, null)] = w.mealDetails;
                         }
 
                         if (!existingWednesdayMeals.Contains(m.mealDetails))
                         {
-                            weekMealsView.Add(new weekMeal { IfWednesday = m.mealDetails });
+                            WednesdayMealsView.Add(new weekMeal { mealName = m.mealName, mealDetails = m.mealDetails });
                         }
                         break;
 
                     case "Thursday":
 
                         string[] existingThursdayMeals = new string[30];
-                        foreach (weekMeal w in weekMealsView)
+                        foreach (weekMeal w in ThursdayMealsView)
                         {
-                            existingThursdayMeals[Array.IndexOf(existingThursdayMeals, null)] = w.IfThursday;
+                            existingThursdayMeals[Array.IndexOf(existingThursdayMeals, null)] = w.mealDetails;
                         }
 
                         if (!existingThursdayMeals.Contains(m.mealDetails))
                         {
-                            weekMealsView.Add(new weekMeal { IfThursday = m.mealDetails });
+                            ThursdayMealsView.Add(new weekMeal { mealName = m.mealName, mealDetails = m.mealDetails });
                         }
                         break;
 
                     case "Friday":
 
                         string[] existingFridayMeals = new string[30];
-                        foreach (weekMeal w in weekMealsView)
+                        foreach (weekMeal w in FridayMealsView)
                         {
-                            existingFridayMeals[Array.IndexOf(existingFridayMeals, null)] = w.IfFriday;
+                            existingFridayMeals[Array.IndexOf(existingFridayMeals, null)] = w.mealDetails;
                         }
 
                         if (!existingFridayMeals.Contains(m.mealDetails))
                         {
-                            weekMealsView.Add(new weekMeal { IfFriday = m.mealDetails });
+                            FridayMealsView.Add(new weekMeal { mealName = m.mealName, mealDetails = m.mealDetails });
                         }
                         break;
 
                     case "Saturday":
 
                         string[] existingSaturdayMeals = new string[30];
-                        foreach (weekMeal w in weekMealsView)
+                        foreach (weekMeal w in SaturdayMealsView)
                         {
-                            existingSaturdayMeals[Array.IndexOf(existingSaturdayMeals, null)] = w.IfSaturday;
+                            existingSaturdayMeals[Array.IndexOf(existingSaturdayMeals, null)] = w.mealDetails;
                         }
 
                         if (!existingSaturdayMeals.Contains(m.mealDetails))
                         {
-                            weekMealsView.Add(new weekMeal { IfSaturday = m.mealDetails });
+                            SaturdayMealsView.Add(new weekMeal { mealName = m.mealName, mealDetails = m.mealDetails });
                         }
                         break;
 
                     case "Sunday":
 
                         string[] existingSundayMeals = new string[30];
-                        foreach (weekMeal w in weekMealsView)
+                        foreach (weekMeal w in SundayMealsView)
                         {
-                            existingSundayMeals[Array.IndexOf(existingSundayMeals, null)] = w.IfSunday;
+                            existingSundayMeals[Array.IndexOf(existingSundayMeals, null)] = w.mealDetails;
                         }
 
                         if (!existingSundayMeals.Contains(m.mealDetails))
                         {
-                            weekMealsView.Add(new weekMeal { IfSunday = m.mealDetails });
+                            SundayMealsView.Add(new weekMeal { mealName = m.mealName, mealDetails = m.mealDetails });
                         }
                         break;
                 }
             }
 
-            WeekMeals.Items.Refresh();
-            
+            MondayCol.Items.Refresh();
+            TuesdayCol.Items.Refresh();
+            WednesdayCol.Items.Refresh();
+            ThursdayCol.Items.Refresh();
+            FridayCol.Items.Refresh();
+            SaturdayCol.Items.Refresh();
+            SundayCol.Items.Refresh();
         }
 
         
