@@ -24,11 +24,13 @@ namespace Health_Tracker
         string[] mealNameArray = new String[30];
         string[] mealDayArray = new String[30];
         ObservableCollection<Meal> addedMealsView = new ObservableCollection<Meal>();
+        ObservableCollection<weekMeal> weekMealsView = new ObservableCollection<weekMeal>();
         List<Meal> OrderedList;
         public FoodWindow()
         {
             InitializeComponent();
             AddedMeals.ItemsSource = addedMealsView;
+            WeekMeals.ItemsSource = weekMealsView;
         }
 
         public void BackButtonClick(object sender, RoutedEventArgs e)
@@ -134,13 +136,54 @@ namespace Health_Tracker
             AddedMeals.Visibility = Visibility.Hidden;
 
             OrderedList = addedMealsView.OrderBy(x => x.dayOfMeal).ToList();
-            string[] arr = new String[10];
-            for (int i = 0; i < OrderedList.Count; i++)
+
+            List<string> MondayList = new List<string>();
+            List<Meal> TuesdayList = new List<Meal>();
+            List<Meal> WednesdayList = new List<Meal>();
+            List<Meal> ThursdayList = new List<Meal>();
+            List<Meal> FridayList = new List<Meal>();
+            List<Meal> SaturdayList = new List<Meal>();
+            List<Meal> SundayList = new List<Meal>();
+            
+            foreach (Meal m in OrderedList)
             {
-                int index = Array.IndexOf(arr, null);
-                arr[index] = OrderedList[i].dayOfMeal;
+                switch(m.dayOfMeal)
+                {
+                    case "Monday":
+
+                        MondayList.Add(m.mealDetails);
+                        weekMealsView.Add(new weekMeal { IfMonday = String.Join(" ", MondayList) }) ;
+                        break;
+
+                    case "Tuesday":
+                        TuesdayList.Add(m);
+                        break;
+
+                    case "Wednesday":
+                        WednesdayList.Add(m);
+                        break;
+
+                    case "Thursday":
+                        ThursdayList.Add(m);
+                        break;
+
+                    case "Friday":
+                        FridayList.Add(m);
+                        break;
+
+                    case "Saturday":
+                        SaturdayList.Add(m);
+                        break;
+
+                    case "Sunday":
+                        SundayList.Add(m);
+                        break;
+                }
             }
-            hi.Text = string.Join(" ", arr).ToString();
+
+            hi.Text = string.Join(" ", weekMealsView[0].IfMonday);
+            WeekMeals.Items.Refresh();
+            
         }
 
         

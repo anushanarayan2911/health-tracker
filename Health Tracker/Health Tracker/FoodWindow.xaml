@@ -27,7 +27,7 @@
         <TextBox x:Name="MealDetailsInput" Visibility="Hidden" Width="300" Canvas.Top="80" Canvas.Left="200" VerticalAlignment="Top" HorizontalAlignment="Left" />
         <Button x:Name="OKButton" Visibility="Hidden" Content="OK" Canvas.Top="100" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" Click="SendMealInfo"/>
         <TextBox x:Name="Result" Visibility="Hidden" Width="150" Canvas.Top="120" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <DataGrid x:Name="AddedMeals" Visibility="Hidden" ItemsSource="{Binding Path=addedMealsView}" AutoGenerateColumns="False" Height="200" Width="200" Canvas.Top="55" Canvas.Left="600">
+        <DataGrid x:Name="AddedMeals" Visibility="Hidden" AutoGenerateColumns="False" Height="200" Width="200" Canvas.Top="55" Canvas.Left="600">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Day" Binding="{Binding dayOfMeal}" />
                 <DataGridTextColumn Width="*" Header="Name" Binding="{Binding mealName}"/>
@@ -35,9 +35,9 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid x:Name="WeekMeals" Visibility="Hidden" ItemsSource="{Binding Path=allMealsView}" AutoGenerateColumns="False" Height="600" Width="600" Canvas.Top="30" Canvas.Left="300">
+        <DataGrid x:Name="WeekMeals" Visibility="Hidden" AutoGenerateColumns="False" Height="600" Width="600" Canvas.Top="30" Canvas.Left="300">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Monday" />
+                <DataGridTextColumn Width="*" Header="Monday" Binding="{Binding Path=IfMonday}"/>
                 <DataGridTextColumn Width="*" Header="Tuesday" />
                 <DataGridTextColumn Width="*" Header="Wednesday" />
                 <DataGridTextColumn Width="*" Header="Thursday" />
