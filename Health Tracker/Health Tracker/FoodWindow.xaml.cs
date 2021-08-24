@@ -23,8 +23,10 @@ namespace Health_Tracker
     {
         string[] mealNameArray = new String[30];
         string[] mealDayArray = new String[30];
+
         ObservableCollection<Meal> addedMealsView = new ObservableCollection<Meal>();
         List<Meal> OrderedList;
+
         ObservableCollection<weekMeal> MondayMealsView = new ObservableCollection<weekMeal>();
         ObservableCollection<weekMeal> TuesdayMealsView = new ObservableCollection<weekMeal>();
         ObservableCollection<weekMeal> WednesdayMealsView = new ObservableCollection<weekMeal>();
@@ -63,7 +65,6 @@ namespace Health_Tracker
             SaturdayCol.Visibility = Visibility.Hidden;
             SundayCol.Visibility = Visibility.Hidden;
 
-            hi.Visibility = Visibility.Hidden;
             ViewMealsButton.Visibility = Visibility.Visible;
             ViewMealsButton.Margin = new Thickness(-95, -40, 0, 0); 
 
@@ -85,20 +86,19 @@ namespace Health_Tracker
             MealDetailsInput.Visibility = Visibility.Visible;
 
             OKButton.Visibility = Visibility.Visible;
-            Result.Visibility = Visibility.Visible;
             AddedMeals.Visibility = Visibility.Visible;
         }
 
         private void SendDayName(object sender, RoutedEventArgs e)
         {
-            string day = (string)((CheckBox)sender).Content;
+            string day = (string)((RadioButton)sender).Content;
             int index = Array.IndexOf(mealDayArray, null);
             mealDayArray[index] = day;
         }
 
         public void SendMealName(object sender, RoutedEventArgs e)
         {
-            string name = (string)((CheckBox)sender).Content;
+            string name = (string)((RadioButton)sender).Content;
             int index = Array.IndexOf(mealNameArray, null);
             mealNameArray[index] = name;
         }
@@ -136,7 +136,6 @@ namespace Health_Tracker
             SaturdayCol.Visibility = Visibility.Visible;
             SundayCol.Visibility = Visibility.Visible;
 
-            hi.Visibility = Visibility.Visible;
             AddMealButton.Visibility = Visibility.Visible;
             AddMealButton.Margin = new Thickness(-90, -10, 0, 0);
             ViewMealsButton.Visibility = Visibility.Hidden;
@@ -159,7 +158,7 @@ namespace Health_Tracker
             MealDetailsInput.Visibility = Visibility.Hidden;
 
             OKButton.Visibility = Visibility.Hidden;
-            Result.Visibility = Visibility.Hidden;
+
             AddedMeals.Visibility = Visibility.Hidden;
 
             OrderedList = addedMealsView.OrderBy(x => x.dayOfMeal).ToList();
