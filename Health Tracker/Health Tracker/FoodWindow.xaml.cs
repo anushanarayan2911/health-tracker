@@ -34,6 +34,7 @@ namespace Health_Tracker
         ObservableCollection<weekMeal> FridayMealsView = new ObservableCollection<weekMeal>();
         ObservableCollection<weekMeal> SaturdayMealsView = new ObservableCollection<weekMeal>();
         ObservableCollection<weekMeal> SundayMealsView = new ObservableCollection<weekMeal>();
+
         public FoodWindow()
         {
             InitializeComponent();
