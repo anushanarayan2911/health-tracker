@@ -22,7 +22,7 @@ namespace Health_Tracker
     {
         public string exerciseName;
         public string exerciseDetails;
-        public string[] exerciseFrequency;
+        public string[] exerciseFrequency = new string[30];
         public string exerciseStartTime;
         public string exerciseEndTime;
         public ExerciseWindow()
@@ -64,6 +64,19 @@ namespace Health_Tracker
                     break;
             }
             
+        }
+
+        private void SendDayName(object sender, RoutedEventArgs e)
+        {
+            string dayName = (string)((RadioButton)sender).Content;
+            exerciseFrequency[0] = dayName;
+            test.Text = String.Join(" ", exerciseFrequency);
+        }
+
+        private void SendDayNameMulti(object sender, RoutedEventArgs e)
+        {
+            string dayName = (string)((CheckBox)sender).Content;
+            exerciseFrequency[Array.IndexOf(exerciseFrequency, null)] = dayName;
         }
     }
 }

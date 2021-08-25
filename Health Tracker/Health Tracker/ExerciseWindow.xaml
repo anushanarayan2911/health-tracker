@@ -22,22 +22,23 @@
         </ComboBox>
 
         <TabPanel x:Name="DaysOfWeekButton" Visibility="Hidden" Canvas.Top="105" Canvas.Left="300">
-            <RadioButton Content="Monday"/>
-            <RadioButton Content="Tuesday"/>
-            <RadioButton Content="Wednesday"/>
-            <RadioButton Content="Thursday"/>
-            <RadioButton Content="Friday"/>
-            <RadioButton Content="Saturday"/>
-            <RadioButton Content="Sunday"/>
+            <RadioButton Content="Monday" Checked="SendDayName"/>
+            <RadioButton Content="Tuesday" Checked="SendDayName"/>
+            <RadioButton Content="Wednesday" Checked="SendDayName"/>
+            <RadioButton Content="Thursday" Checked="SendDayName"/>
+            <RadioButton Content="Friday" Checked="SendDayName"/>
+            <RadioButton Content="Saturday" Checked="SendDayName"/>
+            <RadioButton Content="Sunday" Checked="SendDayName"/>
         </TabPanel>
+        
         <TabPanel x:Name="DaysOfWeekCheckbox" Visibility="Hidden" Canvas.Top="105" Canvas.Left="300">
-            <CheckBox Content="Monday"/>
-            <CheckBox Content="Tuesday"/>
-            <CheckBox Content="Wednesday"/>
-            <CheckBox Content="Thursday"/>
-            <CheckBox Content="Friday"/>
-            <CheckBox Content="Saturday"/>
-            <CheckBox Content="Sunday"/>
+            <CheckBox Content="Monday" Checked="SendDayNameMulti"/>
+            <CheckBox Content="Tuesday" Checked="SendDayNameMulti"/>
+            <CheckBox Content="Wednesday" Checked="SendDayNameMulti"/>
+            <CheckBox Content="Thursday" Checked="SendDayNameMulti"/>
+            <CheckBox Content="Friday" Checked="SendDayNameMulti"/>
+            <CheckBox Content="Saturday" Checked="SendDayNameMulti"/>
+            <CheckBox Content="Sunday" Checked="SendDayNameMulti"/>
         </TabPanel>
 
         <Label x:Name="StartTimeLabel" Content="Start Time" Canvas.Top="135" Canvas.Left="40"/>
