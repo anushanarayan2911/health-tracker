@@ -20,6 +20,11 @@ namespace Health_Tracker
     /// </summary>
     public partial class ExerciseWindow : Window
     {
+        public string exerciseName;
+        public string exerciseDetails;
+        public string[] exerciseFrequency;
+        public string exerciseStartTime;
+        public string exerciseEndTime;
         public ExerciseWindow()
         {
             InitializeComponent();
@@ -29,6 +34,36 @@ namespace Health_Tracker
         {
             this.Visibility = Visibility.Hidden;
             CommonElements.goBack();
+        }
+
+        private void SendExerciseInfo(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FrequencyDropDownMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string userFrequencyFull = FrequencyDropDownMenu.SelectedValue.ToString();
+            string userFrequency = userFrequencyFull.Substring(userFrequencyFull.IndexOf(" ") + 1);
+
+            
+            switch (userFrequency)
+            {
+                case "Daily":
+                    exerciseFrequency[0] = "daily";
+                    break;
+
+                case "Weekly":
+                    DaysOfWeekCheckbox.Visibility = Visibility.Hidden;
+                    DaysOfWeekButton.Visibility = Visibility.Visible;
+                    break;
+
+                case "Custom":
+                    DaysOfWeekButton.Visibility = Visibility.Hidden;
+                    DaysOfWeekCheckbox.Visibility = Visibility.Visible;
+                    break;
+            }
+            
         }
     }
 }

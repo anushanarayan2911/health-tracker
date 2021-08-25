@@ -15,11 +15,30 @@
         <TextBox x:Name="ExerciseDetailsInput" Canvas.Top="70" Canvas.Left="150" Width="400"/>
 
         <Label x:Name="FrequencyLabel" Content="Frequency:" Canvas.Top="100" Canvas.Left="40"/>
-        <ComboBox x:Name="FrequencyDropDownMenu" Canvas.Top="105" Canvas.Left="150" Width="200">
+        <ComboBox x:Name="FrequencyDropDownMenu" Canvas.Top="105" Canvas.Left="150" Width="100" SelectionChanged="FrequencyDropDownMenu_SelectionChanged">
             <ComboBoxItem x:Name="DailyOption" Content="Daily"/>
             <ComboBoxItem x:Name="WeeklyOption" Content="Weekly"/>
             <ComboBoxItem x:Name="CustomOption" Content="Custom"/>
         </ComboBox>
+
+        <TabPanel x:Name="DaysOfWeekButton" Visibility="Hidden" Canvas.Top="105" Canvas.Left="300">
+            <RadioButton Content="Monday"/>
+            <RadioButton Content="Tuesday"/>
+            <RadioButton Content="Wednesday"/>
+            <RadioButton Content="Thursday"/>
+            <RadioButton Content="Friday"/>
+            <RadioButton Content="Saturday"/>
+            <RadioButton Content="Sunday"/>
+        </TabPanel>
+        <TabPanel x:Name="DaysOfWeekCheckbox" Visibility="Hidden" Canvas.Top="105" Canvas.Left="300">
+            <CheckBox Content="Monday"/>
+            <CheckBox Content="Tuesday"/>
+            <CheckBox Content="Wednesday"/>
+            <CheckBox Content="Thursday"/>
+            <CheckBox Content="Friday"/>
+            <CheckBox Content="Saturday"/>
+            <CheckBox Content="Sunday"/>
+        </TabPanel>
 
         <Label x:Name="StartTimeLabel" Content="Start Time" Canvas.Top="135" Canvas.Left="40"/>
         <ComboBox x:Name="StartTimeDropDownMenu" Canvas.Top="140" Canvas.Left="150" Width="75">
@@ -50,7 +69,7 @@
         </ComboBox>
 
         <Label x:Name="EndTimeLabel" Content="End Time" Canvas.Top="135" Canvas.Left="300"/>
-        <ComboBox x:Name="EndTimeDropDownMenu" Canvas.Top="140" Canvas.Left="400" Width="75">
+        <ComboBox x:Name="EndTimeDropDownMenu" Canvas.Top="140" Canvas.Left="400    " Width="75">
             <ComboBoxItem Content="00:00"/>
             <ComboBoxItem Content="01:00"/>
             <ComboBoxItem Content="02:00"/>
@@ -76,5 +95,17 @@
             <ComboBoxItem Content="22:00"/>
             <ComboBoxItem Content="23:00"/>
         </ComboBox>
+
+        <Button x:Name="OKButton" Click="SendExerciseInfo" Content="OK" Width="20" Canvas.Top="175" Canvas.Left="40" />
+
+        <TextBox x:Name="test" Width="200" Canvas.Top="200" Canvas.Left="40"/>
+
+        <DataGrid x:Name="AddedExercises" Height="100" Width="300" Canvas.Top="250" Canvas.Left="40" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="ExerciseName" Header="Name" Width="*"/>
+                <DataGridTextColumn x:Name="Frequency" Header="Frequency" Width="*"/>
+                <DataGridTextColumn x:Name="ExerciseDetails" Header="Details" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Canvas>
 </Window>
