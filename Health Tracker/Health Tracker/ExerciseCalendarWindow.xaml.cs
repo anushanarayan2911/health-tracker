@@ -23,6 +23,7 @@ namespace Health_Tracker
         public ExerciseCalendarWindow()
         {
             InitializeComponent();
+           
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
