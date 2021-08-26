@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace Health_Tracker
 {
@@ -20,14 +21,15 @@ namespace Health_Tracker
     /// </summary>
     public partial class ExerciseWindow : Window
     {
-        public string exerciseName;
-        public string exerciseDetails;
-        public string[] exerciseFrequency = new string[30];
-        public string exerciseStartTime;
-        public string exerciseEndTime;
+        public string[] Frequencies = new string[30];
+        public string StartTime;
+        public string EndTime;
+        ObservableCollection<Exercise> AddedExercisesView = new ObservableCollection<Exercise>();
+
         public ExerciseWindow()
         {
             InitializeComponent();
+            AddedExercises.ItemsSource = AddedExercisesView;
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -38,6 +40,11 @@ namespace Health_Tracker
 
         private void SendExerciseInfo(object sender, RoutedEventArgs e)
         {
+            string exerciseTitle = ExerciseTitleInput.Text;
+            string exerciseDetails = ExerciseDetailsInput.Text;
+            string exerciseFrequency = String.Join(", ", Frequencies).ToString();
+
+            AddedExercisesView.Add(new Exercise { exerciseName = exerciseTitle, exerciseDetails = exerciseDetails, exerciseFrequency = exerciseFrequency, exerciseStartTime = StartTime, exerciseEndTime = EndTime });
 
         }
 
@@ -50,7 +57,7 @@ namespace Health_Tracker
             switch (userFrequency)
             {
                 case "Daily":
-                    exerciseFrequency[0] = "daily";
+                    Frequencies[0] = "daily";
                     break;
 
                 case "Weekly":
@@ -69,14 +76,25 @@ namespace Health_Tracker
         private void SendDayName(object sender, RoutedEventArgs e)
         {
             string dayName = (string)((RadioButton)sender).Content;
-            exerciseFrequency[0] = dayName;
-            test.Text = String.Join(" ", exerciseFrequency);
+            Frequencies[0] = dayName;
         }
 
         private void SendDayNameMulti(object sender, RoutedEventArgs e)
         {
             string dayName = (string)((CheckBox)sender).Content;
-            exerciseFrequency[Array.IndexOf(exerciseFrequency, null)] = dayName;
+            Frequencies[Array.IndexOf(Frequencies, null)] = dayName;
+        }
+
+        private void StartTimeDropDownMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string startTimeFull = StartTimeDropDownMenu.SelectedValue.ToString();
+            StartTime = startTimeFull.Substring(startTimeFull.IndexOf(" ") + 1);
+        }
+
+        private void EndTimeDropDownMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string endTimeFull = EndTimeDropDownMenu.SelectedValue.ToString();
+            EndTime = endTimeFull.Substring(endTimeFull.IndexOf(" ") + 1);
         }
     }
 }

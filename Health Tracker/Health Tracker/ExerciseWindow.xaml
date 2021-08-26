@@ -42,7 +42,7 @@
         </TabPanel>
 
         <Label x:Name="StartTimeLabel" Content="Start Time" Canvas.Top="135" Canvas.Left="40"/>
-        <ComboBox x:Name="StartTimeDropDownMenu" Canvas.Top="140" Canvas.Left="150" Width="75">
+        <ComboBox x:Name="StartTimeDropDownMenu" Canvas.Top="140" Canvas.Left="150" Width="75" SelectionChanged="StartTimeDropDownMenu_SelectionChanged">
             <ComboBoxItem Content="00:00"/>
             <ComboBoxItem Content="01:00"/>
             <ComboBoxItem Content="02:00"/>
