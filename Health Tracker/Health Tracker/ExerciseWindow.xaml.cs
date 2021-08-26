@@ -55,6 +55,10 @@ namespace Health_Tracker
 
             AddedExercisesView.Add(new Exercise { exerciseName = exerciseTitle, exerciseDetails = exerciseDetails, exerciseFrequency = exerciseFrequency, exerciseTime = StartTime + " - " + EndTime});
 
+            foreach(string s in Frequencies)
+            {
+                Frequencies[Array.IndexOf(Frequencies, s)] = null;
+            }
         }
 
         private void FrequencyDropDownMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
