@@ -9,7 +9,6 @@ namespace Health_Tracker
         public string exerciseName { get; set; }
         public string exerciseDetails { get; set; }
         public string exerciseFrequency { get; set; }
-        public string exerciseStartTime { get; set; }
-        public string exerciseEndTime { get; set; }
+        public string exerciseTime { get; set; }
     }
 }

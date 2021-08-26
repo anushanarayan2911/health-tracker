@@ -43,8 +43,17 @@ namespace Health_Tracker
             string exerciseTitle = ExerciseTitleInput.Text;
             string exerciseDetails = ExerciseDetailsInput.Text;
             string exerciseFrequency = String.Join(", ", Frequencies).ToString();
+            
+            for (int i = 0; i < exerciseFrequency.Length; i++)
+            {
+                if (exerciseFrequency.Substring(i, 3) == ", ,")
+                {
+                    exerciseFrequency = exerciseFrequency.Substring(0, i);
+                    break;
+                }
+            }
 
-            AddedExercisesView.Add(new Exercise { exerciseName = exerciseTitle, exerciseDetails = exerciseDetails, exerciseFrequency = exerciseFrequency, exerciseStartTime = StartTime, exerciseEndTime = EndTime });
+            AddedExercisesView.Add(new Exercise { exerciseName = exerciseTitle, exerciseDetails = exerciseDetails, exerciseFrequency = exerciseFrequency, exerciseTime = StartTime + " - " + EndTime});
 
         }
 

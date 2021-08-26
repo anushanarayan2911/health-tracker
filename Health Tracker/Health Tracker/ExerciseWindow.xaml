@@ -70,7 +70,7 @@
         </ComboBox>
 
         <Label x:Name="EndTimeLabel" Content="End Time" Canvas.Top="135" Canvas.Left="300"/>
-        <ComboBox x:Name="EndTimeDropDownMenu" Canvas.Top="140" Canvas.Left="400    " Width="75">
+        <ComboBox x:Name="EndTimeDropDownMenu" Canvas.Top="140" Canvas.Left="400    " Width="75" SelectionChanged="EndTimeDropDownMenu_SelectionChanged">
             <ComboBoxItem Content="00:00"/>
             <ComboBoxItem Content="01:00"/>
             <ComboBoxItem Content="02:00"/>
@@ -101,11 +101,12 @@
 
         <TextBox x:Name="test" Width="200" Canvas.Top="200" Canvas.Left="40"/>
 
-        <DataGrid x:Name="AddedExercises" Height="100" Width="300" Canvas.Top="250" Canvas.Left="40" AutoGenerateColumns="False">
+        <DataGrid x:Name="AddedExercises" Height="100" Width="600" Canvas.Top="250" Canvas.Left="40" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="ExerciseName" Header="Name" Width="*"/>
-                <DataGridTextColumn x:Name="Frequency" Header="Frequency" Width="*"/>
-                <DataGridTextColumn x:Name="ExerciseDetails" Header="Details" Width="*"/>
+                <DataGridTextColumn x:Name="ExerciseName" Header="Name" Width="*" Binding="{Binding exerciseName}"/>
+                <DataGridTextColumn x:Name="ExerciseDetails" Header="Details" Width="*" Binding="{Binding exerciseDetails}"/>
+                <DataGridTextColumn x:Name="Frequency" Header="Frequency" Width="*" Binding="{Binding exerciseFrequency}"/>
+                <DataGridTextColumn x:Name="Time" Header="Time" Width="*" Binding="{Binding exerciseTime}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Canvas>
