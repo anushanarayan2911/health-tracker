@@ -23,7 +23,19 @@ namespace Health_Tracker
         public ExerciseCalendarWindow()
         {
             InitializeComponent();
-           
+            
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    Button b = new Button();
+                    b.Content = "hi";
+                    Grid.SetRow(b, i);
+                    Grid.SetColumn(b, j);
+                    CalendarGrid.Children.Add(b);
+                }
+            }
+          
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
