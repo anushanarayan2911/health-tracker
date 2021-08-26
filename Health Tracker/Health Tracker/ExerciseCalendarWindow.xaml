@@ -8,7 +8,8 @@
         Title="ExerciseCalendar" Height="450" Width="800">
     <Canvas>
         <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <TextBox x:Name="test" Width="300" Height="30" Canvas.Top="10" Canvas.Left="50" />
+        <Label x:Name="MonthName" Canvas.Top="10" Canvas.Left="300"/>
+        <TextBox x:Name="test" Width="100" Height="30" Canvas.Top="10" Canvas.Left="50" />
         <Grid x:Name="CalendarGrid" ShowGridLines="True" Canvas.Left="60" Canvas.Top="50" Width="700" Height="360">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -20,6 +21,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
