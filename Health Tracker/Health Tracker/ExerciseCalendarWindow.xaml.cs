@@ -20,6 +20,7 @@ namespace Health_Tracker
     /// </summary>
     public partial class ExerciseCalendarWindow : Window
     {
+        #region DateVariables
         IDictionary<string, int> dayNumbers = new Dictionary<string, int>()
         {
             {"Monday", 0 },
@@ -30,20 +31,20 @@ namespace Health_Tracker
             {"Saturday", 5 }
             , {"Sunday", 6 } 
         };
-        IDictionary<string, string> monthNumbers = new Dictionary<string, string>()
+        IDictionary<int, string> monthNumbers = new Dictionary<int, string>()
         {
-            {"01", "January" },
-            {"02", "February" },
-            {"03", "March"},
-            {"04", "April" },
-            {"05" , "May" },
-            {"06" , "June" },
-            {"07" , "July" },
-            {"08" , "August" },
-            {"09" , "September" },
-            {"10" , "October" },
-            {"11" , "November" },
-            {"12" , "December" }
+            {1, "January" },
+            {2, "February" },
+            {3, "March"},
+            {4, "April" },
+            {5 , "May" },
+            {6 , "June" },
+            {7 , "July" },
+            {8 , "August" },
+            {9 , "September" },
+            {10 , "October" },
+            {11 , "November" },
+            {12 , "December" }
         };
         IDictionary<string, int> daysInMonth = new Dictionary<string, int>()
         {
@@ -62,23 +63,15 @@ namespace Health_Tracker
         };
 
         Button[] calendarButtonArray = new Button[42];
+        #endregion
 
         public ExerciseCalendarWindow()
         {
             InitializeComponent();
 
-            DateTime Now = DateTime.Now;
-            string Today = Now.ToString();
-            int index = Today.ToString().IndexOf(" ");
-            Today = Today.Substring(0, index);
-
-            string currentDay = Now.DayOfWeek.ToString();
-            string currentDayNumber = dayNumbers[currentDay].ToString();
-
-            string currentDate = Today.Substring(0, Today.IndexOf("/"));
-
-            string currentMonthNumber = Now.Month.ToString("00");
-            string currentMonth = monthNumbers[currentMonthNumber].ToString();
+            string currentMonthNumber = DateTime.Now.Month.ToString();
+            int currentMonthInt = Int32.Parse(currentMonthNumber);
+            string currentMonth = monthNumbers[currentMonthInt].ToString();
             MonthName.Content = currentMonth;
 
             DateTime firstOfMonth = new DateTime(2021, Int32.Parse(currentMonthNumber), 1);
@@ -102,12 +95,41 @@ namespace Health_Tracker
                 calendarButtonArray[Array.IndexOf(calendarButtonArray, null)] = ui;
             }
 
-            int dateToAdd = 1;
+            #region PreviousMonth
+            int previousMonthInt = currentMonthInt - 1;
+            string previousMonth = monthNumbers[previousMonthInt];
+            int daysInPreviousMonth = daysInMonth[previousMonth];
+            int previousMonthStartDate = daysInPreviousMonth - dayOfFirstNumber + 1;
+            int dateToAddPreviousMonth = previousMonthStartDate;
+
+            for (int i = 0; i < dayOfFirstNumber; i++)
+            {
+                calendarButtonArray[i].Content = dateToAddPreviousMonth.ToString();
+                dateToAddPreviousMonth += 1;
+                calendarButtonArray[i].Opacity = 0.5;
+            }
+            #endregion
+
+            #region CurrentMonth
+            int dateToAddCurrentMonth = 1;
             for (int i = dayOfFirstNumber; i < dayOfFirstNumber + numberOfDays; i++)
             {
-                calendarButtonArray[i].Content = dateToAdd.ToString();
-                dateToAdd += 1;
+                calendarButtonArray[i].Content = dateToAddCurrentMonth.ToString();
+                dateToAddCurrentMonth += 1;
             };
+            #endregion
+
+            #region NextMonth
+            int nextMonthInt = currentMonthInt + 1;
+            int dateToAddNextMonth = 1;
+
+            for (int i = dayOfFirstNumber + numberOfDays; i < 42; i++)
+            {
+                calendarButtonArray[i].Content = dateToAddNextMonth.ToString();
+                dateToAddNextMonth += 1;
+                calendarButtonArray[i].Opacity = 0.5;
+            }
+            #endregion
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
