@@ -69,6 +69,8 @@ namespace Health_Tracker
         {
             InitializeComponent();
 
+            int todayDate = Int32.Parse(DateTime.Now.ToString().Substring(0, 2));
+
             string currentMonthNumber = DateTime.Now.Month.ToString();
             int currentMonthInt = Int32.Parse(currentMonthNumber);
             string currentMonth = monthNumbers[currentMonthInt].ToString();
@@ -116,6 +118,11 @@ namespace Health_Tracker
             for (int i = dayOfFirstNumber; i < dayOfFirstNumber + numberOfDays; i++)
             {
                 calendarButtonArray[i].Content = dateToAddCurrentMonth.ToString();
+               
+                if(dateToAddCurrentMonth == todayDate)
+                {
+                    calendarButtonArray[i].Background = Brushes.Blue;
+                }
                 dateToAddCurrentMonth += 1;
             };
             #endregion
@@ -132,7 +139,6 @@ namespace Health_Tracker
             }
             #endregion
 
-            test.Text = CommonElements.AddedExercisesView.Count.ToString();
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
