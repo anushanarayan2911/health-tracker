@@ -84,15 +84,16 @@ namespace Health_Tracker
                 for (int j = 0; j < 7; j++)
                 {
                     Button b = new Button();
+                    b.Click += new RoutedEventHandler(CalendarButtonClick);
                     Grid.SetColumn(b, j);
                     Grid.SetRow(b, i);
                     CalendarGrid.Children.Add(b);
                 }
             }
 
-            foreach (Button ui in CalendarGrid.Children)
+            foreach (Button button in CalendarGrid.Children)
             {
-                calendarButtonArray[Array.IndexOf(calendarButtonArray, null)] = ui;
+                calendarButtonArray[Array.IndexOf(calendarButtonArray, null)] = button;
             }
 
             #region PreviousMonth
@@ -130,12 +131,19 @@ namespace Health_Tracker
                 calendarButtonArray[i].Opacity = 0.5;
             }
             #endregion
+
+            test.Text = CommonElements.AddedExercisesView.Count.ToString();
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
             CommonElements.goBack();
+        }
+
+        protected void CalendarButtonClick(object sender, RoutedEventArgs e)
+        {
+            ExerciseDetailsPopup.IsOpen = true;
         }
     }
 }

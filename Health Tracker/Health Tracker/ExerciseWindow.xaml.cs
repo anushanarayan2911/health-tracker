@@ -24,12 +24,11 @@ namespace Health_Tracker
         public string[] Frequencies = new string[30];
         public string StartTime;
         public string EndTime;
-        ObservableCollection<Exercise> AddedExercisesView = new ObservableCollection<Exercise>();
 
         public ExerciseWindow()
         {
             InitializeComponent();
-            AddedExercises.ItemsSource = AddedExercisesView;
+            AddedExercises.ItemsSource = CommonElements.AddedExercisesView;
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -53,7 +52,7 @@ namespace Health_Tracker
                 }
             }
 
-            AddedExercisesView.Add(new Exercise { exerciseName = exerciseTitle, exerciseDetails = exerciseDetails, exerciseFrequency = exerciseFrequency, exerciseTime = StartTime + " - " + EndTime});
+            CommonElements.AddedExercisesView.Add(new Exercise { exerciseName = exerciseTitle, exerciseDetails = exerciseDetails, exerciseFrequency = exerciseFrequency, exerciseTime = StartTime + " - " + EndTime});
 
             foreach(string s in Frequencies)
             {

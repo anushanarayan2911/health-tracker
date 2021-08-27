@@ -29,5 +29,9 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
         </Grid>
+
+        <Popup x:Name="ExerciseDetailsPopup" Canvas.Top="100" Canvas.Left="100" Width="400" IsOpen="False">
+            <Label Content="hi"/>
+        </Popup>
     </Canvas>
 </Window>
