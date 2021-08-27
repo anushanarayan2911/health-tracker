@@ -150,6 +150,11 @@ namespace Health_Tracker
         protected void CalendarButtonClick(object sender, RoutedEventArgs e)
         {
             ExerciseDetailsPopup.IsOpen = true;
+            int row = Grid.GetRow((Button) sender);
+            int col = Grid.GetColumn((Button)sender);
+
+            var val = dayNumbers.FirstOrDefault(x => x.Value == col);
+            test.Text = val.ToString();
         }
     }
 }
