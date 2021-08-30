@@ -37,6 +37,9 @@
 
                     <Label x:Name="CurrentExerciseDetailsLabel" Content="Details:" Canvas.Left="10" Canvas.Top="20"/>
                     <TextBlock x:Name="CurrentExerciseDetails" Canvas.Left="60" Canvas.Top="25"/>
+
+                    <Label x:Name="CurrentExerciseTimeLabel" Content="Time:" Canvas.Left="10" Canvas.Top="50"/>
+                    <TextBlock x:Name="CurrentExerciseTime" Canvas.Left="60" Canvas.Top="55"/>
                 </Canvas>
             </Border>
         </Popup>

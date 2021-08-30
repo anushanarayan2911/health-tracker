@@ -158,7 +158,6 @@ namespace Health_Tracker
             string day = String.Join(",", dayPair);
             int index = day.IndexOf(",");
             day = day.Substring(1, index - 1);
-            //CommonElements.AddedExercisesView.Where(a => a.exerciseFrequency.Contains(day) | a.exerciseFrequency == "daily");
 
             foreach(Exercise exercise in CommonElements.AddedExercisesView)
             {
@@ -167,9 +166,10 @@ namespace Health_Tracker
                     toShow.Add(exercise);
                 }
             }
+
             CurrentExerciseTitle.Text = toShow[0].exerciseName;
             CurrentExerciseDetails.Text = toShow[0].exerciseDetails;
-            test.Text = toShow[0].exerciseName.ToString();
+            CurrentExerciseTime.Text = toShow[0].exerciseTime;
         }
     }
 }
