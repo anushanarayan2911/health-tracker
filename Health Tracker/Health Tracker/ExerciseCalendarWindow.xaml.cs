@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace Health_Tracker
 {
@@ -64,7 +65,7 @@ namespace Health_Tracker
 
         Button[] calendarButtonArray = new Button[42];
         #endregion
-
+        ObservableCollection<Exercise> toShow = new ObservableCollection<Exercise>();
         public ExerciseCalendarWindow()
         {
             InitializeComponent();
@@ -153,8 +154,22 @@ namespace Health_Tracker
             int row = Grid.GetRow((Button) sender);
             int col = Grid.GetColumn((Button)sender);
 
-            var val = dayNumbers.FirstOrDefault(x => x.Value == col);
-            test.Text = val.ToString();
+            var dayPair = dayNumbers.FirstOrDefault(x => x.Value == col);
+            string day = String.Join(",", dayPair);
+            int index = day.IndexOf(",");
+            day = day.Substring(1, index - 1);
+            //CommonElements.AddedExercisesView.Where(a => a.exerciseFrequency.Contains(day) | a.exerciseFrequency == "daily");
+
+            foreach(Exercise exercise in CommonElements.AddedExercisesView)
+            {
+                if (exercise.exerciseFrequency.Contains(day) | exercise.exerciseFrequency == "daily")
+                {
+                    toShow.Add(exercise);
+                }
+            }
+            CurrentExerciseTitle.Text = toShow[0].exerciseName;
+            CurrentExerciseDetails.Text = toShow[0].exerciseDetails;
+            test.Text = toShow[0].exerciseName.ToString();
         }
     }
 }

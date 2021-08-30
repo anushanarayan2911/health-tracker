@@ -30,8 +30,15 @@
             </Grid.RowDefinitions>
         </Grid>
 
-        <Popup x:Name="ExerciseDetailsPopup" Canvas.Top="100" Canvas.Left="100" Width="400" IsOpen="False" Placement="Center">
-            <TextBlock Background="Yellow" Text="hi" Width="400" Height="50"/>
+        <Popup x:Name="ExerciseDetailsPopup" Canvas.Top="100" Canvas.Left="100" Width="200" Height="100" IsOpen="False" AllowsTransparency="True"  Placement="Center">
+            <Border BorderBrush="Black" BorderThickness="1">
+                <Canvas Background="White">
+                    <TextBlock x:Name="CurrentExerciseTitle" Canvas.Left="100" TextDecorations="Underline"/>
+
+                    <Label x:Name="CurrentExerciseDetailsLabel" Content="Details:" Canvas.Left="10" Canvas.Top="20"/>
+                    <TextBlock x:Name="CurrentExerciseDetails" Canvas.Left="60" Canvas.Top="25"/>
+                </Canvas>
+            </Border>
         </Popup>
     </Canvas>
 </Window>
