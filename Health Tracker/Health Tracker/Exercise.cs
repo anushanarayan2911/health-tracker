@@ -10,5 +10,7 @@ namespace Health_Tracker
         public string exerciseDetails { get; set; }
         public string exerciseFrequency { get; set; }
         public string exerciseTime { get; set; }
+
+        public string exerciseDate { get; set; }
     }
 }

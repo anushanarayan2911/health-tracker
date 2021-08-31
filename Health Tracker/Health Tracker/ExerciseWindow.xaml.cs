@@ -24,6 +24,8 @@ namespace Health_Tracker
         public string[] Frequencies = new string[30];
         public string StartTime;
         public string EndTime;
+        public string StartDate;
+        public string EndDate;
 
         public ExerciseWindow()
         {
@@ -44,6 +46,8 @@ namespace Health_Tracker
             string exerciseFrequency = String.Join(", ", Frequencies).ToString();
             StartTime = ExerciseStartTimeInput.Text;
             EndTime = ExerciseEndTimeInput.Text;
+            StartDate = ExerciseStartDateInput.Text;
+            EndDate = ExerciseEndDateInput.Text;
 
             for (int i = 0; i < exerciseFrequency.Length; i++)
             {
@@ -54,7 +58,13 @@ namespace Health_Tracker
                 }
             }
 
-            CommonElements.AddedExercisesView.Add(new Exercise { exerciseName = exerciseTitle, exerciseDetails = exerciseDetails, exerciseFrequency = exerciseFrequency, exerciseTime = StartTime + " - " + EndTime});
+            CommonElements.AddedExercisesView.Add(new Exercise { 
+                exerciseName = exerciseTitle, 
+                exerciseDetails = exerciseDetails,
+                exerciseFrequency = exerciseFrequency,
+                exerciseTime = StartTime + " - " + EndTime,
+                exerciseDate = StartDate + " - " + EndDate
+            });
 
             foreach(string s in Frequencies)
             {
@@ -98,6 +108,5 @@ namespace Health_Tracker
             string dayName = (string)((CheckBox)sender).Content;
             Frequencies[Array.IndexOf(Frequencies, null)] = dayName;
         }
-
     }
 }
