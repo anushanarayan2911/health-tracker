@@ -49,6 +49,18 @@
         <TextBox x:Name="ExerciseEndTimeInput" Canvas.Top="140" Canvas.Left="400" Width="100"/>
 
         <Label x:Name="StartDateLabel" Content="Start Date" Canvas.Top="170" Canvas.Left="40"/>
+        <ComboBox x:Name="ExerciseStartDateInput" Canvas.Top="175" Canvas.Left="150" Width="100">
+            <ComboBoxItem>
+                <Calendar></Calendar>
+            </ComboBoxItem>
+        </ComboBox>
+
+        <Label x:Name="EndDateLabel" Content="End Date" Canvas.Top="170" Canvas.Left="330"/>
+        <ComboBox x:Name="EndDateInput" Canvas.Top="175" Canvas.Left="400" Width="100">
+            <ComboBoxItem Content="No End Date"/>
+            <ComboBoxItem Content="Pick A Date"/>
+        </ComboBox>
+
 
         <Button x:Name="OKButton" Click="SendExerciseInfo" Content="OK" Width="20" Canvas.Top="200" Canvas.Left="40" />
 
