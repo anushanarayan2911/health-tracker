@@ -31,9 +31,7 @@
         </Grid>
 
         <Popup x:Name="ExerciseDetailsPopup" Canvas.Top="100" Canvas.Left="100" Width="200" IsOpen="False" AllowsTransparency="True"  Placement="Center">
-            <Border BorderBrush="Black" BorderThickness="1">
-               
-            </Border>
+            <Border BorderBrush="Black" BorderThickness="1"></Border>
         </Popup>
     </Canvas>
 </Window>

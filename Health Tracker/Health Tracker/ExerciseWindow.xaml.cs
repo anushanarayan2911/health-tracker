@@ -42,7 +42,9 @@ namespace Health_Tracker
             string exerciseTitle = ExerciseTitleInput.Text;
             string exerciseDetails = ExerciseDetailsInput.Text;
             string exerciseFrequency = String.Join(", ", Frequencies).ToString();
-            
+            StartTime = ExerciseStartTimeInput.Text;
+            EndTime = ExerciseEndTimeInput.Text;
+
             for (int i = 0; i < exerciseFrequency.Length; i++)
             {
                 if (exerciseFrequency.Substring(i, 3) == ", ,")
@@ -97,16 +99,5 @@ namespace Health_Tracker
             Frequencies[Array.IndexOf(Frequencies, null)] = dayName;
         }
 
-        private void StartTimeDropDownMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string startTimeFull = StartTimeDropDownMenu.SelectedValue.ToString();
-            StartTime = startTimeFull.Substring(startTimeFull.IndexOf(" ") + 1);
-        }
-
-        private void EndTimeDropDownMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string endTimeFull = EndTimeDropDownMenu.SelectedValue.ToString();
-            EndTime = endTimeFull.Substring(endTimeFull.IndexOf(" ") + 1);
-        }
     }
 }
