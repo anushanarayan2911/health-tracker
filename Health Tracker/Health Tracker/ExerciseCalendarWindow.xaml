@@ -30,17 +30,9 @@
             </Grid.RowDefinitions>
         </Grid>
 
-        <Popup x:Name="ExerciseDetailsPopup" Canvas.Top="100" Canvas.Left="100" Width="200" Height="100" IsOpen="False" AllowsTransparency="True"  Placement="Center">
+        <Popup x:Name="ExerciseDetailsPopup" Canvas.Top="100" Canvas.Left="100" Width="200" IsOpen="False" AllowsTransparency="True"  Placement="Center">
             <Border BorderBrush="Black" BorderThickness="1">
-                <Canvas Background="White">
-                    <TextBlock x:Name="CurrentExerciseTitle" Canvas.Left="100" TextDecorations="Underline"/>
-
-                    <Label x:Name="CurrentExerciseDetailsLabel" Content="Details:" Canvas.Left="10" Canvas.Top="20"/>
-                    <TextBlock x:Name="CurrentExerciseDetails" Canvas.Left="60" Canvas.Top="25"/>
-
-                    <Label x:Name="CurrentExerciseTimeLabel" Content="Time:" Canvas.Left="10" Canvas.Top="50"/>
-                    <TextBlock x:Name="CurrentExerciseTime" Canvas.Left="60" Canvas.Top="55"/>
-                </Canvas>
+               
             </Border>
         </Popup>
     </Canvas>

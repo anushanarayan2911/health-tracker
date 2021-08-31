@@ -70,6 +70,7 @@ namespace Health_Tracker
         {
             InitializeComponent();
 
+            #region AddDates
             int todayDate = Int32.Parse(DateTime.Now.ToString().Substring(0, 2));
 
             string currentMonthNumber = DateTime.Now.Month.ToString();
@@ -140,6 +141,8 @@ namespace Health_Tracker
             }
             #endregion
 
+            #endregion
+
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -150,7 +153,7 @@ namespace Health_Tracker
 
         protected void CalendarButtonClick(object sender, RoutedEventArgs e)
         {
-            ExerciseDetailsPopup.IsOpen = true;
+
             int row = Grid.GetRow((Button) sender);
             int col = Grid.GetColumn((Button)sender);
 
@@ -167,9 +170,44 @@ namespace Health_Tracker
                 }
             }
 
-            CurrentExerciseTitle.Text = toShow[0].exerciseName;
-            CurrentExerciseDetails.Text = toShow[0].exerciseDetails;
-            CurrentExerciseTime.Text = toShow[0].exerciseTime;
+            ExerciseDetailsPopup.Height = toShow.Count * 100;
+
+            Canvas PopupCanvas = new Canvas();
+            PopupCanvas.Background = Brushes.White;
+
+            test.Text = toShow.Count.ToString();
+
+            for (int i = 0; i < toShow.Count; i++)
+            {
+                TextBlock CurrentExerciseTitle = new TextBlock();
+                CurrentExerciseTitle.Text = toShow[i].exerciseName;
+                CurrentExerciseTitle.TextDecorations = TextDecorations.Underline;
+                CurrentExerciseTitle.Margin = new Thickness(100, i * 100, 0, 0);
+                PopupCanvas.Children.Add(CurrentExerciseTitle);
+
+                Label CurrentExerciseDetailsLabel = new Label();
+                CurrentExerciseDetailsLabel.Content = "Details:";
+                CurrentExerciseDetailsLabel.Margin = new Thickness(10, i * 100 + 20, 0, 0);
+                PopupCanvas.Children.Add(CurrentExerciseDetailsLabel);
+
+                TextBlock CurrentExerciseDetails = new TextBlock();
+                CurrentExerciseDetails.Text = toShow[i].exerciseDetails;
+                CurrentExerciseDetails.Margin = new Thickness(65, i * 100 + 25, 0, 0);
+                PopupCanvas.Children.Add(CurrentExerciseDetails);
+
+                Label CurrentExerciseTimeLabel = new Label();
+                CurrentExerciseTimeLabel.Content = "Time:";
+                CurrentExerciseTimeLabel.Margin = new Thickness(10, i * 100 + 40, 0, 0);
+                PopupCanvas.Children.Add(CurrentExerciseTimeLabel);
+
+                TextBlock CurrentExerciseTime = new TextBlock();
+                CurrentExerciseTime.Text = toShow[i].exerciseTime;
+                CurrentExerciseTime.Margin = new Thickness(65, i * 100 + 45, 0, 0);
+                PopupCanvas.Children.Add(CurrentExerciseTime);
+            }
+
+            ExerciseDetailsPopup.Child = PopupCanvas;
+            ExerciseDetailsPopup.IsOpen = true;
         }
     }
 }
