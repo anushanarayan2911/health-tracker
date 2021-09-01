@@ -56,7 +56,7 @@
 
         <Button x:Name="OKButton" Click="SendExerciseInfo" Content="OK" Width="20" Canvas.Top="200" Canvas.Left="40" />
 
-        <DataGrid x:Name="AddedExercises" Height="100" Width="600" Canvas.Top="250" Canvas.Left="40" AutoGenerateColumns="False">
+        <DataGrid x:Name="AddedExercises" Height="100" Width="750" Canvas.Top="250" Canvas.Left="40" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="ExerciseName" Header="Name" Width="*" Binding="{Binding exerciseName}"/>
                 <DataGridTextColumn x:Name="ExerciseDetails" Header="Details" Width="*" Binding="{Binding exerciseDetails}"/>

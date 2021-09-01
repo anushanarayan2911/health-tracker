@@ -63,6 +63,16 @@ namespace Health_Tracker
             {"December", 31 }
         };
 
+        int todayDate;
+        string currentMonthNumber;
+        int currentMonthInt;
+        string currentMonth;
+
+        DateTime firstOfMonth;
+        string dayOfFirst;
+        int dayOfFirstNumber;
+        int numberOfDays;
+
         Button[] calendarButtonArray = new Button[42];
         #endregion
         ObservableCollection<Exercise> toShow = new ObservableCollection<Exercise>();
@@ -71,17 +81,17 @@ namespace Health_Tracker
             InitializeComponent();
 
             #region AddDates
-            int todayDate = Int32.Parse(DateTime.Now.ToString().Substring(0, 2));
+            todayDate = Int32.Parse(DateTime.Now.ToString().Substring(0, 2));
 
-            string currentMonthNumber = DateTime.Now.Month.ToString();
-            int currentMonthInt = Int32.Parse(currentMonthNumber);
-            string currentMonth = monthNumbers[currentMonthInt].ToString();
+            currentMonthNumber = DateTime.Now.Month.ToString();
+            currentMonthInt = Int32.Parse(currentMonthNumber);
+            currentMonth = monthNumbers[currentMonthInt].ToString();
             MonthName.Content = currentMonth;
 
-            DateTime firstOfMonth = new DateTime(2021, Int32.Parse(currentMonthNumber), 1);
-            string dayOfFirst = firstOfMonth.DayOfWeek.ToString();
-            int dayOfFirstNumber = dayNumbers[dayOfFirst];
-            int numberOfDays = daysInMonth[currentMonth];
+            firstOfMonth = new DateTime(2021, Int32.Parse(currentMonthNumber), 1);
+            dayOfFirst = firstOfMonth.DayOfWeek.ToString();
+            dayOfFirstNumber = dayNumbers[dayOfFirst];
+            numberOfDays = daysInMonth[currentMonth];
 
             for (int i = 0; i < 6; i++)
             {
@@ -166,7 +176,15 @@ namespace Health_Tracker
             {
                 if (exercise.exerciseFrequency.Contains(day) | exercise.exerciseFrequency == "daily")
                 {
-                    toShow.Add(exercise);
+                    DateTime exerciseStartDate = Convert.ToDateTime(exercise.exerciseDate.Substring(0, 10));
+                    DateTime exerciseEndDate = Convert.ToDateTime(exercise.exerciseDate.Substring(13, 10));
+
+                    DateTime cellDate = Convert.ToDateTime(((Button)sender).Content.ToString() + "/" + currentMonthNumber + "/" + "2021");
+                    
+                    if (exerciseStartDate <= cellDate & cellDate <= exerciseEndDate)
+                    {
+                        toShow.Add(exercise);
+                    }
                 }
             }
 
@@ -174,8 +192,6 @@ namespace Health_Tracker
 
             Canvas PopupCanvas = new Canvas();
             PopupCanvas.Background = Brushes.White;
-
-            test.Text = toShow.Count.ToString();
 
             for (int i = 0; i < toShow.Count; i++)
             {
