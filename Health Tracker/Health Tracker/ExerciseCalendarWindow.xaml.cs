@@ -76,6 +76,7 @@ namespace Health_Tracker
         Button[] calendarButtonArray = new Button[42];
         #endregion
         ObservableCollection<Exercise> toShow = new ObservableCollection<Exercise>();
+        Canvas PopupCanvas = new Canvas();
         public ExerciseCalendarWindow()
         {
             InitializeComponent();
@@ -183,14 +184,17 @@ namespace Health_Tracker
                     
                     if (exerciseStartDate <= cellDate & cellDate <= exerciseEndDate)
                     {
-                        toShow.Add(exercise);
+                        if (!toShow.Contains(exercise))
+                        {
+                            toShow.Add(exercise);
+                        }  
                     }
                 }
             }
 
             ExerciseDetailsPopup.Height = toShow.Count * 100;
 
-            Canvas PopupCanvas = new Canvas();
+
             PopupCanvas.Background = Brushes.White;
 
             for (int i = 0; i < toShow.Count; i++)
@@ -223,9 +227,9 @@ namespace Health_Tracker
             }
 
             Button QuitButton = new Button();
-            QuitButton.Click += new RoutedEventHandler(QuitButtonClick);
             QuitButton.Content = "Close";
-            QuitButton.Width = 30;
+            QuitButton.Click += new RoutedEventHandler(QuitButtonClick);
+            QuitButton.Width = 40;
             QuitButton.Margin = new Thickness(0, 0, 0, 0);
             PopupCanvas.Children.Add(QuitButton);
 
@@ -236,6 +240,8 @@ namespace Health_Tracker
         public void QuitButtonClick(object sender, RoutedEventArgs e)
         {
             ExerciseDetailsPopup.IsOpen = false;
+            PopupCanvas.Children.Clear();
+            toShow.Clear();
         }
     }
 }
