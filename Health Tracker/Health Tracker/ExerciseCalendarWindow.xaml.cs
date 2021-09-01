@@ -222,8 +222,20 @@ namespace Health_Tracker
                 PopupCanvas.Children.Add(CurrentExerciseTime);
             }
 
+            Button QuitButton = new Button();
+            QuitButton.Click += new RoutedEventHandler(QuitButtonClick);
+            QuitButton.Content = "Close";
+            QuitButton.Width = 30;
+            QuitButton.Margin = new Thickness(0, 0, 0, 0);
+            PopupCanvas.Children.Add(QuitButton);
+
             ExerciseDetailsPopup.Child = PopupCanvas;
             ExerciseDetailsPopup.IsOpen = true;
+        }
+
+        public void QuitButtonClick(object sender, RoutedEventArgs e)
+        {
+            ExerciseDetailsPopup.IsOpen = false;
         }
     }
 }
