@@ -8,5 +8,25 @@
         Title="YourDay" Height="450" Width="800">
     <Canvas>
         <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label x:Name="YourDayTitleLabel" Content="Your Day" Canvas.Top="0" Canvas.Left="350"/>
+        
+        <Label x:Name="MealsTitleLabel" Content="Your Meals" Canvas.Top="75" Canvas.Left="50"/>
+        <DataGrid x:Name="MealsTable" Width="500" Canvas.Top="75" Canvas.Left="150">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Breakfast" Width="*"/>
+                <DataGridTextColumn Header="Lunch" Width="*"/>
+                <DataGridTextColumn Header="Dinner" Width="*"/>
+                <DataGridTextColumn Header="Snack" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label x:Name="ExerciseTitleLabel" Content="Exercises" Canvas.Top="200" Canvas.Left="50"/>
+        <DataGrid x:Name="ExercisesTable" Width="500" Canvas.Top="200" Canvas.Left="150">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Width="*"/>
+                <DataGridTextColumn Header="Details" Width="*"/>
+                <DataGridTextColumn Header="Time" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Canvas>
 </Window>

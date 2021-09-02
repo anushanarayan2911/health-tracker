@@ -24,7 +24,6 @@ namespace Health_Tracker
         string[] mealNameArray = new String[30];
         string[] mealDayArray = new String[30];
 
-        ObservableCollection<Meal> addedMealsView = new ObservableCollection<Meal>();
         List<Meal> OrderedList;
 
         ObservableCollection<weekMeal> MondayMealsView = new ObservableCollection<weekMeal>();
@@ -38,7 +37,7 @@ namespace Health_Tracker
         public FoodWindow()
         {
             InitializeComponent();
-            AddedMeals.ItemsSource = addedMealsView;
+            AddedMeals.ItemsSource = CommonElements.AddedMealsView;
             MondayCol.ItemsSource = MondayMealsView;
             TuesdayCol.ItemsSource = TuesdayMealsView;
             WednesdayCol.ItemsSource = WednesdayMealsView;
@@ -122,7 +121,7 @@ namespace Health_Tracker
             string day = mealDayArray[dayIndex];
             string mealDetails = (string)MealDetailsInput.Text;
 
-            addedMealsView.Add(new Meal() { mealName = name, mealDetails = mealDetails, dayOfMeal = day});
+            CommonElements.AddedMealsView.Add(new Meal() { mealName = name, mealDetails = mealDetails, dayOfMeal = day});
             
             AddedMeals.Items.Refresh();
         }
@@ -162,7 +161,7 @@ namespace Health_Tracker
 
             AddedMeals.Visibility = Visibility.Hidden;
 
-            OrderedList = addedMealsView.OrderBy(x => x.dayOfMeal).ToList();
+            OrderedList = CommonElements.AddedMealsView.OrderBy(x => x.dayOfMeal).ToList();
             
             foreach (Meal m in OrderedList)
             {
