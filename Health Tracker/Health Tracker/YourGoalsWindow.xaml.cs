@@ -20,6 +20,10 @@ namespace Health_Tracker
     /// </summary>
     public partial class YourGoalsWindow : Window
     {
+        string NewGoal;
+        string AchieveBy;
+        string Status;
+
         public YourGoalsWindow()
         {
             InitializeComponent();
@@ -29,6 +33,14 @@ namespace Health_Tracker
         {
             this.Visibility = Visibility.Hidden;
             CommonElements.goBack();
+        }
+
+        private void OKButtonClick(object sender, RoutedEventArgs e)
+        {
+            NewGoal = AddGoalInput.Text;
+            AchieveBy = AchieveByDate.Text.ToString();
+
+            test.Text = NewGoal;
         }
     }
 }

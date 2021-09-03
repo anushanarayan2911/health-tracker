@@ -16,7 +16,7 @@
         <Label x:Name="AchieveByLabel" Content="Achieve By:" Canvas.Top="100" Canvas.Left="50"/>
         <DatePicker x:Name="AchieveByDate" Width="200" Canvas.Top="105" Canvas.Left="150"/>
 
-        <Button x:Name="OKButton" Content="OK" Width="30" Canvas.Top="140" Canvas.Left="50"/>
+        <Button x:Name="OKButton" Content="OK" Width="30" Canvas.Top="140" Canvas.Left="50" Click="OKButtonClick"/>
 
         <DataGrid x:Name="GoalsTable" Width="600" AutoGenerateColumns="False" Canvas.Top="200" Canvas.Left="50">
             <DataGrid.Columns>
@@ -25,5 +25,7 @@
                 <DataGridTextColumn x:Name="StatusCol" Header="Status" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <TextBox x:Name="test" Width="200" Canvas.Top="300" Canvas.Left="50"/>
     </Canvas>
 </Window>

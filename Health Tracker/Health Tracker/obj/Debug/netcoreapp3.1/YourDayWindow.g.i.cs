@@ -125,7 +125,7 @@ namespace Health_Tracker {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Health Tracker;V1.0.0.0;component/yourdaywindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Health Tracker;component/yourdaywindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\YourDayWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
