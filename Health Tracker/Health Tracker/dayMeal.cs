@@ -4,11 +4,14 @@ using System.Text;
 
 namespace Health_Tracker
 {
-    public class weekMeal
+    public class dayMeal
+    {
+        public string mealDetails { get; set; }
+    }
+    public class weekMeal : dayMeal
     {
         public string mealName { get; set; }
 
-        public string mealDetails { get; set; }
     }
     public class Meal : weekMeal
     {
