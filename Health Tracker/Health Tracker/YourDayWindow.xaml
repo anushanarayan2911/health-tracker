@@ -33,14 +33,13 @@
         </DataGrid>
 
         <Label x:Name="ExerciseTitleLabel" Content="Exercises" Canvas.Top="200" Canvas.Left="50"/>
-        <DataGrid x:Name="ExercisesTable" Width="500" Canvas.Top="200" Canvas.Left="150">
+        <DataGrid x:Name="ExercisesTable" Width="500" Canvas.Top="200" Canvas.Left="150" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Width="*"/>
-                <DataGridTextColumn Header="Details" Width="*"/>
-                <DataGridTextColumn Header="Time" Width="*"/>
+                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding exerciseName}"/>
+                <DataGridTextColumn Header="Details" Width="*" Binding="{Binding exerciseDetails}"/>
+                <DataGridTextColumn Header="Time" Width="*" Binding="{Binding exerciseTime}"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <TextBox x:Name="test" Width="300" Canvas.Top="270" Canvas.Left="50"/>
     </Canvas>
 </Window>

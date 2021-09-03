@@ -25,7 +25,9 @@ namespace Health_Tracker
         ObservableCollection<dayMeal> LunchView = new ObservableCollection<dayMeal>();
         ObservableCollection<dayMeal> DinnerView = new ObservableCollection<dayMeal>();
         ObservableCollection<dayMeal> SnackView = new ObservableCollection<dayMeal>();
+        ObservableCollection<Exercise> ExerciseView = new ObservableCollection<Exercise>();
         string todayDayOfWeek = DateTime.Now.DayOfWeek.ToString();
+        DateTime todayDate = DateTime.Now;
 
         public YourDayWindow()
         {
@@ -78,6 +80,31 @@ namespace Health_Tracker
             LunchCol.Items.Refresh();
             DinnerCol.Items.Refresh();
             SnackCol.Items.Refresh();
+            #endregion
+
+            #region Exercises
+            ExercisesTable.ItemsSource = ExerciseView;
+
+            foreach (Exercise exercise in CommonElements.AddedExercisesView)
+            {
+                DateTime StartDate = Convert.ToDateTime(exercise.exerciseDate.Substring(0, 10));
+                DateTime EndDate = Convert.ToDateTime(exercise.exerciseDate.Substring(13, 10));
+
+                if (StartDate <= todayDate & todayDate <= EndDate)
+                {
+                    if (exercise.exerciseFrequency.Contains(todayDayOfWeek) || exercise.exerciseFrequency == "daily")
+                    {
+                        ExerciseView.Add(new Exercise
+                        {
+                            exerciseName = exercise.exerciseName,
+                            exerciseDetails = exercise.exerciseDetails,
+                            exerciseTime = exercise.exerciseTime
+                        });
+                    }
+                }
+            }
+
+            ExercisesTable.Items.Refresh();
             #endregion
         }
 
