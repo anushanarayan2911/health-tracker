@@ -8,5 +8,22 @@
         Title="YourGoals" Height="450" Width="800">
     <Canvas>
         <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label x:Name="YourGoalsLabel" Content="Your Goals" Canvas.Top="0" Canvas.Left="350"/>
+        
+        <Label x:Name="AddGoalLabel" Content="Add Goal" Canvas.Top="50" Canvas.Left="50" />
+        <TextBox x:Name="AddGoalInput" Width="300" Canvas.Top="55" Canvas.Left="150"/>
+
+        <Label x:Name="AchieveByLabel" Content="Achieve By:" Canvas.Top="100" Canvas.Left="50"/>
+        <DatePicker x:Name="AchieveByDate" Width="200" Canvas.Top="105" Canvas.Left="150"/>
+
+        <Button x:Name="OKButton" Content="OK" Width="30" Canvas.Top="140" Canvas.Left="50"/>
+
+        <DataGrid x:Name="GoalsTable" Width="600" AutoGenerateColumns="False" Canvas.Top="200" Canvas.Left="50">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="GoalCol" Header="Goal" Width="*"/>
+                <DataGridTextColumn x:Name="AchieveByCol" Header="Achieve By" Width="*"/>
+                <DataGridTextColumn x:Name="StatusCol" Header="Status" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Canvas>
 </Window>
