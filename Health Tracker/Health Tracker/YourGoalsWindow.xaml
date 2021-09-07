@@ -18,19 +18,23 @@
 
         <Button x:Name="OKButton" Content="OK" Width="30" Canvas.Top="140" Canvas.Left="50" Click="OKButtonClick"/>
 
-        <DataGrid x:Name="GoalsTable" Width="400" AutoGenerateColumns="False" Canvas.Top="200" Canvas.Left="50">
+        <DataGrid x:Name="GoalsTable" Width="600" AutoGenerateColumns="False" Canvas.Top="200" Canvas.Left="50">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="GoalCol" Header="Goal" Width="*" Binding="{Binding GoalInfo}"/>
                 <DataGridTextColumn x:Name="AchieveByCol" Header="Achieve By" Width="*" Binding="{Binding AchieveBy}"/>
+                <DataGridTemplateColumn x:Name="StatusCol" Header="Status" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="StatusButton" Click="StatusButtonClick"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBlock x:Name="StatusHeading" Text="Status" Width="200" Canvas.Top="205" Canvas.Left="450"/>
-        <Grid x:Name="StatusCol" Width="200" Height="194" Canvas.Top="225" Canvas.Left="450">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-        </Grid>
 
+        <Popup x:Name="StatusPopup" Canvas.Top="100" Canvas.Left="100" Height="100" Width="300" Placement="Center" IsOpen="False" >
+            <Canvas x:Name="StatusPopupCanvas"></Canvas>
+        </Popup>
         <TextBox x:Name="test" Width="200" Canvas.Top="300" Canvas.Left="50"/>
     </Canvas>
 </Window>

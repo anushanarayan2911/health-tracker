@@ -25,14 +25,15 @@ namespace Health_Tracker
         string AchieveBy;
         string Status;
         DateTime Today;
+        DateTime OneWeekAway;
 
         public YourGoalsWindow()
         {
             InitializeComponent();
+            Today = DateTime.Now;
+            OneWeekAway = Today.AddDays(+7);
 
             GoalsTable.ItemsSource = CommonElements.AddedGoalsView;
-
-            
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -50,37 +51,8 @@ namespace Health_Tracker
             CommonElements.AddedGoalsView.Add(new Goal {
                 GoalInfo = GoalInfo,
                 AchieveBy = AchieveBy,
-                Status = Status 
+                Status = Status
             });
-
-            int NumOfRows = CommonElements.AddedGoalsView.Count;
-
-            StatusCol.Height = NumOfRows * 19;
-
-            for (int i = 0; i < NumOfRows; i++)
-            {
-                StatusCol.RowDefinitions.Add(new RowDefinition());
-            }
-
-            for (int j = 0; j < StatusCol.RowDefinitions.Count; j++)
-            {
-                StatusCol.RowDefinitions[j].Height = new GridLength(19);
-
-                Button b = new Button();
-                b.Click += new RoutedEventHandler(StatusButtonClick);
-                b.Height = 19;
-                b.Margin = new Thickness(0, 0, 0, 0);
-                b.BorderThickness = new Thickness(0);
-                Grid.SetColumn(b, 0);
-                Grid.SetRow(b, j);
-                StatusCol.Children.Add(b);
-            }
-            
-        }
-
-        private void StatusButtonClick(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
         }
     }
 }
