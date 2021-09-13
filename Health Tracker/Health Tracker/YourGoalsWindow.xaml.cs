@@ -27,7 +27,7 @@ namespace Health_Tracker
         string Status;
         DateTime Today;
         DateTime OneWeekAway;
-        UIElement[] StatusButtonArray = new Button[30];
+        Canvas StatusPopupCanvas = new Canvas();
 
         public YourGoalsWindow()
         {
@@ -60,10 +60,59 @@ namespace Health_Tracker
         private void StatusButtonClick(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
-            Goal selectedRow = button.DataContext as Goal;
+            Goal SelectedRow = button.DataContext as Goal;
 
-            string a = selectedRow.GoalInfo.ToString();
-            test.Text = a;
+            string GoalInfo = SelectedRow.GoalInfo.ToString();
+            DateTime AchieveBy = Convert.ToDateTime(SelectedRow.AchieveBy.ToString());
+            string Status = "";
+
+            if (AchieveBy > OneWeekAway)
+            {
+                Status = "You've got time!";
+                StatusPopupCanvas.Background = Brushes.Green;
+
+            } else if (AchieveBy > Today && AchieveBy < OneWeekAway)
+            {
+                Status = "You're getting close!";
+                StatusPopupCanvas.Background = Brushes.Orange;
+
+            } else if (AchieveBy < Today)
+            {
+                Status = "You're late!";
+                StatusPopupCanvas.Background = Brushes.Red;
+
+            }
+
+            TextBlock GoalInfoTextBlock = new TextBlock();
+            GoalInfoTextBlock.Text = GoalInfo;
+            GoalInfoTextBlock.TextDecorations = TextDecorations.Underline;
+            GoalInfoTextBlock.Margin = new Thickness(150, 0, 0, 0);
+            StatusPopupCanvas.Children.Add(GoalInfoTextBlock);
+
+            Label AchieveByLabel = new Label();
+            AchieveByLabel.Content = "Achieve By: ";
+            AchieveByLabel.Margin = new Thickness(0, 30, 0, 0);
+            StatusPopupCanvas.Children.Add(AchieveByLabel);
+
+            TextBlock AchieveByTextBlock = new TextBlock();
+            AchieveByTextBlock.Text = AchieveBy.ToString();
+            AchieveByTextBlock.Margin = new Thickness(75, 35, 0, 0);
+            StatusPopupCanvas.Children.Add(AchieveByTextBlock);
+
+            Label StatusLabel = new Label();
+            StatusLabel.Content = "Status";
+            StatusLabel.Margin = new Thickness(0, 60, 0, 0);
+            StatusPopupCanvas.Children.Add(StatusLabel);
+
+            TextBlock StatusTextBlock = new TextBlock();
+            StatusTextBlock.Text = Status;
+            StatusTextBlock.Margin = new Thickness(75, 65, 0, 0);
+            StatusPopupCanvas.Children.Add(StatusTextBlock);
+
+            
+            StatusPopup.Child = StatusPopupCanvas;
+            
+            StatusPopup.IsOpen = true;
         }
     }
 }
