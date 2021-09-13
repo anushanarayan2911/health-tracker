@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using System.Data;
 
 namespace Health_Tracker
 {
@@ -26,6 +27,7 @@ namespace Health_Tracker
         string Status;
         DateTime Today;
         DateTime OneWeekAway;
+        UIElement[] StatusButtonArray = new Button[30];
 
         public YourGoalsWindow()
         {
@@ -53,6 +55,15 @@ namespace Health_Tracker
                 AchieveBy = AchieveBy,
                 Status = Status
             });
+        }
+
+        private void StatusButtonClick(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Goal selectedRow = button.DataContext as Goal;
+
+            string a = selectedRow.GoalInfo.ToString();
+            test.Text = a;
         }
     }
 }

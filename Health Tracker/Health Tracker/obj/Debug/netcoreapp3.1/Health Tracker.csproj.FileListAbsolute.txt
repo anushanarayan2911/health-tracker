@@ -27,3 +27,4 @@ C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Deb
 C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\YourDayWindow.baml
 C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\YourGoalsWindow.g.cs
 C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\YourGoalsWindow.baml
+C:\Users\anush\source\repos\health-tracker\Health Tracker\Health Tracker\obj\Debug\netcoreapp3.1\Health Tracker.GeneratedMSBuildEditorConfig.editorconfig
