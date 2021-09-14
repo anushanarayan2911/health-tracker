@@ -96,6 +96,7 @@ namespace Health_Tracker
 
             TextBlock AchieveByTextBlock = new TextBlock();
             AchieveByTextBlock.Text = AchieveBy.ToString();
+            AchieveByTextBlock.Uid = "AchieveByTextBlock";
             AchieveByTextBlock.Margin = new Thickness(75, 35, 0, 0);
             StatusPopupCanvas.Children.Add(AchieveByTextBlock);
 
@@ -152,7 +153,10 @@ namespace Health_Tracker
 
         private void ChangeAchieveByButtonClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Calendar ChangeAchieveByCalendar = new Calendar();
+            ChangeAchieveByCalendar.SelectedDatesChanged += new EventHandler<SelectionChangedEventArgs>(ChangeAchieveByCalendarClick);  
+            ChangeAchieveByCalendar.Margin = new Thickness(20, 20, 0, 0);
+            StatusPopupCanvas.Children.Add(ChangeAchieveByCalendar);
         }
 
         private void DeleteGoalButtonClick(object sender, RoutedEventArgs e)
@@ -168,6 +172,25 @@ namespace Health_Tracker
         {
             StatusPopupCanvas.Children.Clear();
             StatusPopup.IsOpen = false;
+        }
+
+        private void ChangeAchieveByCalendarClick(object sender, RoutedEventArgs e)
+        {
+            string GoalInfo = ((TextBlock)StatusPopupCanvas.Children[0]).Text.ToString();
+            int index = CommonElements.AddedGoalsView.IndexOf(CommonElements.AddedGoalsView.Where(i => i.GoalInfo == GoalInfo).FirstOrDefault());
+            CommonElements.AddedGoalsView[index].AchieveBy = sender.ToString();
+
+            StatusPopupCanvas.Children.Remove(StatusPopupCanvas.Children[9]);
+
+            StatusPopupCanvas.Children.Remove(StatusPopupCanvas.Children[2]);
+            TextBlock AchieveByTextBlock = new TextBlock();
+            AchieveByTextBlock.Text = sender.ToString();
+            AchieveByTextBlock.Uid = "AchieveByTextBlock";
+            AchieveByTextBlock.Margin = new Thickness(75, 35, 0, 0);
+            StatusPopupCanvas.Children.Insert(2, AchieveByTextBlock);
+
+            GoalsTable.Items.Refresh();
+            
         }
     }
 }
