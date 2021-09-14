@@ -28,6 +28,7 @@ namespace Health_Tracker
         DateTime Today;
         DateTime OneWeekAway;
         Canvas StatusPopupCanvas = new Canvas();
+        Canvas ViewCompletedGoalsCanvas = new Canvas();
 
         public YourGoalsWindow()
         {
@@ -36,6 +37,7 @@ namespace Health_Tracker
             OneWeekAway = Today.AddDays(+7);
 
             GoalsTable.ItemsSource = CommonElements.AddedGoalsView;
+            CompletedGoalsTable.ItemsSource = CommonElements.CompletedGoalsView;
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -87,6 +89,7 @@ namespace Health_Tracker
             GoalInfoTextBlock.Text = GoalInfo;
             GoalInfoTextBlock.TextDecorations = TextDecorations.Underline;
             GoalInfoTextBlock.Margin = new Thickness(150, 0, 0, 0);
+            GoalInfoTextBlock.Uid = "GoalInfoTextBlock";
             StatusPopupCanvas.Children.Add(GoalInfoTextBlock);
 
             Label AchieveByLabel = new Label();
@@ -148,7 +151,31 @@ namespace Health_Tracker
 
         private void CompletedButtonClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            int GoalInfoTextBlockIndex = 0;
+            foreach (UIElement child in StatusPopupCanvas.Children)
+            {
+                if (child.Uid == "GoalInfoTextBlock")
+                {
+                    GoalInfoTextBlockIndex = StatusPopupCanvas.Children.IndexOf(child);
+                }
+            }
+
+            string GoalInfo = ((TextBlock)StatusPopupCanvas.Children[GoalInfoTextBlockIndex]).Text.ToString();
+            int GoalIndex = 0;
+            foreach (Goal goal in CommonElements.AddedGoalsView)
+            {
+                if (goal.GoalInfo == GoalInfo)
+                {
+                    GoalIndex = CommonElements.AddedGoalsView.IndexOf(goal);
+                }
+            }
+
+            Goal GoalToAdd = CommonElements.AddedGoalsView[GoalIndex];
+            CommonElements.CompletedGoalsView.Add(GoalToAdd);
+
+            CommonElements.AddedGoalsView.Remove(CommonElements.AddedGoalsView.Where(i => i.GoalInfo == GoalInfo).Single());
+            StatusPopupCanvas.Children.Clear();
+            StatusPopup.IsOpen = false;
         }
 
         private void ChangeAchieveByButtonClick(object sender, RoutedEventArgs e)
@@ -162,7 +189,16 @@ namespace Health_Tracker
 
         private void DeleteGoalButtonClick(object sender, RoutedEventArgs e)
         {
-            string GoalInfo = ((TextBlock) StatusPopupCanvas.Children[0]).Text.ToString();
+            int GoalInfoTextBlockIndex = 0;
+            foreach (UIElement child in StatusPopupCanvas.Children)
+            {
+                if (child.Uid == "GoalInfoTextBlock")
+                {
+                    GoalInfoTextBlockIndex = StatusPopupCanvas.Children.IndexOf(child);
+                }
+            }
+
+            string GoalInfo = ((TextBlock) StatusPopupCanvas.Children[GoalInfoTextBlockIndex]).Text.ToString();
             CommonElements.AddedGoalsView.Remove(CommonElements.AddedGoalsView.Where(i => i.GoalInfo == GoalInfo).Single());
             StatusPopupCanvas.Children.Clear();
             StatusPopup.IsOpen = false;
@@ -177,7 +213,16 @@ namespace Health_Tracker
 
         private void ChangeAchieveByCalendarClick(object sender, RoutedEventArgs e)
         {
-            string GoalInfo = ((TextBlock)StatusPopupCanvas.Children[0]).Text.ToString();
+            int GoalInfoTextBlockIndex = 0;
+            foreach (UIElement child in StatusPopupCanvas.Children)
+            {
+                if (child.Uid == "GoalInfoTextBlock")
+                {
+                    GoalInfoTextBlockIndex = StatusPopupCanvas.Children.IndexOf(child);
+                }
+            }
+
+            string GoalInfo = ((TextBlock)StatusPopupCanvas.Children[GoalInfoTextBlockIndex]).Text.ToString();
             int GoalIndex = CommonElements.AddedGoalsView.IndexOf(CommonElements.AddedGoalsView.Where(i => i.GoalInfo == GoalInfo).FirstOrDefault());
             CommonElements.AddedGoalsView[GoalIndex].AchieveBy = sender.ToString().Substring(0, 10);
 
@@ -208,6 +253,16 @@ namespace Health_Tracker
             StatusPopupCanvas.Children.Insert(AchieveByTextBlockIndex, AchieveByTextBlock);
 
             GoalsTable.Items.Refresh();
+        }
+
+        private void ViewCompletedGoals(object sender, RoutedEventArgs e)
+        {
+            ViewCompletedGoalsPopup.IsOpen = true;
+        }
+
+        private void CloseCompletedGoalsPopup(object sender, RoutedEventArgs e)
+        {
+            ViewCompletedGoalsPopup.IsOpen = false;
         }
     }
 }

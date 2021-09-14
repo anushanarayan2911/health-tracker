@@ -34,5 +34,18 @@
 
         <Popup x:Name="StatusPopup" Canvas.Top="100" Canvas.Left="100" Height="150" Width="300" Placement="Center" AllowsTransparency ="False" IsOpen="False" ></Popup>
         <TextBox x:Name="test" Width="200" Canvas.Top="300" Canvas.Left="50"/>
+        <Button x:Name="ViewCompletedGoalsButton" Width="150" Height="20" Content="View Completed Goals" Canvas.Top="350" Canvas.Left="50" Click="ViewCompletedGoals"/>
+        <Popup x:Name="ViewCompletedGoalsPopup" Canvas.Top="100" Canvas.Left="100" Width="300" Height="300" Placement="Center" AllowsTransparency="False" IsOpen="False">
+            <Canvas Background="White">
+                <Button x:Name="CloseCompletedGoalsButton" Width="15" Height="30" Content="X" Canvas.Top="0" Canvas.Right="0" Click="CloseCompletedGoalsPopup"/>
+                <DataGrid x:Name="CompletedGoalsTable" Width="300" Height="300" Canvas.Top="15" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="CompletedGoalsList" Width="*" Binding="{Binding GoalInfo}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Canvas>
+            
+           
+        </Popup>
     </Canvas>
 </Window>
