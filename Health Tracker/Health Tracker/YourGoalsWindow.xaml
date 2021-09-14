@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Health_Tracker"
         mc:Ignorable="d"
-        Title="YourGoals" Height="450" Width="800">
+        Title="YourGoals" Height="450" Width="800"
+        WindowState="Maximized"
+        WindowStyle="None">
     <Canvas>
         <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Label x:Name="YourGoalsLabel" Content="Your Goals" Canvas.Top="0" Canvas.Left="350"/>

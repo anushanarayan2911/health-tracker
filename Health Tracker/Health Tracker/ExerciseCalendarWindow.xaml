@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Health_Tracker"
         mc:Ignorable="d"
-        Title="ExerciseCalendar" Height="450" Width="800">
+        Title="ExerciseCalendar" Height="450" Width="800"
+        WindowState="Maximized"
+        WindowStyle="None">
+
     <Canvas>
         <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label x:Name="MonthName" Canvas.Top="10" Canvas.Left="300"/>
-        <TextBox x:Name="test" Width="100" Height="30" Canvas.Top="10" Canvas.Left="50" />
-        <Grid x:Name="CalendarGrid" ShowGridLines="True" Canvas.Left="60" Canvas.Top="50" Width="700" Height="360">
+        <Label x:Name="MonthName" Canvas.Top="10" Canvas.Left="610"/>
+        <Grid x:Name="CalendarGrid" ShowGridLines="True" Canvas.Left="260" Canvas.Top="50" Width="700" Height="360">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*"/>

@@ -5,24 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Health_Tracker"
         mc:Ignorable="d"
-        Title="Exercise" Height="450" Width="800">
+        Title="Exercise" Height="450" Width="800"
+        WindowState="Maximized"
+        WindowStyle="None">
     <Canvas>
         <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label x:Name="TimeInputInfo" Content="Enter time information as HH:MM" Canvas.Top="10" Canvas.Left="300"/>
-        <Label x:Name="ExerciseTitleLabel" Content="Exercise Title:" Canvas.Top="30" Canvas.Left="40"/>
-        <TextBox x:Name="ExerciseTitleInput" Canvas.Top="35" Canvas.Left="150" Width="150"/>
         
-        <Label x:Name="ExerciseDetailsLabel" Content="Exercise Details:" Canvas.Top="65" Canvas.Left="40"/>
-        <TextBox x:Name="ExerciseDetailsInput" Canvas.Top="70" Canvas.Left="150" Width="400"/>
+        <Label x:Name="TimeInputInfo" Content="Enter time information as HH:MM" Canvas.Top="10" Canvas.Left="550"/>
+        <Label x:Name="ExerciseTitleLabel" Content="Exercise Title:" Canvas.Top="30" Canvas.Left="350"/>
+        <TextBox x:Name="ExerciseTitleInput" Canvas.Top="35" Canvas.Left="450" Width="150"/>
+        
+        <Label x:Name="ExerciseDetailsLabel" Content="Exercise Details:" Canvas.Top="65" Canvas.Left="350"/>
+        <TextBox x:Name="ExerciseDetailsInput" Canvas.Top="70" Canvas.Left="450" Width="400"/>
 
-        <Label x:Name="FrequencyLabel" Content="Frequency:" Canvas.Top="100" Canvas.Left="40"/>
-        <ComboBox x:Name="FrequencyDropDownMenu" Canvas.Top="105" Canvas.Left="150" Width="100" SelectionChanged="FrequencyDropDownMenu_SelectionChanged">
+        <Label x:Name="FrequencyLabel" Content="Frequency:" Canvas.Top="100" Canvas.Left="350"/>
+        <ComboBox x:Name="FrequencyDropDownMenu" Canvas.Top="105" Canvas.Left="450" Width="100" SelectionChanged="FrequencyDropDownMenu_SelectionChanged">
             <ComboBoxItem x:Name="DailyOption" Content="Daily"/>
             <ComboBoxItem x:Name="WeeklyOption" Content="Weekly"/>
             <ComboBoxItem x:Name="CustomOption" Content="Custom"/>
         </ComboBox>
 
-        <TabPanel x:Name="DaysOfWeekButton" Visibility="Hidden" Canvas.Top="105" Canvas.Left="300">
+        <TabPanel x:Name="DaysOfWeekButton" Visibility="Hidden" Canvas.Top="105" Canvas.Left="600">
             <RadioButton Content="Monday" Checked="SendDayName"/>
             <RadioButton Content="Tuesday" Checked="SendDayName"/>
             <RadioButton Content="Wednesday" Checked="SendDayName"/>
@@ -32,7 +35,7 @@
             <RadioButton Content="Sunday" Checked="SendDayName"/>
         </TabPanel>
         
-        <TabPanel x:Name="DaysOfWeekCheckbox" Visibility="Hidden" Canvas.Top="105" Canvas.Left="300">
+        <TabPanel x:Name="DaysOfWeekCheckbox" Visibility="Hidden" Canvas.Top="105" Canvas.Left="600">
             <CheckBox Content="Monday" Checked="SendDayNameMulti"/>
             <CheckBox Content="Tuesday" Checked="SendDayNameMulti"/>
             <CheckBox Content="Wednesday" Checked="SendDayNameMulti"/>
@@ -42,21 +45,21 @@
             <CheckBox Content="Sunday" Checked="SendDayNameMulti"/>
         </TabPanel>
 
-        <Label x:Name="StartTimeLabel" Content="Start Time" Canvas.Top="135" Canvas.Left="40"/>
-        <TextBox x:Name="ExerciseStartTimeInput" Canvas.Top="140" Canvas.Left="150" Width="100"/>
+        <Label x:Name="StartTimeLabel" Content="Start Time" Canvas.Top="135" Canvas.Left="350"/>
+        <TextBox x:Name="ExerciseStartTimeInput" Canvas.Top="140" Canvas.Left="450" Width="100"/>
 
-        <Label x:Name="EndTimeLabel" Content="End Time" Canvas.Top="135" Canvas.Left="330"/>
-        <TextBox x:Name="ExerciseEndTimeInput" Canvas.Top="140" Canvas.Left="400" Width="100"/>
+        <Label x:Name="EndTimeLabel" Content="End Time" Canvas.Top="135" Canvas.Left="630"/>
+        <TextBox x:Name="ExerciseEndTimeInput" Canvas.Top="140" Canvas.Left="730" Width="100"/>
 
-        <Label x:Name="StartDateLabel" Content="Start Date" Canvas.Top="170" Canvas.Left="40"/>
-        <DatePicker x:Name="ExerciseStartDateInput" Canvas.Top="175" Canvas.Left="150"></DatePicker>
+        <Label x:Name="StartDateLabel" Content="Start Date" Canvas.Top="170" Canvas.Left="350"/>
+        <DatePicker x:Name="ExerciseStartDateInput" Canvas.Top="175" Canvas.Left="450"></DatePicker>
 
-        <Label x:Name="EndDateLabel" Content="End Date" Canvas.Top="170" Canvas.Left="330"/>
-        <DatePicker x:Name="ExerciseEndDateInput" Canvas.Top="175" Canvas.Left="400"></DatePicker>
+        <Label x:Name="EndDateLabel" Content="End Date" Canvas.Top="170" Canvas.Left="630"/>
+        <DatePicker x:Name="ExerciseEndDateInput" Canvas.Top="175" Canvas.Left="730"></DatePicker>
 
-        <Button x:Name="OKButton" Click="SendExerciseInfo" Content="OK" Width="20" Canvas.Top="200" Canvas.Left="40" />
+        <Button x:Name="OKButton" Click="SendExerciseInfo" Content="OK" Width="20" Canvas.Top="220" Canvas.Left="610" />
 
-        <DataGrid x:Name="AddedExercises" Height="100" Width="750" Canvas.Top="250" Canvas.Left="40" AutoGenerateColumns="False">
+        <DataGrid x:Name="AddedExercises" Height="100" Width="750" Canvas.Top="250" Canvas.Left="225" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="ExerciseName" Header="Name" Width="*" Binding="{Binding exerciseName}"/>
                 <DataGridTextColumn x:Name="ExerciseDetails" Header="Details" Width="*" Binding="{Binding exerciseDetails}"/>
