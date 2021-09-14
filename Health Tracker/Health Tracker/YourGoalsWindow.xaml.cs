@@ -109,10 +109,60 @@ namespace Health_Tracker
             StatusTextBlock.Margin = new Thickness(75, 65, 0, 0);
             StatusPopupCanvas.Children.Add(StatusTextBlock);
 
-            
+            Button CompletedButton = new Button();
+            CompletedButton.Content = "Complete";
+            CompletedButton.Click += new RoutedEventHandler(CompletedButtonClick);
+            CompletedButton.Height = 30;
+            CompletedButton.Width = 70;
+            CompletedButton.Margin = new Thickness(0, 120, 0, 0);
+            StatusPopupCanvas.Children.Add(CompletedButton);
+
+            Button ChangeAchieveByButton = new Button();
+            ChangeAchieveByButton.Content = "Change Achieve By";
+            ChangeAchieveByButton.Click += new RoutedEventHandler(ChangeAchieveByButtonClick);
+            ChangeAchieveByButton.Height = 30;
+            ChangeAchieveByButton.Width = 120;
+            ChangeAchieveByButton.Margin = new Thickness(100, 120, 0, 0);
+            StatusPopupCanvas.Children.Add(ChangeAchieveByButton);
+
+            Button DeleteGoalButton = new Button();
+            DeleteGoalButton.Content = "Delete";
+            DeleteGoalButton.Click += new RoutedEventHandler(DeleteGoalButtonClick);
+            DeleteGoalButton.Height = 30;
+            DeleteGoalButton.Width = 50;
+            DeleteGoalButton.Margin = new Thickness(250, 120, 0, 0);
+            StatusPopupCanvas.Children.Add(DeleteGoalButton);
+
+            Button ExitButton = new Button();
+            ExitButton.Content = "X";
+            ExitButton.Click += new RoutedEventHandler(ExitButtonClick);
+            ExitButton.Height = 30;
+            ExitButton.Width = 15;
+            ExitButton.Margin = new Thickness(285, 0, 0, 0);
+            StatusPopupCanvas.Children.Add(ExitButton);
+
             StatusPopup.Child = StatusPopupCanvas;
-            
             StatusPopup.IsOpen = true;
+        }
+
+        private void CompletedButtonClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ChangeAchieveByButtonClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DeleteGoalButtonClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ExitButtonClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

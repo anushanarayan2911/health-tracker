@@ -32,7 +32,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Popup x:Name="StatusPopup" Canvas.Top="100" Canvas.Left="100" Height="100" Width="300" Placement="Center" AllowsTransparency ="False" IsOpen="False" ></Popup>
+        <Popup x:Name="StatusPopup" Canvas.Top="100" Canvas.Left="100" Height="150" Width="300" Placement="Center" AllowsTransparency ="False" IsOpen="False" ></Popup>
         <TextBox x:Name="test" Width="200" Canvas.Top="300" Canvas.Left="50"/>
     </Canvas>
 </Window>
