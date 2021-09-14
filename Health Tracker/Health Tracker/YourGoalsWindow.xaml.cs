@@ -162,7 +162,8 @@ namespace Health_Tracker
 
         private void ExitButtonClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            StatusPopupCanvas.Children.Clear();
+            StatusPopup.IsOpen = false;
         }
     }
 }
