@@ -157,7 +157,11 @@ namespace Health_Tracker
 
         private void DeleteGoalButtonClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            string GoalInfo = ((TextBlock) StatusPopupCanvas.Children[0]).Text.ToString();
+            CommonElements.AddedGoalsView.Remove(CommonElements.AddedGoalsView.Where(i => i.GoalInfo == GoalInfo).Single());
+            StatusPopupCanvas.Children.Clear();
+            StatusPopup.IsOpen = false;
+            
         }
 
         private void ExitButtonClick(object sender, RoutedEventArgs e)
