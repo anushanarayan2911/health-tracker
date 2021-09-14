@@ -154,6 +154,7 @@ namespace Health_Tracker
         private void ChangeAchieveByButtonClick(object sender, RoutedEventArgs e)
         {
             Calendar ChangeAchieveByCalendar = new Calendar();
+            ChangeAchieveByCalendar.Uid = "ChangeAchieveByCalendar";
             ChangeAchieveByCalendar.SelectedDatesChanged += new EventHandler<SelectionChangedEventArgs>(ChangeAchieveByCalendarClick);  
             ChangeAchieveByCalendar.Margin = new Thickness(20, 20, 0, 0);
             StatusPopupCanvas.Children.Add(ChangeAchieveByCalendar);
@@ -177,20 +178,36 @@ namespace Health_Tracker
         private void ChangeAchieveByCalendarClick(object sender, RoutedEventArgs e)
         {
             string GoalInfo = ((TextBlock)StatusPopupCanvas.Children[0]).Text.ToString();
-            int index = CommonElements.AddedGoalsView.IndexOf(CommonElements.AddedGoalsView.Where(i => i.GoalInfo == GoalInfo).FirstOrDefault());
-            CommonElements.AddedGoalsView[index].AchieveBy = sender.ToString();
+            int GoalIndex = CommonElements.AddedGoalsView.IndexOf(CommonElements.AddedGoalsView.Where(i => i.GoalInfo == GoalInfo).FirstOrDefault());
+            CommonElements.AddedGoalsView[GoalIndex].AchieveBy = sender.ToString().Substring(0, 10);
 
-            StatusPopupCanvas.Children.Remove(StatusPopupCanvas.Children[9]);
+            int ChangeAchieveByCalendarIndex = 0;
+            foreach(UIElement child in StatusPopupCanvas.Children)
+            {
+                if (child.Uid == "ChangeAchieveByCalendar")
+                {
+                    ChangeAchieveByCalendarIndex = StatusPopupCanvas.Children.IndexOf(child);
+                }
+            }
+            StatusPopupCanvas.Children.Remove(StatusPopupCanvas.Children[ChangeAchieveByCalendarIndex]);
 
-            StatusPopupCanvas.Children.Remove(StatusPopupCanvas.Children[2]);
+            int AchieveByTextBlockIndex = 0;
+            foreach(UIElement child in StatusPopupCanvas.Children)
+            {
+                if (child.Uid == "AchieveByTextBlock")
+                {
+                    AchieveByTextBlockIndex = StatusPopupCanvas.Children.IndexOf(child);
+                }
+            }
+
+            StatusPopupCanvas.Children.Remove(StatusPopupCanvas.Children[AchieveByTextBlockIndex]);
             TextBlock AchieveByTextBlock = new TextBlock();
-            AchieveByTextBlock.Text = sender.ToString();
+            AchieveByTextBlock.Text = sender.ToString().Substring(0, 10);
             AchieveByTextBlock.Uid = "AchieveByTextBlock";
             AchieveByTextBlock.Margin = new Thickness(75, 35, 0, 0);
-            StatusPopupCanvas.Children.Insert(2, AchieveByTextBlock);
+            StatusPopupCanvas.Children.Insert(AchieveByTextBlockIndex, AchieveByTextBlock);
 
             GoalsTable.Items.Refresh();
-            
         }
     }
 }
