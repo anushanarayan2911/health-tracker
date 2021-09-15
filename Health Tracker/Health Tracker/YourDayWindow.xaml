@@ -10,32 +10,32 @@
         WindowStyle="None">
     <Canvas>
         <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label x:Name="YourDayTitleLabel" Content="Your Day" Canvas.Top="0" Canvas.Left="350"/>
+        <Label x:Name="YourDayTitleLabel" Content="Your Day" Canvas.Top="0" Canvas.Left="610"/>
         
-        <Label x:Name="MealsTitleLabel" Content="Your Meals" Canvas.Top="75" Canvas.Left="50"/>
-        <DataGrid x:Name="BreakfastCol" Width="125" Canvas.Top="75" Canvas.Left="150" AutoGenerateColumns="False">
+        <Label x:Name="MealsTitleLabel" Content="Your Meals" Canvas.Top="75" Canvas.Left="300"/>
+        <DataGrid x:Name="BreakfastCol" Width="125" Canvas.Top="75" Canvas.Left="400" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Breakfast" Width="*" Binding="{Binding mealDetails}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="LunchCol" Width="125" Canvas.Top="75" Canvas.Left="275" AutoGenerateColumns="False">
+        <DataGrid x:Name="LunchCol" Width="125" Canvas.Top="75" Canvas.Left="525" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Lunch" Width="*" Binding="{Binding mealDetails}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="DinnerCol" Width="125" Canvas.Top="75" Canvas.Left="400" AutoGenerateColumns="False">
+        <DataGrid x:Name="DinnerCol" Width="125" Canvas.Top="75" Canvas.Left="650" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Dinner" Width="*" Binding="{Binding mealDetails}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="SnackCol" Width="125" Canvas.Top="75" Canvas.Left="525" AutoGenerateColumns="False">
+        <DataGrid x:Name="SnackCol" Width="125" Canvas.Top="75" Canvas.Left="775" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Snack" Width="*" Binding="{Binding mealDetails}"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label x:Name="ExerciseTitleLabel" Content="Exercises" Canvas.Top="200" Canvas.Left="50"/>
-        <DataGrid x:Name="ExercisesTable" Width="500" Canvas.Top="200" Canvas.Left="150" AutoGenerateColumns="False">
+        <Label x:Name="ExerciseTitleLabel" Content="Exercises" Canvas.Top="200" Canvas.Left="300"/>
+        <DataGrid x:Name="ExercisesTable" Width="500" Canvas.Top="200" Canvas.Left="400" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Width="*" Binding="{Binding exerciseName}"/>
                 <DataGridTextColumn Header="Details" Width="*" Binding="{Binding exerciseDetails}"/>

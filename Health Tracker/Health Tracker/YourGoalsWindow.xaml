@@ -10,17 +10,17 @@
         WindowStyle="None">
     <Canvas>
         <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label x:Name="YourGoalsLabel" Content="Your Goals" Canvas.Top="0" Canvas.Left="350"/>
+        <Label x:Name="YourGoalsLabel" Content="Your Goals" Canvas.Top="0" Canvas.Left="610"/>
 
-        <Label x:Name="AddGoalLabel" Content="Add Goal" Canvas.Top="50" Canvas.Left="50" />
-        <TextBox x:Name="AddGoalInput" Width="300" Canvas.Top="55" Canvas.Left="150"/>
+        <Label x:Name="AddGoalLabel" Content="Add Goal" Canvas.Top="50" Canvas.Left="500" />
+        <TextBox x:Name="AddGoalInput" Width="300" Canvas.Top="55" Canvas.Left="600"/>
 
-        <Label x:Name="AchieveByLabel" Content="Achieve By:" Canvas.Top="100" Canvas.Left="50"/>
-        <DatePicker x:Name="AchieveByDate" Width="200" Canvas.Top="105" Canvas.Left="150"/>
+        <Label x:Name="AchieveByLabel" Content="Achieve By:" Canvas.Top="100" Canvas.Left="500"/>
+        <DatePicker x:Name="AchieveByDate" Width="200" Canvas.Top="105" Canvas.Left="600"/>
 
-        <Button x:Name="OKButton" Content="OK" Width="30" Canvas.Top="140" Canvas.Left="50" Click="OKButtonClick"/>
+        <Button x:Name="OKButton" Content="OK" Width="30" Canvas.Top="160" Canvas.Left="625" Click="OKButtonClick"/>
 
-        <DataGrid x:Name="GoalsTable" Width="600" AutoGenerateColumns="False" Canvas.Top="200" Canvas.Left="50">
+        <DataGrid x:Name="GoalsTable" Width="600" AutoGenerateColumns="False" Canvas.Top="200" Canvas.Left="350">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="GoalCol" Header="Goal" Width="*" Binding="{Binding GoalInfo}"/>
                 <DataGridTextColumn x:Name="AchieveByCol" Header="Achieve By" Width="*" Binding="{Binding AchieveBy}"/>
@@ -34,9 +34,9 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Popup x:Name="StatusPopup" Canvas.Top="100" Canvas.Left="100" Height="150" Width="300" Placement="Center" AllowsTransparency ="False" IsOpen="False" ></Popup>
-        <TextBox x:Name="test" Width="200" Canvas.Top="300" Canvas.Left="50"/>
-        <Button x:Name="ViewCompletedGoalsButton" Width="150" Height="20" Content="View Completed Goals" Canvas.Top="350" Canvas.Left="50" Click="ViewCompletedGoals"/>
+        <Popup x:Name="StatusPopup" Canvas.Top="100" Canvas.Left="100" Height="150" Width="300" Placement="Center" AllowsTransparency ="False" IsOpen="False"/>
+
+        <Button x:Name="ViewCompletedGoalsButton" Width="150" Height="20" Content="View Completed Goals" Canvas.Top="336" Canvas.Left="575" Click="ViewCompletedGoals"/>
         <Popup x:Name="ViewCompletedGoalsPopup" Canvas.Top="100" Canvas.Left="100" Width="300" Height="300" Placement="Center" AllowsTransparency="False" IsOpen="False">
             <Canvas Background="White">
                 <Button x:Name="CloseCompletedGoalsButton" Width="15" Height="30" Content="X" Canvas.Top="0" Canvas.Right="0" Click="CloseCompletedGoalsPopup"/>
@@ -46,8 +46,8 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </Canvas>
-            
-           
+
+
         </Popup>
     </Canvas>
 </Window>
