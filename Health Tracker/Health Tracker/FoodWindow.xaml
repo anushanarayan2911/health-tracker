@@ -11,30 +11,31 @@
     <Canvas>
         <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Button x:Name="AddMealButton" Content="Add Meal" Click="AddMealClick" Canvas.Top="50" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Button x:Name="ViewMealsButton" Content="View Meals" Click="ViewMealsClick" Canvas.Top="90" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Button x:Name="ViewMealsButton" Content="View Meals" Click="ViewMealsClick" Canvas.Top="90" Canvas.Left="100"/>
         
-        <Label x:Name="ChooseDay" Visibility="Hidden" Content="Day: " Canvas.Top="20" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <TabPanel x:Name="WeekDays" Margin="150, 27, 0, 0">
-            <RadioButton x:Name="MondayBox" Visibility="Hidden" Content="Monday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="150" VerticalAlignment="Top" HorizontalAlignment="Left" />
-            <RadioButton x:Name="TuesdayBox" Visibility="Hidden" Content="Tuesday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="250" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <RadioButton x:Name="WednesdayBox" Visibility="Hidden" Content="Wednesday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="350" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <RadioButton x:Name="ThursdayBox" Visibility="Hidden" Content="Thursday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="450" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <RadioButton x:Name="FridayBox" Visibility="Hidden" Content="Friday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="550" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <RadioButton x:Name="SaturdayBox" Visibility="Hidden" Content="Saturday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="650" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <RadioButton x:Name="SundayBox" Visibility="Hidden" Content="Sunday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="750" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label x:Name="ChooseDay" Visibility="Hidden" Content="Day: " Canvas.Top="20" Canvas.Left="380"/>
+        <TabPanel x:Name="WeekDays" Margin="480, 27, 0, 0">
+            <RadioButton x:Name="MondayBox" Visibility="Hidden" Content="Monday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="150"/>
+            <RadioButton x:Name="TuesdayBox" Visibility="Hidden" Content="Tuesday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="250"/>
+            <RadioButton x:Name="WednesdayBox" Visibility="Hidden" Content="Wednesday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="350"/>
+            <RadioButton x:Name="ThursdayBox" Visibility="Hidden" Content="Thursday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="450"/>
+            <RadioButton x:Name="FridayBox" Visibility="Hidden" Content="Friday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="550"/>
+            <RadioButton x:Name="SaturdayBox" Visibility="Hidden" Content="Saturday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="650"/>
+            <RadioButton x:Name="SundayBox" Visibility="Hidden" Content="Sunday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="750"/>
         </TabPanel>
         
-        <Label x:Name="ChooseMeal" Visibility="Hidden" Content="Meal:" Canvas.Top="40" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <RadioButton x:Name="BreakfastBox" Visibility="Hidden" Checked="SendMealName" Content="Breakfast" Canvas.Top="47" Canvas.Left="150" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <RadioButton x:Name="LunchBox" Visibility="Hidden" Checked="SendMealName" Content="Lunch" Canvas.Top="47" Canvas.Left="250" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <RadioButton x:Name="DinnerBox" Visibility="Hidden" Checked="SendMealName" Content="Dinner" Canvas.Top="47" Canvas.Left="340" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <RadioButton x:Name="SnackBox" Visibility="Hidden" Checked="SendMealName" Content="Snack" Canvas.Top="47" Canvas.Left="430" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label x:Name="ChooseMeal" Visibility="Hidden" Content="Meal:" Canvas.Top="50" Canvas.Left="380"/>
+        <RadioButton x:Name="BreakfastBox" Visibility="Hidden" Checked="SendMealName" Content="Breakfast" Canvas.Top="57" Canvas.Left="480"/>
+        <RadioButton x:Name="LunchBox" Visibility="Hidden" Checked="SendMealName" Content="Lunch" Canvas.Top="57" Canvas.Left="580"/>
+        <RadioButton x:Name="DinnerBox" Visibility="Hidden" Checked="SendMealName" Content="Dinner" Canvas.Top="57" Canvas.Left="680"/>
+        <RadioButton x:Name="SnackBox" Visibility="Hidden" Checked="SendMealName" Content="Snack" Canvas.Top="57" Canvas.Left="780"/>
         
-        <Label x:Name="MealDetailsLabel" Visibility="Hidden" Content="Meal Details" Canvas.Top="75" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <TextBox x:Name="MealDetailsInput" Visibility="Hidden" Width="300" Canvas.Top="80" Canvas.Left="200" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <Button x:Name="OKButton" Visibility="Hidden" Content="OK" Canvas.Top="100" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left" Click="SendMealInfo"/>
+        <Label x:Name="MealDetailsLabel" Visibility="Hidden" Content="Meal Details" Canvas.Top="80" Canvas.Left="380"/>
+        <TextBox x:Name="MealDetailsInput" Visibility="Hidden" Width="300" Canvas.Top="80" Canvas.Left="480"/>
         
-        <DataGrid x:Name="AddedMeals" Visibility="Hidden" AutoGenerateColumns="False" Height="200" Width="200" Canvas.Top="55" Canvas.Left="600">
+        <Button x:Name="OKButton" Visibility="Hidden" Content="OK" Canvas.Top="100" Canvas.Left="100" Click="SendMealInfo"/>
+        
+        <DataGrid x:Name="AddedMeals" Visibility="Hidden" AutoGenerateColumns="False" Height="200" Width="300" Canvas.Top="120" Canvas.Left="480">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Day" Binding="{Binding dayOfMeal}" />
                 <DataGridTextColumn Width="*" Header="Name" Binding="{Binding mealName}"/>
@@ -77,6 +78,5 @@
                 <DataGridTextColumn Width="*" Header="Sunday" Binding="{Binding mealDetails}" />
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="yes" Width="200" Height="30" Canvas.Top="10" Canvas.Left="200" />
     </Canvas>
 </Window>
