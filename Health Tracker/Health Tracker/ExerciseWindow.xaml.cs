@@ -31,6 +31,7 @@ namespace Health_Tracker
         {
             InitializeComponent();
             AddedExercises.ItemsSource = CommonElements.AddedExercisesView;
+            OKButton.Background.Opacity = 0.5;
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)

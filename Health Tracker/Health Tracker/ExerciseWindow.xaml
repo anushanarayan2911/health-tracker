@@ -9,63 +9,67 @@
         WindowState="Maximized"
         WindowStyle="None">
     <Canvas>
-        <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        
-        <Label x:Name="TimeInputInfo" Content="Enter time information as HH:MM" Canvas.Top="10" Canvas.Left="550"/>
-        <Label x:Name="ExerciseTitleLabel" Content="Exercise Title:" Canvas.Top="30" Canvas.Left="350"/>
-        <TextBox x:Name="ExerciseTitleInput" Canvas.Top="35" Canvas.Left="450" Width="150"/>
-        
-        <Label x:Name="ExerciseDetailsLabel" Content="Exercise Details:" Canvas.Top="65" Canvas.Left="350"/>
-        <TextBox x:Name="ExerciseDetailsInput" Canvas.Top="70" Canvas.Left="450" Width="400"/>
+        <Button x:Name="BackButton" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" Background="White" BorderBrush="White">
+            <Image Source="C:\Users\anush\source\repos\health-tracker\Images\BackArrow.png" Width="30"/>
+        </Button>
 
-        <Label x:Name="FrequencyLabel" Content="Frequency:" Canvas.Top="100" Canvas.Left="350"/>
-        <ComboBox x:Name="FrequencyDropDownMenu" Canvas.Top="105" Canvas.Left="450" Width="100" SelectionChanged="FrequencyDropDownMenu_SelectionChanged">
+        <Label x:Name="Title" Content="Exercise" Canvas.Top="10" Canvas.Left="590" FontFamily="Runda" FontSize="25" Foreground="#19959F"/>
+        <Label x:Name="TimeInputInfo" Content="Enter time information as HH:MM" Canvas.Top="50" Canvas.Left="550" FontFamily="Runda Light"/>
+
+        <Label x:Name="ExerciseTitleLabel" Content="Exercise Title:" Canvas.Top="70" Canvas.Left="350" FontFamily="Runda Light"/>
+        <TextBox x:Name="ExerciseTitleInput" Canvas.Top="75" Canvas.Left="450" Width="150" FontFamily="Runda Light"/>
+
+        <Label x:Name="ExerciseDetailsLabel" Content="Exercise Details:" Canvas.Top="105" Canvas.Left="350" FontFamily="Runda Light"/>
+        <TextBox x:Name="ExerciseDetailsInput" Canvas.Top="110" Canvas.Left="450" Width="400" FontFamily="Runda Light"/>
+
+        <Label x:Name="FrequencyLabel" Content="Frequency:" Canvas.Top="140" Canvas.Left="350" FontFamily="Runda Light"/>
+        <ComboBox x:Name="FrequencyDropDownMenu" Canvas.Top="145" Canvas.Left="450" Width="100" SelectionChanged="FrequencyDropDownMenu_SelectionChanged" FontFamily="Runda Light">
             <ComboBoxItem x:Name="DailyOption" Content="Daily"/>
             <ComboBoxItem x:Name="WeeklyOption" Content="Weekly"/>
             <ComboBoxItem x:Name="CustomOption" Content="Custom"/>
         </ComboBox>
 
-        <TabPanel x:Name="DaysOfWeekButton" Visibility="Hidden" Canvas.Top="105" Canvas.Left="600">
-            <RadioButton Content="Monday" Checked="SendDayName"/>
-            <RadioButton Content="Tuesday" Checked="SendDayName"/>
-            <RadioButton Content="Wednesday" Checked="SendDayName"/>
-            <RadioButton Content="Thursday" Checked="SendDayName"/>
-            <RadioButton Content="Friday" Checked="SendDayName"/>
-            <RadioButton Content="Saturday" Checked="SendDayName"/>
-            <RadioButton Content="Sunday" Checked="SendDayName"/>
-        </TabPanel>
-        
-        <TabPanel x:Name="DaysOfWeekCheckbox" Visibility="Hidden" Canvas.Top="105" Canvas.Left="600">
-            <CheckBox Content="Monday" Checked="SendDayNameMulti"/>
-            <CheckBox Content="Tuesday" Checked="SendDayNameMulti"/>
-            <CheckBox Content="Wednesday" Checked="SendDayNameMulti"/>
-            <CheckBox Content="Thursday" Checked="SendDayNameMulti"/>
-            <CheckBox Content="Friday" Checked="SendDayNameMulti"/>
-            <CheckBox Content="Saturday" Checked="SendDayNameMulti"/>
-            <CheckBox Content="Sunday" Checked="SendDayNameMulti"/>
+        <TabPanel x:Name="DaysOfWeekButton" Visibility="Hidden" Canvas.Top="145" Canvas.Left="600">
+            <RadioButton Content="Monday" Checked="SendDayName" FontFamily="Runda Light"/>
+            <RadioButton Content="Tuesday" Checked="SendDayName" FontFamily="Runda Light"/>
+            <RadioButton Content="Wednesday" Checked="SendDayName" FontFamily="Runda Light"/>
+            <RadioButton Content="Thursday" Checked="SendDayName" FontFamily="Runda Light"/>
+            <RadioButton Content="Friday" Checked="SendDayName" FontFamily="Runda Light"/>
+            <RadioButton Content="Saturday" Checked="SendDayName" FontFamily="Runda Light"/>
+            <RadioButton Content="Sunday" Checked="SendDayName" FontFamily="Runda Light"/>
         </TabPanel>
 
-        <Label x:Name="StartTimeLabel" Content="Start Time" Canvas.Top="135" Canvas.Left="350"/>
-        <TextBox x:Name="ExerciseStartTimeInput" Canvas.Top="140" Canvas.Left="450" Width="100"/>
+        <TabPanel x:Name="DaysOfWeekCheckbox" Visibility="Hidden" Canvas.Top="145" Canvas.Left="600">
+            <CheckBox Content="Monday" Checked="SendDayNameMulti" FontFamily="Runda Light"/>
+            <CheckBox Content="Tuesday" Checked="SendDayNameMulti" FontFamily="Runda Light"/>
+            <CheckBox Content="Wednesday" Checked="SendDayNameMulti" FontFamily="Runda Light"/>
+            <CheckBox Content="Thursday" Checked="SendDayNameMulti" FontFamily="Runda Light"/>
+            <CheckBox Content="Friday" Checked="SendDayNameMulti" FontFamily="Runda Light"/>
+            <CheckBox Content="Saturday" Checked="SendDayNameMulti" FontFamily="Runda Light"/>
+            <CheckBox Content="Sunday" Checked="SendDayNameMulti" FontFamily="Runda Light"/>
+        </TabPanel>
 
-        <Label x:Name="EndTimeLabel" Content="End Time" Canvas.Top="135" Canvas.Left="630"/>
-        <TextBox x:Name="ExerciseEndTimeInput" Canvas.Top="140" Canvas.Left="730" Width="100"/>
+        <Label x:Name="StartTimeLabel" Content="Start Time" Canvas.Top="175" Canvas.Left="350" FontFamily="Runda Light"/>
+        <TextBox x:Name="ExerciseStartTimeInput" Canvas.Top="180" Canvas.Left="450" Width="100" FontFamily="Runda Light"/>
 
-        <Label x:Name="StartDateLabel" Content="Start Date" Canvas.Top="170" Canvas.Left="350"/>
-        <DatePicker x:Name="ExerciseStartDateInput" Canvas.Top="175" Canvas.Left="450"></DatePicker>
+        <Label x:Name="EndTimeLabel" Content="End Time" Canvas.Top="175" Canvas.Left="630" FontFamily="Runda Light"/>
+        <TextBox x:Name="ExerciseEndTimeInput" Canvas.Top="180" Canvas.Left="730" Width="100" FontFamily="Runda Light"/>
 
-        <Label x:Name="EndDateLabel" Content="End Date" Canvas.Top="170" Canvas.Left="630"/>
-        <DatePicker x:Name="ExerciseEndDateInput" Canvas.Top="175" Canvas.Left="730"></DatePicker>
+        <Label x:Name="StartDateLabel" Content="Start Date" Canvas.Top="210" Canvas.Left="350" FontFamily="Runda Light"/>
+        <DatePicker x:Name="ExerciseStartDateInput" Canvas.Top="215" Canvas.Left="450" FontFamily="Runda Light"/>
 
-        <Button x:Name="OKButton" Click="SendExerciseInfo" Content="OK" Width="20" Canvas.Top="220" Canvas.Left="610" />
+        <Label x:Name="EndDateLabel" Content="End Date" Canvas.Top="210" Canvas.Left="630" FontFamily="Runda Light"/>
+        <DatePicker x:Name="ExerciseEndDateInput" Canvas.Top="215" Canvas.Left="730" FontFamily="Runda Light"/>
 
-        <DataGrid x:Name="AddedExercises" Height="100" Width="750" Canvas.Top="250" Canvas.Left="225" AutoGenerateColumns="False">
+        <Button x:Name="OKButton" Click="SendExerciseInfo" Content="OK" Width="30" Canvas.Top="250" Canvas.Left="620" Background="#19959F" BorderThickness="0" FontFamily="Runda Light"/>
+
+        <DataGrid x:Name="AddedExercises" Height="100" Width="750" Canvas.Top="290" Canvas.Left="225" AutoGenerateColumns="False" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="ExerciseName" Header="Name" Width="*" Binding="{Binding exerciseName}"/>
-                <DataGridTextColumn x:Name="ExerciseDetails" Header="Details" Width="*" Binding="{Binding exerciseDetails}"/>
-                <DataGridTextColumn x:Name="Frequency" Header="Frequency" Width="*" Binding="{Binding exerciseFrequency}"/>
-                <DataGridTextColumn x:Name="Time" Header="Time" Width="*" Binding="{Binding exerciseTime}"/>
-                <DataGridTextColumn x:Name="Date" Header="Date" Width="*" Binding="{Binding exerciseDate}"/>
+                <DataGridTextColumn x:Name="ExerciseName" Header="Name" Width="*" Binding="{Binding exerciseName}" FontFamily="Runda Light"/>
+                <DataGridTextColumn x:Name="ExerciseDetails" Header="Details" Width="*" Binding="{Binding exerciseDetails}"  FontFamily="Runda Light"/>
+                <DataGridTextColumn x:Name="Frequency" Header="Frequency" Width="*" Binding="{Binding exerciseFrequency}"  FontFamily="Runda Light"/>
+                <DataGridTextColumn x:Name="Time" Header="Time" Width="*" Binding="{Binding exerciseTime}"  FontFamily="Runda Light"/>
+                <DataGridTextColumn x:Name="Date" Header="Date" Width="*" Binding="{Binding exerciseDate}"  FontFamily="Runda Light"/>
             </DataGrid.Columns>
         </DataGrid>
     </Canvas>
