@@ -100,6 +100,10 @@ namespace Health_Tracker
                 {
                     Button b = new Button();
                     b.Click += new RoutedEventHandler(CalendarButtonClick);
+                    b.Background = Brushes.White;
+                    b.BorderBrush = new SolidColorBrush(Color.FromRgb(25, 149, 159));
+                    b.BorderThickness = new Thickness(1);
+                    b.BorderBrush.Opacity = 0.5;
                     Grid.SetColumn(b, j);
                     Grid.SetRow(b, i);
                     CalendarGrid.Children.Add(b);
@@ -134,7 +138,8 @@ namespace Health_Tracker
                
                 if(dateToAddCurrentMonth == todayDate)
                 {
-                    calendarButtonArray[i].Background = Brushes.Blue;
+                    calendarButtonArray[i].Background = new SolidColorBrush(Color.FromRgb(25, 149, 159));
+                    calendarButtonArray[i].Background.Opacity = 0.5;
                 }
                 dateToAddCurrentMonth += 1;
             };

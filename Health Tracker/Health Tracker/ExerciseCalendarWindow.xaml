@@ -10,9 +10,12 @@
         WindowStyle="None">
 
     <Canvas>
-        <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label x:Name="MonthName" Canvas.Top="10" Canvas.Left="610"/>
-        <Grid x:Name="CalendarGrid" ShowGridLines="True" Canvas.Left="260" Canvas.Top="50" Width="700" Height="360">
+        <Button x:Name="BackButton" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" Background="White" BorderBrush="White">
+            <Image Source="C:\Users\anush\source\repos\health-tracker\Images\BackArrow.png" Width="30"/>
+        </Button>
+
+        <Label x:Name="MonthName" Canvas.Top="10" Canvas.Left="530" FontFamily="Runda" FontSize="40" Foreground="#19959F"/>
+        <Grid x:Name="CalendarGrid" ShowGridLines="False" Canvas.Left="170" Canvas.Top="75" Width="910" Height="600">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*"/>
