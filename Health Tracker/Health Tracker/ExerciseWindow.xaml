@@ -9,6 +9,19 @@
         WindowState="Maximized"
         WindowStyle="None">
     <Canvas>
+
+        <Menu Canvas.Top="50" Height="800" Background="#19959F" Foreground="White">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Vertical" />
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="Food" Click="OpenFoodWindow" FontFamily="Runda Light" MinHeight="150"/>
+            <MenuItem Header="Exercise Calendar" Click="OpenExerciseCalendarWindow" FontFamily="Runda Light" MinHeight="150"/>
+            <MenuItem Header="Your Day" Click="OpenYourDayWindow" FontFamily="Runda Light" MinHeight="150"/>
+            <MenuItem Header="Your Goals" Click="OpenYourGoalsWindow" FontFamily="Runda Light" MinHeight="150"/>
+        </Menu>
+        
         <Button x:Name="BackButton" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" Background="White" BorderBrush="White">
             <Image Source="C:\Users\anush\source\repos\health-tracker\Images\BackArrow.png" Width="30"/>
         </Button>
@@ -63,7 +76,7 @@
 
         <Button x:Name="OKButton" Click="SendExerciseInfo" Content="OK" Width="30" Canvas.Top="250" Canvas.Left="620" Background="#19959F" BorderThickness="0" FontFamily="Runda Light"/>
 
-        <DataGrid x:Name="AddedExercises" Height="100" Width="750" Canvas.Top="290" Canvas.Left="225" AutoGenerateColumns="False" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F" IsReadOnly="True">
+        <DataGrid x:Name="AddedExercises" Height="100" Width="750" Canvas.Top="290" Canvas.Left="250" AutoGenerateColumns="False" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="ExerciseName" Header="Name" Width="*" Binding="{Binding exerciseName}" FontFamily="Runda Light"/>
                 <DataGridTextColumn x:Name="ExerciseDetails" Header="Details" Width="*" Binding="{Binding exerciseDetails}"  FontFamily="Runda Light"/>

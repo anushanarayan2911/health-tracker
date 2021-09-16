@@ -293,6 +293,32 @@ namespace Health_Tracker
             SundayCol.Items.Refresh();
         }
 
-        
+        private void OpenExerciseWindow(object sender, RoutedEventArgs e)
+        {
+            ExerciseWindow exerciseWindow = new ExerciseWindow();
+            this.Visibility = Visibility.Hidden;
+            exerciseWindow.Show();
+        }
+
+        private void OpenYourDayWindow(object sender, RoutedEventArgs e)
+        {
+            YourDayWindow yourDayWindow = new YourDayWindow();
+            this.Visibility = Visibility.Hidden;
+            yourDayWindow.Show();
+        }
+
+        private void OpenYourGoalsWindow(object sender, RoutedEventArgs e)
+        {
+            YourGoalsWindow yourGoalsWindow = new YourGoalsWindow();
+            this.Visibility = Visibility.Hidden;
+            yourGoalsWindow.Show();
+        }
+
+        private void OpenExerciseCalendarWindow(object sender, RoutedEventArgs e)
+        {
+            ExerciseCalendarWindow exerciseCalendarWindow = new ExerciseCalendarWindow();
+            this.Visibility = Visibility.Hidden;
+            exerciseCalendarWindow.Show();
+        }
     };
 }

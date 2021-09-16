@@ -113,5 +113,33 @@ namespace Health_Tracker
             this.Visibility = Visibility.Hidden;
             CommonElements.goBack();
         }
+
+        private void OpenFoodWindow(object sender, RoutedEventArgs e)
+        {
+            FoodWindow foodWindow = new FoodWindow();
+            this.Visibility = Visibility.Hidden;
+            foodWindow.Show();
+        }
+
+        private void OpenExerciseWindow(object sender, RoutedEventArgs e)
+        {
+            ExerciseWindow exerciseWindow = new ExerciseWindow();
+            this.Visibility = Visibility.Hidden;
+            exerciseWindow.Show();
+        }
+
+        private void OpenExerciseCalendarWindow(object sender, RoutedEventArgs e)
+        {
+            ExerciseCalendarWindow exerciseCalendarWindow = new ExerciseCalendarWindow();
+            this.Visibility = Visibility.Hidden;
+            exerciseCalendarWindow.Show();
+        }
+
+        private void OpenYourGoalsWindow(object sender, RoutedEventArgs e)
+        {
+            YourGoalsWindow yourGoalsWindow = new YourGoalsWindow();
+            this.Visibility = Visibility.Hidden;
+            yourGoalsWindow.Show();
+        }
     }
 }

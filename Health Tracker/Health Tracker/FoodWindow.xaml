@@ -9,19 +9,32 @@
         WindowState="Maximized"
         WindowStyle="None">
     <Canvas>
+
+        <Menu Canvas.Top="50" Height="800" Background="#19959F" Foreground="White">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Vertical" />
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="Exercise" Click="OpenExerciseWindow" FontFamily="Runda Light" MinHeight="150"/>
+            <MenuItem Header="Exercise Calendar" Click="OpenExerciseCalendarWindow" FontFamily="Runda Light" MinHeight="150"/>
+            <MenuItem Header="Your Day" Click="OpenYourDayWindow" FontFamily="Runda Light" MinHeight="150"/>
+            <MenuItem Header="Your Goals" Click="OpenYourGoalsWindow" FontFamily="Runda Light" MinHeight="150"/>
+        </Menu>
+
         <Button x:Name="BackButton" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" Background="White" BorderBrush="White">
             <Image Source="C:\Users\anush\source\repos\health-tracker\Images\BackArrow.png" Width="30"/>
         </Button>
 
-        <Button x:Name="AddMealButton" Click="AddMealClick" Canvas.Top="50" Canvas.Left="410" Background="White" BorderThickness="0">
+        <Button x:Name="AddMealButton" Click="AddMealClick" Width="50" Height="50" Canvas.Top="50" Canvas.Left="410" Background="White" BorderThickness="0">
             <Image Source="C:\Users\anush\source\repos\health-tracker\Images\AddMeal.png" Width="30"/>
         </Button>
-        <Label x:Name="AddMealLabel" Content="Add Meal" Canvas.Top="80" Canvas.Left="400" FontFamily="Runda Light" Foreground="#19959F"/>
+        <Label x:Name="AddMealLabel" Content="Add Meal" Canvas.Top="100" Canvas.Left="400" FontFamily="Runda Light" Foreground="#19959F"/>
 
-        <Button x:Name="ViewMealsButton" Click="ViewMealsClick" Canvas.Top="50" Canvas.Left="810" Background="White" BorderThickness="0">
+        <Button x:Name="ViewMealsButton" Click="ViewMealsClick" Width="50" Height="50" Canvas.Top="50" Canvas.Left="810" Background="White" BorderThickness="0">
             <Image Source="C:\Users\anush\source\repos\health-tracker\Images\ViewMeals.png" Width="30"/>
         </Button>
-        <Label x:Name="ViewMealsLabel" Content="View Meals" Canvas.Top="80" Canvas.Left="800" FontFamily="Runda Light" Foreground="#19959F"/>
+        <Label x:Name="ViewMealsLabel" Content="View Meals" Canvas.Top="105" Canvas.Left="799" FontFamily="Runda Light" Foreground="#19959F"/>
 
         <Label x:Name="AddMealsTitle" Content="Add Meal" Canvas.Top="10" Canvas.Left="590" Visibility="Hidden" FontFamily="Runda" FontSize="20" Foreground="#19959F"/>
         <Label x:Name="ChooseDay" Visibility="Hidden" Content="Day: " Canvas.Top="50" Canvas.Left="380" FontFamily="Runda Light"/>
@@ -55,7 +68,7 @@
         </DataGrid>
 
         <Label x:Name="ViewMealsTitle" Content="All Meals" Canvas.Top="10" Canvas.Left="590" Visibility="Hidden" FontFamily="Runda" FontSize="20" Foreground="#19959F"/>
-        
+
         <DataGrid x:Name="MondayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="70" Canvas.Left="100" FontFamily="Runda" Background="White" BorderThickness="0" IsReadOnly="True" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Monday" Binding="{Binding mealDetails}" FontFamily="Runda Light" />

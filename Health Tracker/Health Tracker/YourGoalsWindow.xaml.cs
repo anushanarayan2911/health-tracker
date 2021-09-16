@@ -328,5 +328,33 @@ namespace Health_Tracker
             
             return new object[] { Status, StatusPopupCanvas.Background };
         }
+
+        private void OpenFoodWindow(object sender, RoutedEventArgs e)
+        {
+            FoodWindow foodWindow = new FoodWindow();
+            this.Visibility = Visibility.Hidden;
+            foodWindow.Show();
+        }
+
+        private void OpenExerciseWindow(object sender, RoutedEventArgs e)
+        {
+            ExerciseWindow exerciseWindow = new ExerciseWindow();
+            this.Visibility = Visibility.Hidden;
+            exerciseWindow.Show();
+        }
+
+        private void OpenExerciseCalendarWindow(object sender, RoutedEventArgs e)
+        {
+            ExerciseCalendarWindow exerciseCalendarWindow = new ExerciseCalendarWindow();
+            this.Visibility = Visibility.Hidden;
+            exerciseCalendarWindow.Show();
+        }
+
+        private void OpenYourDayWindow(object sender, RoutedEventArgs e)
+        {
+            YourDayWindow yourDayWindow = new YourDayWindow();
+            this.Visibility = Visibility.Hidden;
+            yourDayWindow.Show();
+        }
     }
 }

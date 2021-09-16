@@ -248,5 +248,33 @@ namespace Health_Tracker
             PopupCanvas.Children.Clear();
             toShow.Clear();
         }
+
+        private void OpenFoodWindow(object sender, RoutedEventArgs e)
+        {
+            FoodWindow foodWindow = new FoodWindow();
+            this.Visibility = Visibility.Hidden;
+            foodWindow.Show();
+        }
+
+        private void OpenExerciseWindow(object sender, RoutedEventArgs e)
+        {
+            ExerciseWindow exerciseWindow = new ExerciseWindow();
+            this.Visibility = Visibility.Hidden;
+            exerciseWindow.Show();
+        }
+
+        private void OpenYourDayWindow(object sender, RoutedEventArgs e)
+        {
+            YourDayWindow yourDayWindow = new YourDayWindow();
+            this.Visibility = Visibility.Hidden;
+            yourDayWindow.Show();
+        }
+
+        private void OpenYourGoalsWindow(object sender, RoutedEventArgs e)
+        {
+            YourGoalsWindow yourGoalsWindow = new YourGoalsWindow();
+            this.Visibility = Visibility.Hidden;
+            yourGoalsWindow.Show();
+        }
     }
 }
