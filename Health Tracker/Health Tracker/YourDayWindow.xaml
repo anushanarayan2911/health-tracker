@@ -10,36 +10,36 @@
         WindowStyle="None">
     <Canvas>
         <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label x:Name="YourDayTitleLabel" Content="Your Day" Canvas.Top="0" Canvas.Left="610"/>
+        <Label x:Name="YourDayTitleLabel" Content="Your Day" Canvas.Top="10" Canvas.Left="580" FontFamily="Runda" FontSize="25" Foreground="#19959F"/>
         
-        <Label x:Name="MealsTitleLabel" Content="Your Meals" Canvas.Top="75" Canvas.Left="300"/>
-        <DataGrid x:Name="BreakfastCol" Width="125" Canvas.Top="75" Canvas.Left="400" AutoGenerateColumns="False">
+        <Label x:Name="MealsTitleLabel" Content="Your Meals" Canvas.Top="75" Canvas.Left="300" FontFamily="Runda Light"/>
+        <DataGrid x:Name="BreakfastCol" Width="125" Canvas.Top="75" Canvas.Left="400" AutoGenerateColumns="False" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Breakfast" Width="*" Binding="{Binding mealDetails}"/>
+                <DataGridTextColumn Header="Breakfast" Width="*" Binding="{Binding mealDetails}" FontFamily="Runda Light"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="LunchCol" Width="125" Canvas.Top="75" Canvas.Left="525" AutoGenerateColumns="False">
+        <DataGrid x:Name="LunchCol" Width="125" Canvas.Top="75" Canvas.Left="525" AutoGenerateColumns="False" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Lunch" Width="*" Binding="{Binding mealDetails}"/>
+                <DataGridTextColumn Header="Lunch" Width="*" Binding="{Binding mealDetails}" FontFamily="Runda Light"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="DinnerCol" Width="125" Canvas.Top="75" Canvas.Left="650" AutoGenerateColumns="False">
+        <DataGrid x:Name="DinnerCol" Width="125" Canvas.Top="75" Canvas.Left="650" AutoGenerateColumns="False" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Dinner" Width="*" Binding="{Binding mealDetails}"/>
+                <DataGridTextColumn Header="Dinner" Width="*" Binding="{Binding mealDetails}" FontFamily="Runda Light"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="SnackCol" Width="125" Canvas.Top="75" Canvas.Left="775" AutoGenerateColumns="False">
+        <DataGrid x:Name="SnackCol" Width="125" Canvas.Top="75" Canvas.Left="775" AutoGenerateColumns="False" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Snack" Width="*" Binding="{Binding mealDetails}"/>
+                <DataGridTextColumn Header="Snack" Width="*" Binding="{Binding mealDetails}" FontFamily="Runda Light"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label x:Name="ExerciseTitleLabel" Content="Exercises" Canvas.Top="200" Canvas.Left="300"/>
-        <DataGrid x:Name="ExercisesTable" Width="500" Canvas.Top="200" Canvas.Left="400" AutoGenerateColumns="False">
+        <Label x:Name="ExerciseTitleLabel" Content="Exercises" Canvas.Top="200" Canvas.Left="300" FontFamily="Runda Light"/>
+        <DataGrid x:Name="ExercisesTable" Width="500" Canvas.Top="200" Canvas.Left="400" AutoGenerateColumns="False" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding exerciseName}"/>
-                <DataGridTextColumn Header="Details" Width="*" Binding="{Binding exerciseDetails}"/>
-                <DataGridTextColumn Header="Time" Width="*" Binding="{Binding exerciseTime}"/>
+                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding exerciseName}" FontFamily="Runda Light"/>
+                <DataGridTextColumn Header="Details" Width="*" Binding="{Binding exerciseDetails}" FontFamily="Runda Light"/>
+                <DataGridTextColumn Header="Time" Width="*" Binding="{Binding exerciseTime}" FontFamily="Runda Light"/>
             </DataGrid.Columns>
         </DataGrid>
 
