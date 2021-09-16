@@ -9,37 +9,48 @@
         WindowState="Maximized"
         WindowStyle="None">
     <Canvas>
-        <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Button x:Name="AddMealButton" Content="Add Meal" Click="AddMealClick" Canvas.Top="50" Canvas.Left="100" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Button x:Name="ViewMealsButton" Content="View Meals" Click="ViewMealsClick" Canvas.Top="90" Canvas.Left="100"/>
-        
-        <Label x:Name="ChooseDay" Visibility="Hidden" Content="Day: " Canvas.Top="20" Canvas.Left="380"/>
-        <TabPanel x:Name="WeekDays" Margin="480, 27, 0, 0">
-            <RadioButton x:Name="MondayBox" Visibility="Hidden" Content="Monday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="150"/>
-            <RadioButton x:Name="TuesdayBox" Visibility="Hidden" Content="Tuesday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="250"/>
-            <RadioButton x:Name="WednesdayBox" Visibility="Hidden" Content="Wednesday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="350"/>
-            <RadioButton x:Name="ThursdayBox" Visibility="Hidden" Content="Thursday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="450"/>
-            <RadioButton x:Name="FridayBox" Visibility="Hidden" Content="Friday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="550"/>
-            <RadioButton x:Name="SaturdayBox" Visibility="Hidden" Content="Saturday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="650"/>
-            <RadioButton x:Name="SundayBox" Visibility="Hidden" Content="Sunday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="750"/>
+        <Button x:Name="BackButton" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" Background="White" BorderBrush="White">
+            <Image Source="C:\Users\anush\source\repos\health-tracker\Images\BackArrow.png" Width="30"/>
+        </Button>
+
+        <Button x:Name="AddMealButton" Click="AddMealClick" Canvas.Top="50" Canvas.Left="410" Background="White" BorderThickness="0">
+            <Image Source="C:\Users\anush\source\repos\health-tracker\Images\AddMeal.png" Width="30"/>
+        </Button>
+        <Label x:Name="AddMealLabel" Content="Add Meal" Canvas.Top="80" Canvas.Left="400" FontFamily="Runda Light" Foreground="#19959F"/>
+
+        <Button x:Name="ViewMealsButton" Click="ViewMealsClick" Canvas.Top="50" Canvas.Left="810" Background="White" BorderThickness="0">
+            <Image Source="C:\Users\anush\source\repos\health-tracker\Images\ViewMeals.png" Width="30"/>
+        </Button>
+        <Label x:Name="ViewMealsLabel" Content="View Meals" Canvas.Top="80" Canvas.Left="800" FontFamily="Runda Light" Foreground="#19959F"/>
+
+        <Label x:Name="AddMealsTitle" Content="Add Meal" Canvas.Top="10" Canvas.Left="590" Visibility="Hidden" FontFamily="Runda" FontSize="20" Foreground="#19959F"/>
+        <Label x:Name="ChooseDay" Visibility="Hidden" Content="Day: " Canvas.Top="50" Canvas.Left="380" FontFamily="Runda Light"/>
+        <TabPanel x:Name="WeekDays" Margin="480, 57, 0, 0">
+            <RadioButton x:Name="MondayBox" Visibility="Hidden" Content="Monday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="150" FontFamily="Runda Light"/>
+            <RadioButton x:Name="TuesdayBox" Visibility="Hidden" Content="Tuesday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="250" FontFamily="Runda Light"/>
+            <RadioButton x:Name="WednesdayBox" Visibility="Hidden" Content="Wednesday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="350" FontFamily="Runda Light"/>
+            <RadioButton x:Name="ThursdayBox" Visibility="Hidden" Content="Thursday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="450" FontFamily="Runda Light"/>
+            <RadioButton x:Name="FridayBox" Visibility="Hidden" Content="Friday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="550" FontFamily="Runda Light"/>
+            <RadioButton x:Name="SaturdayBox" Visibility="Hidden" Content="Saturday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="650" FontFamily="Runda Light"/>
+            <RadioButton x:Name="SundayBox" Visibility="Hidden" Content="Sunday" Checked="SendDayName" Canvas.Top="27" Canvas.Left="750" FontFamily="Runda Light"/>
         </TabPanel>
-        
-        <Label x:Name="ChooseMeal" Visibility="Hidden" Content="Meal:" Canvas.Top="50" Canvas.Left="380"/>
-        <RadioButton x:Name="BreakfastBox" Visibility="Hidden" Checked="SendMealName" Content="Breakfast" Canvas.Top="57" Canvas.Left="480"/>
-        <RadioButton x:Name="LunchBox" Visibility="Hidden" Checked="SendMealName" Content="Lunch" Canvas.Top="57" Canvas.Left="580"/>
-        <RadioButton x:Name="DinnerBox" Visibility="Hidden" Checked="SendMealName" Content="Dinner" Canvas.Top="57" Canvas.Left="680"/>
-        <RadioButton x:Name="SnackBox" Visibility="Hidden" Checked="SendMealName" Content="Snack" Canvas.Top="57" Canvas.Left="780"/>
-        
-        <Label x:Name="MealDetailsLabel" Visibility="Hidden" Content="Meal Details" Canvas.Top="80" Canvas.Left="380"/>
-        <TextBox x:Name="MealDetailsInput" Visibility="Hidden" Width="300" Canvas.Top="80" Canvas.Left="480"/>
-        
-        <Button x:Name="OKButton" Visibility="Hidden" Content="OK" Canvas.Top="100" Canvas.Left="100" Click="SendMealInfo"/>
-        
-        <DataGrid x:Name="AddedMeals" Visibility="Hidden" AutoGenerateColumns="False" Height="200" Width="300" Canvas.Top="120" Canvas.Left="480">
+
+        <Label x:Name="ChooseMeal" Visibility="Hidden" Content="Meal:" Canvas.Top="100" Canvas.Left="380" FontFamily="Runda Light"/>
+        <RadioButton x:Name="BreakfastBox" Visibility="Hidden" Checked="SendMealName" Content="Breakfast" Canvas.Top="107" Canvas.Left="480" FontFamily="Runda Light"/>
+        <RadioButton x:Name="LunchBox" Visibility="Hidden" Checked="SendMealName" Content="Lunch" Canvas.Top="107" Canvas.Left="580" FontFamily="Runda Light"/>
+        <RadioButton x:Name="DinnerBox" Visibility="Hidden" Checked="SendMealName" Content="Dinner" Canvas.Top="107" Canvas.Left="660" FontFamily="Runda Light"/>
+        <RadioButton x:Name="SnackBox" Visibility="Hidden" Checked="SendMealName" Content="Snack" Canvas.Top="107" Canvas.Left="760" FontFamily="Runda Light"/>
+
+        <Label x:Name="MealDetailsLabel" Visibility="Hidden" Content="Meal Details" Canvas.Top="150" Canvas.Left="380" FontFamily="Runda Light"/>
+        <TextBox x:Name="MealDetailsInput" Visibility="Hidden" Width="300" Canvas.Top="150" Canvas.Left="480" FontFamily="Runda Light"/>
+
+        <Button x:Name="OKButton" Visibility="Hidden" Content="OK" Canvas.Top="200" Canvas.Left="640" Click="SendMealInfo" FontFamily="Runda Light" Background="#19959F" BorderThickness="0"/>
+
+        <DataGrid x:Name="AddedMeals" Visibility="Hidden" AutoGenerateColumns="False" Height="300" Width="400" Canvas.Top="250" Canvas.Left="460" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Day" Binding="{Binding dayOfMeal}" />
-                <DataGridTextColumn Width="*" Header="Name" Binding="{Binding mealName}"/>
-                <DataGridTextColumn Width="*" Header="Details" Binding="{Binding mealDetails}"/>
+                <DataGridTextColumn Width="*" Header="Day" Binding="{Binding dayOfMeal}" FontFamily="Runda Light" />
+                <DataGridTextColumn Width="*" Header="Name" Binding="{Binding mealName}" FontFamily="Runda Light"/>
+                <DataGridTextColumn Width="*" Header="Details" Binding="{Binding mealDetails}" FontFamily="Runda Light"/>
             </DataGrid.Columns>
         </DataGrid>
 

@@ -56,6 +56,7 @@ namespace Health_Tracker
         private void AddMealClick(object sender, RoutedEventArgs e)
         {
             AddMealButton.Visibility = Visibility.Hidden;
+            AddMealLabel.Visibility = Visibility.Hidden;
 
             MondayCol.Visibility = Visibility.Hidden;
             TuesdayCol.Visibility = Visibility.Hidden;
@@ -65,8 +66,12 @@ namespace Health_Tracker
             SaturdayCol.Visibility = Visibility.Hidden;
             SundayCol.Visibility = Visibility.Hidden;
 
-            ViewMealsButton.Visibility = Visibility.Visible;
-            ViewMealsButton.Margin = new Thickness(-95, -40, 0, 0); 
+            Canvas.SetTop(ViewMealsButton, 20);
+            Canvas.SetLeft(ViewMealsButton, 95);
+            Canvas.SetTop(ViewMealsLabel, 40);
+            Canvas.SetLeft(ViewMealsLabel, 80);
+
+            AddMealsTitle.Visibility = Visibility.Visible;
 
             ChooseDay.Visibility = Visibility.Visible;
             MondayBox.Visibility = Visibility.Visible;
@@ -81,6 +86,7 @@ namespace Health_Tracker
             BreakfastBox.Visibility = Visibility.Visible;
             LunchBox.Visibility = Visibility.Visible;
             DinnerBox.Visibility = Visibility.Visible;
+            SnackBox.Visibility = Visibility.Visible;
 
             MealDetailsLabel.Visibility = Visibility.Visible;
             MealDetailsInput.Visibility = Visibility.Visible;
