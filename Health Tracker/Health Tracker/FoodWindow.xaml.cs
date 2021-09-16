@@ -131,7 +131,8 @@ namespace Health_Tracker
             string mealDetails = (string)MealDetailsInput.Text;
 
             CommonElements.AddedMealsView.Add(new Meal() { mealName = name, mealDetails = mealDetails, dayOfMeal = day});
-            
+
+            MealDetailsInput.Clear();
             AddedMeals.Items.Refresh();
         }
 

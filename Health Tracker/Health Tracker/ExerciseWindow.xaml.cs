@@ -59,6 +59,13 @@ namespace Health_Tracker
                 }
             }
 
+            ExerciseTitleInput.Clear();
+            ExerciseDetailsInput.Clear();
+            ExerciseStartTimeInput.Clear();
+            ExerciseEndTimeInput.Clear();
+            ExerciseStartDateInput.SelectedDate = null;
+            ExerciseEndDateInput.SelectedDate = null;
+
             CommonElements.AddedExercisesView.Add(new Exercise { 
                 exerciseName = exerciseTitle, 
                 exerciseDetails = exerciseDetails,

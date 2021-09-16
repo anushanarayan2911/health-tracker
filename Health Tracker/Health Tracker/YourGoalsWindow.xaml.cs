@@ -59,6 +59,9 @@ namespace Health_Tracker
                 AchieveBy = AchieveBy,
                 Status = Status
             });
+
+            AddGoalInput.Clear();
+            AchieveByDate.SelectedDate = null;
         }
 
         private void StatusButtonClick(object sender, RoutedEventArgs e)
