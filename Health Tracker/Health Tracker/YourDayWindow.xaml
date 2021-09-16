@@ -9,7 +9,9 @@
         WindowState="Maximized"
         WindowStyle="None">
     <Canvas>
-        <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button x:Name="BackButton" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" Background="White" BorderBrush="White">
+            <Image Source="C:\Users\anush\source\repos\health-tracker\Images\BackArrow.png" Width="30"/>
+        </Button>
         <Label x:Name="YourDayTitleLabel" Content="Your Day" Canvas.Top="10" Canvas.Left="580" FontFamily="Runda" FontSize="25" Foreground="#19959F"/>
         
         <Label x:Name="MealsTitleLabel" Content="Your Meals" Canvas.Top="75" Canvas.Left="300" FontFamily="Runda Light"/>

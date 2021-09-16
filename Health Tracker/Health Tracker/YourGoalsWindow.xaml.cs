@@ -28,7 +28,6 @@ namespace Health_Tracker
         DateTime Today;
         DateTime OneWeekAway;
         Canvas StatusPopupCanvas = new Canvas();
-        Canvas ViewCompletedGoalsCanvas = new Canvas();
 
         public YourGoalsWindow()
         {
@@ -38,6 +37,9 @@ namespace Health_Tracker
 
             GoalsTable.ItemsSource = CommonElements.AddedGoalsView;
             CompletedGoalsTable.ItemsSource = CommonElements.CompletedGoalsView;
+
+            OKButton.Background.Opacity = 0.5;
+            ViewCompletedGoalsButton.Background.Opacity = 0.5;
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -66,25 +68,10 @@ namespace Health_Tracker
 
             string GoalInfo = SelectedRow.GoalInfo.ToString();
             DateTime AchieveBy = Convert.ToDateTime(SelectedRow.AchieveBy.ToString());
-            string Status = "";
+            string Status = FormatStatusPopup(AchieveBy)[0].ToString();
+            StatusPopupCanvas.Background = (Brush) FormatStatusPopup(AchieveBy)[1];
 
-            if (AchieveBy > OneWeekAway)
-            {
-                Status = "You've got time!";
-                StatusPopupCanvas.Background = Brushes.Green;
-
-            } else if (AchieveBy > Today && AchieveBy < OneWeekAway)
-            {
-                Status = "You're getting close!";
-                StatusPopupCanvas.Background = Brushes.Orange;
-
-            } else if (AchieveBy < Today)
-            {
-                Status = "You're late!";
-                StatusPopupCanvas.Background = Brushes.Red;
-
-            }
-
+            #region AddElementsToStatusPopup
             TextBlock GoalInfoTextBlock = new TextBlock();
             GoalInfoTextBlock.Text = GoalInfo;
             GoalInfoTextBlock.TextDecorations = TextDecorations.Underline;
@@ -111,6 +98,7 @@ namespace Health_Tracker
             TextBlock StatusTextBlock = new TextBlock();
             StatusTextBlock.Text = Status;
             StatusTextBlock.Margin = new Thickness(75, 65, 0, 0);
+            StatusTextBlock.Uid = "StatusTextBlock";
             StatusPopupCanvas.Children.Add(StatusTextBlock);
 
             Button CompletedButton = new Button();
@@ -145,6 +133,7 @@ namespace Health_Tracker
             ExitButton.Margin = new Thickness(285, 0, 0, 0);
             StatusPopupCanvas.Children.Add(ExitButton);
 
+            #endregion
             StatusPopup.Child = StatusPopupCanvas;
             StatusPopup.IsOpen = true;
         }
@@ -252,6 +241,25 @@ namespace Health_Tracker
             AchieveByTextBlock.Margin = new Thickness(75, 35, 0, 0);
             StatusPopupCanvas.Children.Insert(AchieveByTextBlockIndex, AchieveByTextBlock);
 
+            int StatusTextBlockIndex = 0;
+            foreach (UIElement child in StatusPopupCanvas.Children)
+            {
+                if (child.Uid == "StatusTextBlock")
+                {
+                    StatusTextBlockIndex = StatusPopupCanvas.Children.IndexOf(child);
+                }
+            }
+
+            StatusPopupCanvas.Children.Remove(StatusPopupCanvas.Children[StatusTextBlockIndex]);
+            DateTime NewAchieveByDate = Convert.ToDateTime(sender.ToString().Substring(0, 10));
+            TextBlock StatusTextBlock = new TextBlock();
+            StatusTextBlock.Text = FormatStatusPopup(NewAchieveByDate)[0].ToString();
+            StatusTextBlock.Uid = "StatusTextBlock";
+            StatusTextBlock.Margin = new Thickness(75, 65, 0, 0);
+            StatusPopupCanvas.Children.Insert(StatusTextBlockIndex, StatusTextBlock);
+
+            StatusPopupCanvas.Background = (Brush)FormatStatusPopup(NewAchieveByDate)[1];
+
             GoalsTable.Items.Refresh();
         }
 
@@ -263,6 +271,31 @@ namespace Health_Tracker
         private void CloseCompletedGoalsPopup(object sender, RoutedEventArgs e)
         {
             ViewCompletedGoalsPopup.IsOpen = false;
+        }
+
+        private object[] FormatStatusPopup(DateTime date)
+        {
+            if (date > OneWeekAway)
+            {
+                Status = "You've got time!";
+                StatusPopupCanvas.Background = Brushes.Green;
+
+            }
+            else if (date > Today && date < OneWeekAway)
+            {
+                Status = "You're getting close!";
+                StatusPopupCanvas.Background = Brushes.Orange;
+
+            }
+            else if (date < Today)
+            {
+                Status = "You're late!";
+                StatusPopupCanvas.Background = Brushes.Red;
+
+            }
+
+            
+            return new object[] { Status, StatusPopupCanvas.Background };
         }
     }
 }

@@ -9,18 +9,21 @@
         WindowState="Maximized"
         WindowStyle="None">
     <Canvas>
-        <Button x:Name="BackButton" Content="Back" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label x:Name="YourGoalsLabel" Content="Your Goals" Canvas.Top="0" Canvas.Left="610"/>
+        <Button x:Name="BackButton" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" Background="White" BorderBrush="White">
+            <Image Source="C:\Users\anush\source\repos\health-tracker\Images\BackArrow.png" Width="30"/>
+        </Button>
+        <Label x:Name="YourGoalsLabel" Content="Your Goals" Canvas.Top="10" Canvas.Left="560" FontFamily="Runda" FontSize="25" Foreground="#19959F"/>
 
-        <Label x:Name="AddGoalLabel" Content="Add Goal" Canvas.Top="50" Canvas.Left="500" />
-        <TextBox x:Name="AddGoalInput" Width="300" Canvas.Top="55" Canvas.Left="600"/>
+        <Label x:Name="AddGoalLabel" Content="Add Goal" Canvas.Top="50" Canvas.Left="500" FontFamily="Runda Light"/>
+        <TextBox x:Name="AddGoalInput" Width="300" Canvas.Top="55" Canvas.Left="600" FontFamily="Runda Light"/>
 
-        <Label x:Name="AchieveByLabel" Content="Achieve By:" Canvas.Top="100" Canvas.Left="500"/>
-        <DatePicker x:Name="AchieveByDate" Width="200" Canvas.Top="105" Canvas.Left="600"/>
+        <Label x:Name="AchieveByLabel" Content="Achieve By:" Canvas.Top="100" Canvas.Left="500" FontFamily="Runda Light"/>
+        <DatePicker x:Name="AchieveByDate" Width="200" Canvas.Top="105" Canvas.Left="600" FontFamily="Runda Light"/>
 
-        <Button x:Name="OKButton" Content="OK" Width="30" Canvas.Top="160" Canvas.Left="625" Click="OKButtonClick"/>
+        <Button x:Name="OKButton" Content="OK" Width="30" Canvas.Top="160" Canvas.Left="625" Click="OKButtonClick" FontFamily="Runda Light" Background="#19959F" BorderThickness="0"/>
 
-        <DataGrid x:Name="GoalsTable" Width="600" AutoGenerateColumns="False" Canvas.Top="200" Canvas.Left="350">
+        <DataGrid x:Name="GoalsTable" Width="600" AutoGenerateColumns="False" Canvas.Top="200" Canvas.Left="350" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="
+                  White" HorizontalGridLinesBrush="#19959F" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="GoalCol" Header="Goal" Width="*" Binding="{Binding GoalInfo}"/>
                 <DataGridTextColumn x:Name="AchieveByCol" Header="Achieve By" Width="*" Binding="{Binding AchieveBy}"/>
@@ -36,7 +39,7 @@
 
         <Popup x:Name="StatusPopup" Canvas.Top="100" Canvas.Left="100" Height="150" Width="300" Placement="Center" AllowsTransparency ="False" IsOpen="False"/>
 
-        <Button x:Name="ViewCompletedGoalsButton" Width="150" Height="20" Content="View Completed Goals" Canvas.Top="336" Canvas.Left="575" Click="ViewCompletedGoals"/>
+        <Button x:Name="ViewCompletedGoalsButton" Width="150" Height="20" Content="View Completed Goals" Canvas.Top="336" Canvas.Left="575" Click="ViewCompletedGoals" FontFamily="Runda Light" Background="#19959F" BorderThickness="0"/>
         <Popup x:Name="ViewCompletedGoalsPopup" Canvas.Top="100" Canvas.Left="100" Width="300" Height="300" Placement="Center" AllowsTransparency="False" IsOpen="False">
             <Canvas Background="White">
                 <Button x:Name="CloseCompletedGoalsButton" Width="15" Height="30" Content="X" Canvas.Top="0" Canvas.Right="0" Click="CloseCompletedGoalsPopup"/>
