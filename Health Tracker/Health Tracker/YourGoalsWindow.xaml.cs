@@ -148,7 +148,7 @@ namespace Health_Tracker
             Button ExitButton = new Button();
             ExitButton.Content = new Image
             {
-                Source = new BitmapImage(new Uri("C:/Users/anush/source/repos/health-tracker/Images/ClosePopup.png"))
+                Source = new BitmapImage(new Uri("C:/Users/anush/source/repos/health-tracker/Images/Close.png"))
             }; ;
             ExitButton.Click += new RoutedEventHandler(ExitButtonClick);
             ExitButton.Height = 15;

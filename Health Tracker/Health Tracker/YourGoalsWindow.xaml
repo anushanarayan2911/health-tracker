@@ -42,10 +42,12 @@
         <Button x:Name="ViewCompletedGoalsButton" Width="150" Height="20" Content="View Completed Goals" Canvas.Top="336" Canvas.Left="575" Click="ViewCompletedGoals" FontFamily="Runda Light" Background="#19959F" BorderThickness="0"/>
         <Popup x:Name="ViewCompletedGoalsPopup" Canvas.Top="100" Canvas.Left="100" Width="300" Height="300" Placement="Center" AllowsTransparency="False" IsOpen="False">
             <Canvas Background="White">
-                <Button x:Name="CloseCompletedGoalsButton" Width="15" Height="30" Content="X" Canvas.Top="0" Canvas.Right="0" Click="CloseCompletedGoalsPopup"/>
-                <DataGrid x:Name="CompletedGoalsTable" Width="300" Height="300" Canvas.Top="15" AutoGenerateColumns="False">
+                <Button x:Name="CloseCompletedGoalsButton" Width="15" Height="15" Canvas.Top="0" Canvas.Right="0" Click="CloseCompletedGoalsPopup" Background="{x:Null}" BorderThickness="0">
+                    <Image Source="C:\Users\anush\source\repos\health-tracker\Images\ClosePopup.png"/>
+                </Button>
+                <DataGrid x:Name="CompletedGoalsTable" Width="300" Height="300" Canvas.Top="15" AutoGenerateColumns="False" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="#19959F" HorizontalGridLinesBrush="#19959F" IsReadOnly="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn x:Name="CompletedGoalsList" Width="*" Binding="{Binding GoalInfo}"/>
+                        <DataGridTextColumn x:Name="CompletedGoalsList" Width="*" Header="Completed Goals" Binding="{Binding GoalInfo}" FontFamily="Runda Light"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Canvas>
