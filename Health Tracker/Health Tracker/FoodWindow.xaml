@@ -54,39 +54,41 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid x:Name="MondayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="55" Canvas.Left="100">
+        <Label x:Name="ViewMealsTitle" Content="All Meals" Canvas.Top="10" Canvas.Left="590" Visibility="Hidden" FontFamily="Runda" FontSize="20" Foreground="#19959F"/>
+        
+        <DataGrid x:Name="MondayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="70" Canvas.Left="100" FontFamily="Runda" Background="White" BorderThickness="0" IsReadOnly="True" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Monday" Binding="{Binding mealDetails}" />
+                <DataGridTextColumn Width="*" Header="Monday" Binding="{Binding mealDetails}" FontFamily="Runda Light" />
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="TuesdayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="55" Canvas.Left="250">
+        <DataGrid x:Name="TuesdayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="70" Canvas.Left="250" FontFamily="Runda" Background="White" BorderThickness="0" IsReadOnly="True" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Tuesday" Binding="{Binding mealDetails}" />
+                <DataGridTextColumn Width="*" Header="Tuesday" Binding="{Binding mealDetails}" FontFamily="Runda Light"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="WednesdayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="55" Canvas.Left="400">
+        <DataGrid x:Name="WednesdayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="70" Canvas.Left="400" FontFamily="Runda" Background="White" BorderThickness="0" IsReadOnly="True" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Wednesday" Binding="{Binding mealDetails}" />
+                <DataGridTextColumn Width="*" Header="Wednesday" Binding="{Binding mealDetails}" FontFamily="Runda Light"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="ThursdayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="55" Canvas.Left="550">
+        <DataGrid x:Name="ThursdayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="70" Canvas.Left="550" FontFamily="Runda" Background="White" BorderThickness="0" IsReadOnly="True" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Thursday" Binding="{Binding mealDetails}" />
+                <DataGridTextColumn Width="*" Header="Thursday" Binding="{Binding mealDetails}" FontFamily="Runda Light" />
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="FridayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="55" Canvas.Left="700">
+        <DataGrid x:Name="FridayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="70" Canvas.Left="700" FontFamily="Runda" Background="White" BorderThickness="0" IsReadOnly="True" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Friday" Binding="{Binding mealDetails}" />
+                <DataGridTextColumn Width="*" Header="Friday" Binding="{Binding mealDetails}" FontFamily="Runda Light"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="SaturdayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="55" Canvas.Left="850">
+        <DataGrid x:Name="SaturdayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="70" Canvas.Left="850" FontFamily="Runda" Background="White" BorderThickness="0" IsReadOnly="True" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Saturday" Binding="{Binding mealDetails}" />
+                <DataGridTextColumn Width="*" Header="Saturday" Binding="{Binding mealDetails}" FontFamily="Runda Light"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="SundayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="55" Canvas.Left="1000">
+        <DataGrid x:Name="SundayCol" Visibility="Hidden" AutoGenerateColumns="False" Height="500" Width="150" Canvas.Top="70" Canvas.Left="1000" FontFamily="Runda" Background="White" BorderThickness="0" IsReadOnly="True" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Sunday" Binding="{Binding mealDetails}" />
+                <DataGridTextColumn Width="*" Header="Sunday" Binding="{Binding mealDetails}" FontFamily="Runda Light"/>
             </DataGrid.Columns>
         </DataGrid>
     </Canvas>
