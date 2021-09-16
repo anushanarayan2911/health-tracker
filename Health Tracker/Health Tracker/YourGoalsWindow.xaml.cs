@@ -75,61 +75,86 @@ namespace Health_Tracker
             TextBlock GoalInfoTextBlock = new TextBlock();
             GoalInfoTextBlock.Text = GoalInfo;
             GoalInfoTextBlock.TextDecorations = TextDecorations.Underline;
+            GoalInfoTextBlock.FontFamily = new FontFamily("Runda");
             GoalInfoTextBlock.Margin = new Thickness(150, 0, 0, 0);
             GoalInfoTextBlock.Uid = "GoalInfoTextBlock";
             StatusPopupCanvas.Children.Add(GoalInfoTextBlock);
 
             Label AchieveByLabel = new Label();
             AchieveByLabel.Content = "Achieve By: ";
+            AchieveByLabel.FontFamily = new FontFamily("Runda Light");
             AchieveByLabel.Margin = new Thickness(0, 30, 0, 0);
             StatusPopupCanvas.Children.Add(AchieveByLabel);
 
             TextBlock AchieveByTextBlock = new TextBlock();
-            AchieveByTextBlock.Text = AchieveBy.ToString();
+            AchieveByTextBlock.Text = AchieveBy.ToString().Substring(0, 10);
             AchieveByTextBlock.Uid = "AchieveByTextBlock";
+            AchieveByTextBlock.FontFamily = new FontFamily("Runda Light");
             AchieveByTextBlock.Margin = new Thickness(75, 35, 0, 0);
             StatusPopupCanvas.Children.Add(AchieveByTextBlock);
 
             Label StatusLabel = new Label();
             StatusLabel.Content = "Status";
+            StatusLabel.FontFamily = new FontFamily("Runda Light");
             StatusLabel.Margin = new Thickness(0, 60, 0, 0);
             StatusPopupCanvas.Children.Add(StatusLabel);
 
             TextBlock StatusTextBlock = new TextBlock();
             StatusTextBlock.Text = Status;
+            StatusTextBlock.FontFamily = new FontFamily("Runda Light");
             StatusTextBlock.Margin = new Thickness(75, 65, 0, 0);
             StatusTextBlock.Uid = "StatusTextBlock";
             StatusPopupCanvas.Children.Add(StatusTextBlock);
 
             Button CompletedButton = new Button();
-            CompletedButton.Content = "Complete";
+            CompletedButton.Content = new Image
+            {
+                Source = new BitmapImage(new Uri("C:/Users/anush/source/repos/health-tracker/Images/CompleteGoal.png"))
+            };
             CompletedButton.Click += new RoutedEventHandler(CompletedButtonClick);
             CompletedButton.Height = 30;
             CompletedButton.Width = 70;
+            CompletedButton.Background = null;
+            CompletedButton.BorderThickness = new Thickness(0);
             CompletedButton.Margin = new Thickness(0, 120, 0, 0);
             StatusPopupCanvas.Children.Add(CompletedButton);
 
             Button ChangeAchieveByButton = new Button();
-            ChangeAchieveByButton.Content = "Change Achieve By";
+            ChangeAchieveByButton.Content = new Image
+            {
+                Source = new BitmapImage(new Uri("C:/Users/anush/source/repos/health-tracker/Images/ChangeAchieveBy.png"))
+            };
             ChangeAchieveByButton.Click += new RoutedEventHandler(ChangeAchieveByButtonClick);
             ChangeAchieveByButton.Height = 30;
             ChangeAchieveByButton.Width = 120;
-            ChangeAchieveByButton.Margin = new Thickness(100, 120, 0, 0);
+            ChangeAchieveByButton.Background = null;
+            ChangeAchieveByButton.BorderThickness = new Thickness(0);
+            ChangeAchieveByButton.Margin = new Thickness(90, 120, 0, 0);
             StatusPopupCanvas.Children.Add(ChangeAchieveByButton);
 
             Button DeleteGoalButton = new Button();
-            DeleteGoalButton.Content = "Delete";
+            DeleteGoalButton.Content = new Image
+            {
+                Source = new BitmapImage(new Uri("C:/Users/anush/source/repos/health-tracker/Images/DeleteGoal.png"))
+            }; 
             DeleteGoalButton.Click += new RoutedEventHandler(DeleteGoalButtonClick);
             DeleteGoalButton.Height = 30;
             DeleteGoalButton.Width = 50;
-            DeleteGoalButton.Margin = new Thickness(250, 120, 0, 0);
+            DeleteGoalButton.Background = null;
+            DeleteGoalButton.BorderThickness = new Thickness(0);
+            DeleteGoalButton.Margin = new Thickness(260, 120, 0, 0);
             StatusPopupCanvas.Children.Add(DeleteGoalButton);
 
             Button ExitButton = new Button();
-            ExitButton.Content = "X";
+            ExitButton.Content = new Image
+            {
+                Source = new BitmapImage(new Uri("C:/Users/anush/source/repos/health-tracker/Images/ClosePopup.png"))
+            }; ;
             ExitButton.Click += new RoutedEventHandler(ExitButtonClick);
-            ExitButton.Height = 30;
+            ExitButton.Height = 15;
             ExitButton.Width = 15;
+            ExitButton.Background = null;
+            ExitButton.BorderThickness = new Thickness(0);
             ExitButton.Margin = new Thickness(285, 0, 0, 0);
             StatusPopupCanvas.Children.Add(ExitButton);
 
@@ -257,7 +282,7 @@ namespace Health_Tracker
             StatusTextBlock.Uid = "StatusTextBlock";
             StatusTextBlock.Margin = new Thickness(75, 65, 0, 0);
             StatusPopupCanvas.Children.Insert(StatusTextBlockIndex, StatusTextBlock);
-
+                
             StatusPopupCanvas.Background = (Brush)FormatStatusPopup(NewAchieveByDate)[1];
 
             GoalsTable.Items.Refresh();
@@ -278,19 +303,22 @@ namespace Health_Tracker
             if (date > OneWeekAway)
             {
                 Status = "You've got time!";
-                StatusPopupCanvas.Background = Brushes.Green;
+                StatusPopupCanvas.Background = new SolidColorBrush(Color.FromRgb(117, 219, 182));
+                StatusPopupCanvas.Background.Opacity = 0.75;
 
             }
             else if (date > Today && date < OneWeekAway)
             {
                 Status = "You're getting close!";
-                StatusPopupCanvas.Background = Brushes.Orange;
+                StatusPopupCanvas.Background = new SolidColorBrush(Color.FromRgb(216, 135, 72));
+                StatusPopupCanvas.Background.Opacity = 0.75;
 
             }
             else if (date < Today)
             {
                 Status = "You're late!";
-                StatusPopupCanvas.Background = Brushes.Red;
+                StatusPopupCanvas.Background = new SolidColorBrush(Color.FromRgb(243, 70, 70));
+                StatusPopupCanvas.Background.Opacity = 0.75;
 
             }
 
