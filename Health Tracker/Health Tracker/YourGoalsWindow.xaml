@@ -30,7 +30,7 @@
                 <DataGridTemplateColumn x:Name="StatusCol" Header="Status" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="StatusButton" Click="StatusButtonClick"/>
+                            <Button x:Name="StatusButton" Content="View Status" Click="StatusButtonClick" FontFamily="Runda Light" Background="{x:Null}" BorderBrush="#19959F"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
