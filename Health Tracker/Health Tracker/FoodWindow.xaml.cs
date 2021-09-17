@@ -21,8 +21,9 @@ namespace Health_Tracker
     /// </summary>
     public partial class FoodWindow : Window
     {
-        string[] mealNameArray = new String[30];
-        string[] mealDayArray = new String[30];
+        #region StartVariables
+        string[] MealNameArray = new String[30];
+        string[] MealDayArray = new String[30];
 
         List<Meal> OrderedList;
 
@@ -33,10 +34,13 @@ namespace Health_Tracker
         ObservableCollection<weekMeal> FridayMealsView = new ObservableCollection<weekMeal>();
         ObservableCollection<weekMeal> SaturdayMealsView = new ObservableCollection<weekMeal>();
         ObservableCollection<weekMeal> SundayMealsView = new ObservableCollection<weekMeal>();
+        #endregion
 
         public FoodWindow()
         {
             InitializeComponent();
+
+            #region SetItemsSource
             AddedMeals.ItemsSource = CommonElements.AddedMealsView;
             MondayCol.ItemsSource = MondayMealsView;
             TuesdayCol.ItemsSource = TuesdayMealsView;
@@ -45,6 +49,8 @@ namespace Health_Tracker
             FridayCol.ItemsSource = FridayMealsView;
             SaturdayCol.ItemsSource = SaturdayMealsView;
             SundayCol.ItemsSource = SundayMealsView;
+            #endregion
+
         }
 
         public void BackButtonClick(object sender, RoutedEventArgs e)
@@ -101,33 +107,33 @@ namespace Health_Tracker
         private void SendDayName(object sender, RoutedEventArgs e)
         {
             string day = (string)((RadioButton)sender).Content;
-            int index = Array.IndexOf(mealDayArray, null);
-            mealDayArray[index] = day;
+            int index = Array.IndexOf(MealDayArray, null);
+            MealDayArray[index] = day;
         }
 
         public void SendMealName(object sender, RoutedEventArgs e)
         {
             string name = (string)((RadioButton)sender).Content;
-            int index = Array.IndexOf(mealNameArray, null);
-            mealNameArray[index] = name;
+            int index = Array.IndexOf(MealNameArray, null);
+            MealNameArray[index] = name;
         }
 
         public void SendMealInfo(object sender, RoutedEventArgs e)
         {
-            int nameIndex = Array.IndexOf(mealNameArray, null) - 1;
+            int nameIndex = Array.IndexOf(MealNameArray, null) - 1;
             if (nameIndex < 0)
             {
                 nameIndex = 0;
             }
 
-            int dayIndex = Array.IndexOf(mealDayArray, null) - 1;
+            int dayIndex = Array.IndexOf(MealDayArray, null) - 1;
             if (dayIndex < 0)
             {
                 dayIndex = 0;
             }
 
-            string name = mealNameArray[nameIndex];
-            string day = mealDayArray[dayIndex];
+            string name = MealNameArray[nameIndex];
+            string day = MealDayArray[dayIndex];
             string mealDetails = (string)MealDetailsInput.Text;
 
             CommonElements.AddedMealsView.Add(new Meal() { mealName = name, mealDetails = mealDetails, dayOfMeal = day});

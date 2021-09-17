@@ -122,7 +122,7 @@ namespace Health_Tracker
             Frequencies[0] = DayName;
         }
 
-        private void SendDayNameMulti(object sender, RoutedEventArgs e)
+        private void SendDayNameMulti(object sender, RoutedEventArgs e) 
         {
             string DayName = (string)((CheckBox)sender).Content;
             Frequencies[Array.IndexOf(Frequencies, null)] = DayName;
