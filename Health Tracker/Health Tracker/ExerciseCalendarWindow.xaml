@@ -10,24 +10,24 @@
         WindowStyle="None">
 
     <Canvas>
-        <Menu Canvas.Top="50" Height="800" Background="#19959F" Foreground="White">
+        <Menu Height="800" Canvas.Top="50" Background="#19959F" Foreground="White">
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VirtualizingStackPanel Orientation="Vertical" />
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
-            <MenuItem Header="Food" Click="OpenFoodWindow" FontFamily="Runda Light" MinHeight="150"/>
-            <MenuItem Header="Exercise" Click="OpenExerciseWindow" FontFamily="Runda Light" MinHeight="150"/>
-            <MenuItem Header="Your Day" Click="OpenYourDayWindow" FontFamily="Runda Light" MinHeight="150"/>
-            <MenuItem Header="Your Goals" Click="OpenYourGoalsWindow" FontFamily="Runda Light" MinHeight="150"/>
+            <MenuItem Header="Food" MinHeight="150" Click="OpenFoodWindow" FontFamily="Runda Light" />
+            <MenuItem Header="Exercise" MinHeight="150" Click="OpenExerciseWindow" FontFamily="Runda Light" />
+            <MenuItem Header="Your Day" MinHeight="150" Click="OpenYourDayWindow" FontFamily="Runda Light" />
+            <MenuItem Header="Your Goals" MinHeight="150" Click="OpenYourGoalsWindow" FontFamily="Runda Light" />
         </Menu>
-        
-        <Button x:Name="BackButton" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" Background="White" BorderBrush="White">
+
+        <Button x:Name="BackButton" Canvas.Top="10" Canvas.Left="10" Click="BackButtonClick"  Background="White" BorderBrush="White">
             <Image Source="C:\Users\anush\source\repos\health-tracker\Images\BackArrow.png" Width="30"/>
         </Button>
 
         <Label x:Name="MonthName" Canvas.Top="10" Canvas.Left="530" FontFamily="Runda" FontSize="40" Foreground="#19959F"/>
-        <Grid x:Name="CalendarGrid" ShowGridLines="False" Canvas.Left="170" Canvas.Top="75" Width="910" Height="600">
+        <Grid x:Name="CalendarGrid" Width="910" Height="600" Canvas.Top="75" Canvas.Left="170" ShowGridLines="False">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*"/>
@@ -47,7 +47,7 @@
             </Grid.RowDefinitions>
         </Grid>
 
-        <Popup x:Name="ExerciseDetailsPopup" Canvas.Top="100" Canvas.Left="100" Width="200" IsOpen="False" AllowsTransparency="True"  Placement="Center">
+        <Popup x:Name="ExerciseDetailsPopup" Width="200" Canvas.Top="100" Canvas.Left="100" IsOpen="False" AllowsTransparency="True"  Placement="Center">
             <Border BorderBrush="Black" BorderThickness="1"></Border>
         </Popup>
     </Canvas>
