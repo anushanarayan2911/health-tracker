@@ -9,30 +9,30 @@
         WindowState="Maximized"
         WindowStyle="None">
     <Canvas>
-        <Rectangle x:Name="Rectangle" Fill="#19959F" Width="1400" Height="100"/>
-        <Label x:Name="Intro" Content="Welcome to your personal health tracker! Here, you can keep track of meals, exercise, and personal goals to help you live a happy and healthy life!" Canvas.Top ="193" FontFamily="Runda Light" FontSize="15" Height="32" Width="1010" Canvas.Left="145"/>
+        <Rectangle x:Name="Rectangle" Height="100" Width="1400" Fill="#19959F"/>
+        <Label x:Name="Intro" Content="Welcome to your personal health tracker! Here, you can keep track of meals, exercise, and personal goals to help you live a happy and healthy life!"  Height="32" Width="1010" Canvas.Top ="193"  Canvas.Left="145" FontFamily="Runda Light" FontSize="15"/>
         <Label x:Name="Title" Content="Your Health Tracker" Canvas.Top="10" Canvas.Left="414" FontFamily="Runda" FontSize="50" Foreground="White"/>
-        <Button x:Name="Food" Width="100" Height="100" Canvas.Left="200" Canvas.Top="300" Click="FoodButtonClick" Background="{x:Null}" BorderThickness="0">
+        <Button x:Name="Food" Height="100" Width="100" Canvas.Top="300" Canvas.Left="200" Click="FoodButtonClick" Background="{x:Null}" BorderThickness="0">
             <Image Source="C:\Users\anush\source\repos\health-tracker\Images\Food.png"/>
         </Button>
         <Label x:Name="FoodLabel" Content="Food" Canvas.Top="425" Canvas.Left="250" FontFamily="Runda" Foreground="#19959F"/>
 
-        <Button x:Name="Exercise" Width="100" Height="100" Canvas.Left="400" Canvas.Top="300" Click="ExerciseButtonClick" Background="{x:Null}" BorderThickness="0">
+        <Button x:Name="Exercise" Height="100" Width="100" Canvas.Top="300" Canvas.Left="400" Click="ExerciseButtonClick" Background="{x:Null}" BorderThickness="0">
             <Image Source="C:\Users\anush\source\repos\health-tracker\Images\Exercise.png"/>
         </Button>
         <Label x:Name="ExerciseLabel" Content="Exercise" Canvas.Top="425" Canvas.Left="421" FontFamily="Runda" Foreground="#19959F"/>
 
-        <Button x:Name="exerciseCalendar" Width="100" Height="100" Canvas.Left="600" Canvas.Top="300" Click="ExerciseCalendarButtonClick" Background="{x:Null}" BorderThickness="0">
+        <Button x:Name="exerciseCalendar" Height="100" Width="100" Canvas.Top="300" Canvas.Left="600" Click="ExerciseCalendarButtonClick" Background="{x:Null}" BorderThickness="0">
             <Image Source="C:\Users\anush\source\repos\health-tracker\Images\ExerciseCalendar.png"/>
         </Button>
         <Label x:Name="ExerciseCalendar" Content="Exercise Calendar" Canvas.Top="421" Canvas.Left="594" FontFamily="Runda" Foreground="#19959F"/>
 
-        <Button x:Name="yourDay" Width="100" Height="100" Canvas.Left="800" Canvas.Top="300" Click="YourDayButtonClick" Background="{x:Null}" BorderThickness="0">
+        <Button x:Name="yourDay" Height="100" Width="100" Canvas.Top="300" Canvas.Left="800" Click="YourDayButtonClick" Background="{x:Null}" BorderThickness="0">
             <Image Source="C:\Users\anush\source\repos\health-tracker\Images\YourDay.png"/>
         </Button>
         <Label x:Name="YourDayLabel" Content="Your Day" Canvas.Top="421" Canvas.Left="820" FontFamily="Runda" Foreground="#19959F"/>
 
-        <Button x:Name="yourGoals" Width="100" Height="100" Canvas.Left="1000" Canvas.Top="300" Click="YourGoalsButtonClick" Background="{x:Null}" BorderThickness="0">
+        <Button x:Name="yourGoals" Height="100" Width="100" Canvas.Top="300" Canvas.Left="1000" Click="YourGoalsButtonClick" Background="{x:Null}" BorderThickness="0">
             <Image Source="C:\Users\anush\source\repos\health-tracker\Images\YourGoals.png"/>
         </Button>
         <Label x:Name="YourGoalsLabel" Content="Your Goals" Canvas.Top="425" Canvas.Left="1015" FontFamily="Runda" Foreground="#19959F"/>
