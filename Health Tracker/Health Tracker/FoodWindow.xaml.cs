@@ -61,6 +61,7 @@ namespace Health_Tracker
 
         private void AddMealClick(object sender, RoutedEventArgs e)
         {
+            #region HideElements
             AddMealButton.Visibility = Visibility.Hidden;
             AddMealLabel.Visibility = Visibility.Hidden;
 
@@ -72,12 +73,14 @@ namespace Health_Tracker
             FridayCol.Visibility = Visibility.Hidden;
             SaturdayCol.Visibility = Visibility.Hidden;
             SundayCol.Visibility = Visibility.Hidden;
+            #endregion
 
+            #region ShowElements
             ViewMealsButton.Visibility = Visibility.Visible;
             ViewMealsLabel.Visibility = Visibility.Visible;
-            Canvas.SetTop(ViewMealsButton, 20);
+            Canvas.SetTop(ViewMealsButton, 10);
             Canvas.SetLeft(ViewMealsButton, 95);
-            Canvas.SetTop(ViewMealsLabel, 40);
+            Canvas.SetTop(ViewMealsLabel, 30);
             Canvas.SetLeft(ViewMealsLabel, 80);
 
             AddMealsTitle.Visibility = Visibility.Visible;
@@ -102,41 +105,46 @@ namespace Health_Tracker
 
             OKButton.Visibility = Visibility.Visible;
             AddedMeals.Visibility = Visibility.Visible;
+            #endregion
         }
 
         private void SendDayName(object sender, RoutedEventArgs e)
         {
-            string day = (string)((RadioButton)sender).Content;
-            int index = Array.IndexOf(MealDayArray, null);
-            MealDayArray[index] = day;
+            string Day = (string)((RadioButton)sender).Content;
+            int Index = Array.IndexOf(MealDayArray, null);
+            MealDayArray[Index] = Day;
         }
 
         public void SendMealName(object sender, RoutedEventArgs e)
         {
-            string name = (string)((RadioButton)sender).Content;
-            int index = Array.IndexOf(MealNameArray, null);
-            MealNameArray[index] = name;
+            string Name = (string)((RadioButton)sender).Content;
+            int Index = Array.IndexOf(MealNameArray, null);
+            MealNameArray[Index] = Name;
         }
 
         public void SendMealInfo(object sender, RoutedEventArgs e)
         {
-            int nameIndex = Array.IndexOf(MealNameArray, null) - 1;
-            if (nameIndex < 0)
+            int NameIndex = Array.IndexOf(MealNameArray, null) - 1;
+            if (NameIndex < 0)
             {
-                nameIndex = 0;
+                NameIndex = 0;
             }
 
-            int dayIndex = Array.IndexOf(MealDayArray, null) - 1;
-            if (dayIndex < 0)
+            int DayIndex = Array.IndexOf(MealDayArray, null) - 1;
+            if (DayIndex < 0)
             {
-                dayIndex = 0;
+                DayIndex = 0;
             }
 
-            string name = MealNameArray[nameIndex];
-            string day = MealDayArray[dayIndex];
-            string mealDetails = (string)MealDetailsInput.Text;
-
-            CommonElements.AddedMealsView.Add(new Meal() { mealName = name, mealDetails = mealDetails, dayOfMeal = day});
+            string Name = MealNameArray[NameIndex];
+            string MealDetails = (string)MealDetailsInput.Text;
+            string Day = MealDayArray[DayIndex];
+            
+            CommonElements.AddedMealsView.Add(new Meal() { 
+                mealName = Name, 
+                mealDetails = MealDetails, 
+                dayOfMeal = Day 
+            });
 
             MealDetailsInput.Clear();
             AddedMeals.Items.Refresh();
@@ -144,22 +152,7 @@ namespace Health_Tracker
 
         private void ViewMealsClick(object sender, RoutedEventArgs e)
         {
-            ViewMealsTitle.Visibility = Visibility.Visible;
-            MondayCol.Visibility = Visibility.Visible;
-            TuesdayCol.Visibility = Visibility.Visible;
-            WednesdayCol.Visibility = Visibility.Visible;
-            ThursdayCol.Visibility = Visibility.Visible;
-            FridayCol.Visibility = Visibility.Visible;
-            SaturdayCol.Visibility = Visibility.Visible;
-            SundayCol.Visibility = Visibility.Visible;
-
-            AddMealButton.Visibility = Visibility.Visible;
-            AddMealLabel.Visibility = Visibility.Visible;
-            AddMealsTitle.Visibility = Visibility.Hidden;
-            Canvas.SetTop(AddMealButton, 10);
-            Canvas.SetLeft(AddMealButton, 70);
-            Canvas.SetTop(AddMealLabel, 40);
-            Canvas.SetLeft(AddMealLabel, 55);
+            #region HideElements
             ViewMealsLabel.Visibility = Visibility.Hidden;
             ViewMealsButton.Visibility = Visibility.Hidden;
 
@@ -183,7 +176,29 @@ namespace Health_Tracker
             OKButton.Visibility = Visibility.Hidden;
 
             AddedMeals.Visibility = Visibility.Hidden;
+            AddMealsTitle.Visibility = Visibility.Hidden;
+            #endregion
 
+            #region ShowElements
+            ViewMealsTitle.Visibility = Visibility.Visible;
+            MondayCol.Visibility = Visibility.Visible;
+            TuesdayCol.Visibility = Visibility.Visible;
+            WednesdayCol.Visibility = Visibility.Visible;
+            ThursdayCol.Visibility = Visibility.Visible;
+            FridayCol.Visibility = Visibility.Visible;
+            SaturdayCol.Visibility = Visibility.Visible;
+            SundayCol.Visibility = Visibility.Visible;
+
+            AddMealButton.Visibility = Visibility.Visible;
+            AddMealLabel.Visibility = Visibility.Visible;
+
+            Canvas.SetTop(AddMealButton, 10);
+            Canvas.SetLeft(AddMealButton, 70);
+            Canvas.SetTop(AddMealLabel, 30);
+            Canvas.SetLeft(AddMealLabel, 55);
+            #endregion
+
+            #region CategoriseMeals
             OrderedList = CommonElements.AddedMealsView.OrderBy(x => x.dayOfMeal).ToList();
             
             foreach (Meal m in OrderedList)
@@ -192,13 +207,13 @@ namespace Health_Tracker
                 {
                     case "Monday":
                         
-                        string[] existingMondayMeals = new string[30];
+                        string[] ExistingMondayMeals = new string[30];
                         foreach (weekMeal w in MondayMealsView)
                         {
-                            existingMondayMeals[Array.IndexOf(existingMondayMeals, null)] = w.mealDetails;
+                            ExistingMondayMeals[Array.IndexOf(ExistingMondayMeals, null)] = w.mealDetails;
                         }
                         
-                        if (!existingMondayMeals.Contains(m.mealDetails))
+                        if (!ExistingMondayMeals.Contains(m.mealDetails))
                         {
                             MondayMealsView.Add(new weekMeal { mealName = m.mealName, mealDetails = m.mealDetails });
                         }
@@ -206,13 +221,13 @@ namespace Health_Tracker
                     
                     case "Tuesday":
 
-                        string[] existingTuesdayMeals = new string[30];
+                        string[] ExistingTuesdayMeals = new string[30];
                         foreach (weekMeal w in TuesdayMealsView)
                         {
-                            existingTuesdayMeals[Array.IndexOf(existingTuesdayMeals, null)] = w.mealDetails;
+                            ExistingTuesdayMeals[Array.IndexOf(ExistingTuesdayMeals, null)] = w.mealDetails;
                         }
 
-                        if (!existingTuesdayMeals.Contains(m.mealDetails))
+                        if (!ExistingTuesdayMeals.Contains(m.mealDetails))
                         {
                             TuesdayMealsView.Add(new weekMeal { mealName = m.mealName, mealDetails = m.mealDetails });
                         }
@@ -220,13 +235,13 @@ namespace Health_Tracker
 
                     case "Wednesday":
 
-                        string[] existingWednesdayMeals = new string[30];
+                        string[] ExistingWednesdayMeals = new string[30];
                         foreach (weekMeal w in WednesdayMealsView)
                         {
-                            existingWednesdayMeals[Array.IndexOf(existingWednesdayMeals, null)] = w.mealDetails;
+                            ExistingWednesdayMeals[Array.IndexOf(ExistingWednesdayMeals, null)] = w.mealDetails;
                         }
 
-                        if (!existingWednesdayMeals.Contains(m.mealDetails))
+                        if (!ExistingWednesdayMeals.Contains(m.mealDetails))
                         {
                             WednesdayMealsView.Add(new weekMeal { mealName = m.mealName, mealDetails = m.mealDetails });
                         }
@@ -234,13 +249,13 @@ namespace Health_Tracker
 
                     case "Thursday":
 
-                        string[] existingThursdayMeals = new string[30];
+                        string[] ExistingThursdayMeals = new string[30];
                         foreach (weekMeal w in ThursdayMealsView)
                         {
-                            existingThursdayMeals[Array.IndexOf(existingThursdayMeals, null)] = w.mealDetails;
+                            ExistingThursdayMeals[Array.IndexOf(ExistingThursdayMeals, null)] = w.mealDetails;
                         }
 
-                        if (!existingThursdayMeals.Contains(m.mealDetails))
+                        if (!ExistingThursdayMeals.Contains(m.mealDetails))
                         {
                             ThursdayMealsView.Add(new weekMeal { mealName = m.mealName, mealDetails = m.mealDetails });
                         }
@@ -248,13 +263,13 @@ namespace Health_Tracker
 
                     case "Friday":
 
-                        string[] existingFridayMeals = new string[30];
+                        string[] ExistingFridayMeals = new string[30];
                         foreach (weekMeal w in FridayMealsView)
                         {
-                            existingFridayMeals[Array.IndexOf(existingFridayMeals, null)] = w.mealDetails;
+                            ExistingFridayMeals[Array.IndexOf(ExistingFridayMeals, null)] = w.mealDetails;
                         }
 
-                        if (!existingFridayMeals.Contains(m.mealDetails))
+                        if (!ExistingFridayMeals.Contains(m.mealDetails))
                         {
                             FridayMealsView.Add(new weekMeal { mealName = m.mealName, mealDetails = m.mealDetails });
                         }
@@ -262,13 +277,13 @@ namespace Health_Tracker
 
                     case "Saturday":
 
-                        string[] existingSaturdayMeals = new string[30];
+                        string[] ExistingSaturdayMeals = new string[30];
                         foreach (weekMeal w in SaturdayMealsView)
                         {
-                            existingSaturdayMeals[Array.IndexOf(existingSaturdayMeals, null)] = w.mealDetails;
+                            ExistingSaturdayMeals[Array.IndexOf(ExistingSaturdayMeals, null)] = w.mealDetails;
                         }
 
-                        if (!existingSaturdayMeals.Contains(m.mealDetails))
+                        if (!ExistingSaturdayMeals.Contains(m.mealDetails))
                         {
                             SaturdayMealsView.Add(new weekMeal { mealName = m.mealName, mealDetails = m.mealDetails });
                         }
@@ -276,20 +291,22 @@ namespace Health_Tracker
 
                     case "Sunday":
 
-                        string[] existingSundayMeals = new string[30];
+                        string[] ExistingSundayMeals = new string[30];
                         foreach (weekMeal w in SundayMealsView)
                         {
-                            existingSundayMeals[Array.IndexOf(existingSundayMeals, null)] = w.mealDetails;
+                            ExistingSundayMeals[Array.IndexOf(ExistingSundayMeals, null)] = w.mealDetails;
                         }
 
-                        if (!existingSundayMeals.Contains(m.mealDetails))
+                        if (!ExistingSundayMeals.Contains(m.mealDetails))
                         {
                             SundayMealsView.Add(new weekMeal { mealName = m.mealName, mealDetails = m.mealDetails });
                         }
                         break;
                 }
             }
+            #endregion
 
+            #region RefreshData
             MondayCol.Items.Refresh();
             TuesdayCol.Items.Refresh();
             WednesdayCol.Items.Refresh();
@@ -297,6 +314,7 @@ namespace Health_Tracker
             FridayCol.Items.Refresh();
             SaturdayCol.Items.Refresh();
             SundayCol.Items.Refresh();
+            #endregion
         }
 
         private void OpenExerciseWindow(object sender, RoutedEventArgs e)
