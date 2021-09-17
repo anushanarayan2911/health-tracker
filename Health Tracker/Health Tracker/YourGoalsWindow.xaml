@@ -9,18 +9,18 @@
         WindowState="Maximized"
         WindowStyle="None">
     <Canvas>
-        <Menu Canvas.Top="50" Height="800" Background="#19959F" Foreground="White">
+        <Menu Height="800" Canvas.Top="50" Background="#19959F" Foreground="White">
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VirtualizingStackPanel Orientation="Vertical" />
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
-            <MenuItem Header="Food" Click="OpenFoodWindow" FontFamily="Runda Light" MinHeight="150"/>
-            <MenuItem Header="Exercise" Click="OpenExerciseWindow" FontFamily="Runda Light" MinHeight="150"/>
-            <MenuItem Header="Exercise Calendar" Click="OpenExerciseCalendarWindow" FontFamily="Runda Light" MinHeight="150"/>
-            <MenuItem Header="Your Day" Click="OpenYourDayWindow" FontFamily="Runda Light" MinHeight="150"/>
+            <MenuItem Header="Food" MinHeight="150" Click="OpenFoodWindow" FontFamily="Runda Light"/>
+            <MenuItem Header="Exercise" MinHeight="150" Click="OpenExerciseWindow" FontFamily="Runda Light"/>
+            <MenuItem Header="Exercise Calendar" MinHeight="150" Click="OpenExerciseCalendarWindow" FontFamily="Runda Light"/>
+            <MenuItem Header="Your Day" MinHeight="150" Click="OpenYourDayWindow" FontFamily="Runda Light"/>
         </Menu>
-        <Button x:Name="BackButton" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" Background="White" BorderBrush="White">
+        <Button x:Name="BackButton" Canvas.Top="10" Canvas.Left="10" Click="BackButtonClick" Background="White" BorderBrush="White">
             <Image Source="C:\Users\anush\source\repos\health-tracker\Images\BackArrow.png" Width="30"/>
         </Button>
         <Label x:Name="YourGoalsLabel" Content="Your Goals" Canvas.Top="10" Canvas.Left="560" FontFamily="Runda" FontSize="25" Foreground="#19959F"/>
@@ -33,7 +33,7 @@
 
         <Button x:Name="OKButton" Content="OK" Width="30" Canvas.Top="160" Canvas.Left="625" Click="OKButtonClick" FontFamily="Runda Light" Background="#19959F" BorderThickness="0"/>
 
-        <DataGrid x:Name="GoalsTable" Width="600" AutoGenerateColumns="False" Canvas.Top="200" Canvas.Left="350" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="
+        <DataGrid x:Name="GoalsTable" Width="600" Canvas.Top="200" Canvas.Left="350" AutoGenerateColumns="False" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="
                   White" HorizontalGridLinesBrush="#19959F" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="GoalCol" Header="Goal" Width="*" Binding="{Binding GoalInfo}"/>
@@ -48,15 +48,15 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Popup x:Name="StatusPopup" Canvas.Top="100" Canvas.Left="100" Height="150" Width="300" Placement="Center" AllowsTransparency ="False" IsOpen="False"/>
+        <Popup x:Name="StatusPopup" Height="150" Width="300" Canvas.Top="100" Canvas.Left="100" Placement="Center" AllowsTransparency ="False" IsOpen="False"/>
 
-        <Button x:Name="ViewCompletedGoalsButton" Width="150" Height="20" Content="View Completed Goals" Canvas.Top="336" Canvas.Left="575" Click="ViewCompletedGoals" FontFamily="Runda Light" Background="#19959F" BorderThickness="0"/>
-        <Popup x:Name="ViewCompletedGoalsPopup" Canvas.Top="100" Canvas.Left="100" Width="300" Height="300" Placement="Center" AllowsTransparency="False" IsOpen="False">
+        <Button x:Name="ViewCompletedGoalsButton" Content="View Completed Goals" Width="150" Canvas.Top="336" Canvas.Left="575" Click="ViewCompletedGoals" FontFamily="Runda Light" Background="#19959F" BorderThickness="0"/>
+        <Popup x:Name="ViewCompletedGoalsPopup" Height="300" Width="300" Canvas.Top="100" Canvas.Left="100" Placement="Center" AllowsTransparency="False" IsOpen="False">
             <Canvas Background="White">
-                <Button x:Name="CloseCompletedGoalsButton" Width="15" Height="15" Canvas.Top="0" Canvas.Right="0" Click="CloseCompletedGoalsPopup" Background="{x:Null}" BorderThickness="0">
+                <Button x:Name="CloseCompletedGoalsButton" Height="15" Width="15" Canvas.Top="0" Canvas.Right="0" Click="CloseCompletedGoalsPopup" Background="{x:Null}" BorderThickness="0">
                     <Image Source="C:\Users\anush\source\repos\health-tracker\Images\ClosePopup.png"/>
                 </Button>
-                <DataGrid x:Name="CompletedGoalsTable" Width="300" Height="300" Canvas.Top="15" AutoGenerateColumns="False" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="#19959F" HorizontalGridLinesBrush="#19959F" IsReadOnly="True">
+                <DataGrid x:Name="CompletedGoalsTable" Height="300" Width="300" Canvas.Top="15" AutoGenerateColumns="False" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="#19959F" HorizontalGridLinesBrush="#19959F" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn x:Name="CompletedGoalsList" Width="*" Header="Completed Goals" Binding="{Binding GoalInfo}" FontFamily="Runda Light"/>
                     </DataGrid.Columns>
