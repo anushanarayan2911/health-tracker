@@ -21,11 +21,13 @@ namespace Health_Tracker
     /// </summary>
     public partial class ExerciseWindow : Window
     {
+        #region StartVariables
         public string[] Frequencies = new string[30];
         public string StartTime;
         public string EndTime;
         public string StartDate;
         public string EndDate;
+        #endregion
 
         public ExerciseWindow()
         {
@@ -42,51 +44,60 @@ namespace Health_Tracker
 
         private void SendExerciseInfo(object sender, RoutedEventArgs e)
         {
-            string exerciseTitle = ExerciseTitleInput.Text;
-            string exerciseDetails = ExerciseDetailsInput.Text;
-            string exerciseFrequency = String.Join(", ", Frequencies).ToString();
+
+            #region GetInputs
+            string ExerciseTitle= ExerciseTitleInput.Text;
+            string ExerciseDetails = ExerciseDetailsInput.Text;
+            string ExerciseFrequency = String.Join(", ", Frequencies).ToString();
             StartTime = ExerciseStartTimeInput.Text;
             EndTime = ExerciseEndTimeInput.Text;
             StartDate = ExerciseStartDateInput.Text;
             EndDate = ExerciseEndDateInput.Text;
-
-            for (int i = 0; i < exerciseFrequency.Length; i++)
+            
+            for (int i = 0; i < ExerciseFrequency.Length; i++)
             {
-                if (exerciseFrequency.Substring(i, 3) == ", ,")
+                if (ExerciseFrequency.Substring(i, 3) == ", ,")
                 {
-                    exerciseFrequency = exerciseFrequency.Substring(0, i);
+                    ExerciseFrequency = ExerciseFrequency.Substring(0, i);
                     break;
                 }
             }
+            #endregion
 
+            #region ClearInputFields
             ExerciseTitleInput.Clear();
             ExerciseDetailsInput.Clear();
             ExerciseStartTimeInput.Clear();
             ExerciseEndTimeInput.Clear();
             ExerciseStartDateInput.SelectedDate = null;
             ExerciseEndDateInput.SelectedDate = null;
+            #endregion
 
+            #region AddToObservableCollection
             CommonElements.AddedExercisesView.Add(new Exercise { 
-                exerciseName = exerciseTitle, 
-                exerciseDetails = exerciseDetails,
-                exerciseFrequency = exerciseFrequency,
+                exerciseName = ExerciseTitle, 
+                exerciseDetails = ExerciseDetails,
+                exerciseFrequency = ExerciseFrequency,
                 exerciseTime = StartTime + " - " + EndTime,
                 exerciseDate = StartDate + " - " + EndDate
             });
+            #endregion
 
-            foreach(string s in Frequencies)
+            #region ClearFrequencies
+            foreach (string s in Frequencies)
             {
                 Frequencies[Array.IndexOf(Frequencies, s)] = null;
             }
+            #endregion
         }
 
         private void FrequencyDropDownMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string userFrequencyFull = FrequencyDropDownMenu.SelectedValue.ToString();
-            string userFrequency = userFrequencyFull.Substring(userFrequencyFull.IndexOf(" ") + 1);
+            string UserFrequencyFull = FrequencyDropDownMenu.SelectedValue.ToString();
+            string UserFrequency = UserFrequencyFull.Substring(UserFrequencyFull.IndexOf(" ") + 1);
 
             
-            switch (userFrequency)
+            switch (UserFrequency)
             {
                 case "Daily":
                     Frequencies[0] = "daily";
@@ -107,14 +118,14 @@ namespace Health_Tracker
 
         private void SendDayName(object sender, RoutedEventArgs e)
         {
-            string dayName = (string)((RadioButton)sender).Content;
-            Frequencies[0] = dayName;
+            string DayName = (string)((RadioButton)sender).Content;
+            Frequencies[0] = DayName;
         }
 
         private void SendDayNameMulti(object sender, RoutedEventArgs e)
         {
-            string dayName = (string)((CheckBox)sender).Content;
-            Frequencies[Array.IndexOf(Frequencies, null)] = dayName;
+            string DayName = (string)((CheckBox)sender).Content;
+            Frequencies[Array.IndexOf(Frequencies, null)] = DayName;
         }
 
         private void OpenFoodWindow(object sender, RoutedEventArgs e)
