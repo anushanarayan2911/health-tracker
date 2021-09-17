@@ -12,10 +12,11 @@
         <Rectangle x:Name="Rectangle" Height="100" Width="1400" Fill="#19959F"/>
         <Label x:Name="Intro" Content="Welcome to your personal health tracker! Here, you can keep track of meals, exercise, and personal goals to help you live a happy and healthy life!"  Height="32" Width="1010" Canvas.Top ="193"  Canvas.Left="145" FontFamily="Runda Light" FontSize="15"/>
         <Label x:Name="Title" Content="Your Health Tracker" Canvas.Top="10" Canvas.Left="414" FontFamily="Runda" FontSize="50" Foreground="White"/>
+
         <Button x:Name="Food" Height="100" Width="100" Canvas.Top="300" Canvas.Left="200" Click="FoodButtonClick" Background="{x:Null}" BorderThickness="0">
             <Image Source="C:\Users\anush\source\repos\health-tracker\Images\Food.png"/>
         </Button>
-        <Label x:Name="FoodLabel" Content="Food" Canvas.Top="425" Canvas.Left="250" FontFamily="Runda" Foreground="#19959F"/>
+        <Label x:Name="FoodLabel" Content="Food" Canvas.Top="425" Canvas.Left="231" FontFamily="Runda" Foreground="#19959F"/>
 
         <Button x:Name="Exercise" Height="100" Width="100" Canvas.Top="300" Canvas.Left="400" Click="ExerciseButtonClick" Background="{x:Null}" BorderThickness="0">
             <Image Source="C:\Users\anush\source\repos\health-tracker\Images\Exercise.png"/>

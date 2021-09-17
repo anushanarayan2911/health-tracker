@@ -78,7 +78,7 @@ namespace Health_Tracker
             #region ShowElements
             ViewMealsButton.Visibility = Visibility.Visible;
             ViewMealsLabel.Visibility = Visibility.Visible;
-            Canvas.SetTop(ViewMealsButton, 10);
+            Canvas.SetTop(ViewMealsButton, 0);
             Canvas.SetLeft(ViewMealsButton, 95);
             Canvas.SetTop(ViewMealsLabel, 30);
             Canvas.SetLeft(ViewMealsLabel, 80);
@@ -192,7 +192,7 @@ namespace Health_Tracker
             AddMealButton.Visibility = Visibility.Visible;
             AddMealLabel.Visibility = Visibility.Visible;
 
-            Canvas.SetTop(AddMealButton, 10);
+            Canvas.SetTop(AddMealButton, 0);
             Canvas.SetLeft(AddMealButton, 70);
             Canvas.SetTop(AddMealLabel, 30);
             Canvas.SetLeft(AddMealLabel, 55);
