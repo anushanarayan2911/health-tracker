@@ -21,27 +21,33 @@ namespace Health_Tracker
     /// </summary>
     public partial class YourDayWindow : Window
     {
+        #region StartVariables
         ObservableCollection<dayMeal> BreakfastView = new ObservableCollection<dayMeal>();
         ObservableCollection<dayMeal> LunchView = new ObservableCollection<dayMeal>();
         ObservableCollection<dayMeal> DinnerView = new ObservableCollection<dayMeal>();
         ObservableCollection<dayMeal> SnackView = new ObservableCollection<dayMeal>();
         ObservableCollection<Exercise> ExerciseView = new ObservableCollection<Exercise>();
-        string todayDayOfWeek = DateTime.Now.DayOfWeek.ToString();
-        DateTime todayDate = DateTime.Now;
+        string TodayDayOfWeek = DateTime.Now.DayOfWeek.ToString();
+        DateTime TodayDate = DateTime.Now;
+        #endregion
 
         public YourDayWindow()
         {
             InitializeComponent();
 
             #region Meals
+
+            #region ItemsSource
             BreakfastCol.ItemsSource = BreakfastView;
             LunchCol.ItemsSource = LunchView;
             DinnerCol.ItemsSource = DinnerView;
             SnackCol.ItemsSource = SnackView;
+            #endregion
 
+            #region CategoriseMeals
             foreach (Meal meal in CommonElements.AddedMealsView)
             {
-                if (meal.dayOfMeal == todayDayOfWeek)
+                if (meal.dayOfMeal == TodayDayOfWeek)
                 {
                     switch (meal.mealName)
                     {
@@ -75,24 +81,30 @@ namespace Health_Tracker
                     }
                 }
             }
+            #endregion
 
+            #region RefreshData
             BreakfastCol.Items.Refresh();
             LunchCol.Items.Refresh();
             DinnerCol.Items.Refresh();
             SnackCol.Items.Refresh();
             #endregion
 
+            #endregion
+
             #region Exercises
+
             ExercisesTable.ItemsSource = ExerciseView;
 
+            #region CategoriseData
             foreach (Exercise exercise in CommonElements.AddedExercisesView)
             {
                 DateTime StartDate = Convert.ToDateTime(exercise.exerciseDate.Substring(0, 10));
                 DateTime EndDate = Convert.ToDateTime(exercise.exerciseDate.Substring(13, 10));
 
-                if (StartDate <= todayDate & todayDate <= EndDate)
+                if (StartDate <= TodayDate & TodayDate <= EndDate)
                 {
-                    if (exercise.exerciseFrequency.Contains(todayDayOfWeek) || exercise.exerciseFrequency == "daily")
+                    if (exercise.exerciseFrequency.Contains(TodayDayOfWeek) || exercise.exerciseFrequency == "daily")
                     {
                         ExerciseView.Add(new Exercise
                         {
@@ -103,8 +115,10 @@ namespace Health_Tracker
                     }
                 }
             }
+            #endregion
 
             ExercisesTable.Items.Refresh();
+
             #endregion
         }
 
