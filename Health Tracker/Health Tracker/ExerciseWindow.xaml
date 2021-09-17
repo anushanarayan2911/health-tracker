@@ -10,19 +10,19 @@
         WindowStyle="None">
     <Canvas>
 
-        <Menu Canvas.Top="50" Height="800" Background="#19959F" Foreground="White">
+        <Menu Height="800" Canvas.Top="50"  Background="#19959F" Foreground="White">
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VirtualizingStackPanel Orientation="Vertical" />
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
-            <MenuItem Header="Food" Click="OpenFoodWindow" FontFamily="Runda Light" MinHeight="150"/>
-            <MenuItem Header="Exercise Calendar" Click="OpenExerciseCalendarWindow" FontFamily="Runda Light" MinHeight="150"/>
-            <MenuItem Header="Your Day" Click="OpenYourDayWindow" FontFamily="Runda Light" MinHeight="150"/>
-            <MenuItem Header="Your Goals" Click="OpenYourGoalsWindow" FontFamily="Runda Light" MinHeight="150"/>
+            <MenuItem Header="Food" MinHeight="150" Click="OpenFoodWindow" FontFamily="Runda Light" />
+            <MenuItem Header="Exercise Calendar" MinHeight="150" Click="OpenExerciseCalendarWindow" FontFamily="Runda Light"/>
+            <MenuItem Header="Your Day" MinHeight="150" Click="OpenYourDayWindow" FontFamily="Runda Light" />
+            <MenuItem Header="Your Goals" MinHeight="150" Click="OpenYourGoalsWindow" FontFamily="Runda Light"/>
         </Menu>
-        
-        <Button x:Name="BackButton" Click="BackButtonClick" Canvas.Top="10" Canvas.Left="10" Background="White" BorderBrush="White">
+
+        <Button x:Name="BackButton" Canvas.Top="10" Canvas.Left="10" Click="BackButtonClick" Background="White" BorderBrush="White">
             <Image Source="C:\Users\anush\source\repos\health-tracker\Images\BackArrow.png" Width="30"/>
         </Button>
 
@@ -30,19 +30,19 @@
         <Label x:Name="TimeInputInfo" Content="Enter time information as HH:MM" Canvas.Top="50" Canvas.Left="550" FontFamily="Runda Light"/>
 
         <Label x:Name="ExerciseTitleLabel" Content="Exercise Title:" Canvas.Top="70" Canvas.Left="350" FontFamily="Runda Light"/>
-        <TextBox x:Name="ExerciseTitleInput" Canvas.Top="75" Canvas.Left="450" Width="150" FontFamily="Runda Light"/>
+        <TextBox x:Name="ExerciseTitleInput" Width="150" Canvas.Top="75" Canvas.Left="450" FontFamily="Runda Light"/>
 
         <Label x:Name="ExerciseDetailsLabel" Content="Exercise Details:" Canvas.Top="105" Canvas.Left="350" FontFamily="Runda Light"/>
-        <TextBox x:Name="ExerciseDetailsInput" Canvas.Top="110" Canvas.Left="450" Width="400" FontFamily="Runda Light"/>
+        <TextBox x:Name="ExerciseDetailsInput" Width="400" Canvas.Top="110" Canvas.Left="450" FontFamily="Runda Light"/>
 
         <Label x:Name="FrequencyLabel" Content="Frequency:" Canvas.Top="140" Canvas.Left="350" FontFamily="Runda Light"/>
-        <ComboBox x:Name="FrequencyDropDownMenu" Canvas.Top="145" Canvas.Left="450" Width="100" SelectionChanged="FrequencyDropDownMenu_SelectionChanged" FontFamily="Runda Light">
+        <ComboBox x:Name="FrequencyDropDownMenu" Width="100" Canvas.Top="145" Canvas.Left="450"  SelectionChanged="FrequencyDropDownMenu_SelectionChanged" FontFamily="Runda Light">
             <ComboBoxItem x:Name="DailyOption" Content="Daily"/>
             <ComboBoxItem x:Name="WeeklyOption" Content="Weekly"/>
             <ComboBoxItem x:Name="CustomOption" Content="Custom"/>
         </ComboBox>
 
-        <TabPanel x:Name="DaysOfWeekButton" Visibility="Hidden" Canvas.Top="145" Canvas.Left="600">
+        <TabPanel x:Name="DaysOfWeekButton" Canvas.Top="145" Canvas.Left="600" Visibility="Hidden">
             <RadioButton Content="Monday" Checked="SendDayName" FontFamily="Runda Light"/>
             <RadioButton Content="Tuesday" Checked="SendDayName" FontFamily="Runda Light"/>
             <RadioButton Content="Wednesday" Checked="SendDayName" FontFamily="Runda Light"/>
@@ -52,7 +52,7 @@
             <RadioButton Content="Sunday" Checked="SendDayName" FontFamily="Runda Light"/>
         </TabPanel>
 
-        <TabPanel x:Name="DaysOfWeekCheckbox" Visibility="Hidden" Canvas.Top="145" Canvas.Left="600">
+        <TabPanel x:Name="DaysOfWeekCheckbox" Canvas.Top="145" Canvas.Left="600" Visibility="Hidden">
             <CheckBox Content="Monday" Checked="SendDayNameMulti" FontFamily="Runda Light"/>
             <CheckBox Content="Tuesday" Checked="SendDayNameMulti" FontFamily="Runda Light"/>
             <CheckBox Content="Wednesday" Checked="SendDayNameMulti" FontFamily="Runda Light"/>
@@ -63,10 +63,10 @@
         </TabPanel>
 
         <Label x:Name="StartTimeLabel" Content="Start Time" Canvas.Top="175" Canvas.Left="350" FontFamily="Runda Light"/>
-        <TextBox x:Name="ExerciseStartTimeInput" Canvas.Top="180" Canvas.Left="450" Width="100" FontFamily="Runda Light"/>
+        <TextBox x:Name="ExerciseStartTimeInput" Width="100" Canvas.Top="180" Canvas.Left="450" FontFamily="Runda Light"/>
 
         <Label x:Name="EndTimeLabel" Content="End Time" Canvas.Top="175" Canvas.Left="630" FontFamily="Runda Light"/>
-        <TextBox x:Name="ExerciseEndTimeInput" Canvas.Top="180" Canvas.Left="730" Width="100" FontFamily="Runda Light"/>
+        <TextBox x:Name="ExerciseEndTimeInput" Width="100" Canvas.Top="180" Canvas.Left="730" FontFamily="Runda Light"/>
 
         <Label x:Name="StartDateLabel" Content="Start Date" Canvas.Top="210" Canvas.Left="350" FontFamily="Runda Light"/>
         <DatePicker x:Name="ExerciseStartDateInput" Canvas.Top="215" Canvas.Left="450" FontFamily="Runda Light"/>
@@ -74,7 +74,7 @@
         <Label x:Name="EndDateLabel" Content="End Date" Canvas.Top="210" Canvas.Left="630" FontFamily="Runda Light"/>
         <DatePicker x:Name="ExerciseEndDateInput" Canvas.Top="215" Canvas.Left="730" FontFamily="Runda Light"/>
 
-        <Button x:Name="OKButton" Click="SendExerciseInfo" Content="OK" Width="30" Canvas.Top="250" Canvas.Left="620" Background="#19959F" BorderThickness="0" FontFamily="Runda Light"/>
+        <Button x:Name="OKButton"  Content="OK" Width="30" Canvas.Top="250" Canvas.Left="620" Click="SendExerciseInfo" Background="#19959F" BorderThickness="0" FontFamily="Runda Light"/>
 
         <DataGrid x:Name="AddedExercises" Height="100" Width="750" Canvas.Top="290" Canvas.Left="250" AutoGenerateColumns="False" FontFamily="Runda" Background="White" BorderThickness="0" VerticalGridLinesBrush="White" HorizontalGridLinesBrush="#19959F" IsReadOnly="True">
             <DataGrid.Columns>
