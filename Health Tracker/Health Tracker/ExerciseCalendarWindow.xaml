@@ -47,8 +47,6 @@
             </Grid.RowDefinitions>
         </Grid>
 
-        <Popup x:Name="ExerciseDetailsPopup" Width="200" Canvas.Top="100" Canvas.Left="100" IsOpen="False" AllowsTransparency="True"  Placement="Center">
-            <Border BorderBrush="Black" BorderThickness="1"></Border>
-        </Popup>
+        <Popup x:Name="ExerciseDetailsPopup" Width="200" Canvas.Top="100" Canvas.Left="100" IsOpen="False" AllowsTransparency="True"  Placement="Center"/>
     </Canvas>
 </Window>

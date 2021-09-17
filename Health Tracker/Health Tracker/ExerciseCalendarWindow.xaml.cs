@@ -200,42 +200,51 @@ namespace Health_Tracker
             ExerciseDetailsPopup.Height = toShow.Count * 100;
 
 
-            PopupCanvas.Background = Brushes.White;
+            PopupCanvas.Background = new SolidColorBrush(Color.FromRgb(25, 149, 159));
 
             for (int i = 0; i < toShow.Count; i++)
             {
                 TextBlock CurrentExerciseTitle = new TextBlock();
                 CurrentExerciseTitle.Text = toShow[i].exerciseName;
                 CurrentExerciseTitle.TextDecorations = TextDecorations.Underline;
+                CurrentExerciseTitle.FontFamily = new FontFamily("Runda");
                 CurrentExerciseTitle.Margin = new Thickness(100, i * 100, 0, 0);
                 PopupCanvas.Children.Add(CurrentExerciseTitle);
 
                 Label CurrentExerciseDetailsLabel = new Label();
                 CurrentExerciseDetailsLabel.Content = "Details:";
+                CurrentExerciseTitle.FontFamily = new FontFamily("Runda Light");
                 CurrentExerciseDetailsLabel.Margin = new Thickness(10, i * 100 + 20, 0, 0);
                 PopupCanvas.Children.Add(CurrentExerciseDetailsLabel);
 
                 TextBlock CurrentExerciseDetails = new TextBlock();
                 CurrentExerciseDetails.Text = toShow[i].exerciseDetails;
+                CurrentExerciseTitle.FontFamily = new FontFamily("Runda Light");
                 CurrentExerciseDetails.Margin = new Thickness(65, i * 100 + 25, 0, 0);
                 PopupCanvas.Children.Add(CurrentExerciseDetails);
 
                 Label CurrentExerciseTimeLabel = new Label();
                 CurrentExerciseTimeLabel.Content = "Time:";
+                CurrentExerciseTitle.FontFamily = new FontFamily("Runda Light");
                 CurrentExerciseTimeLabel.Margin = new Thickness(10, i * 100 + 40, 0, 0);
                 PopupCanvas.Children.Add(CurrentExerciseTimeLabel);
 
                 TextBlock CurrentExerciseTime = new TextBlock();
                 CurrentExerciseTime.Text = toShow[i].exerciseTime;
+                CurrentExerciseTitle.FontFamily = new FontFamily("Runda Light");
                 CurrentExerciseTime.Margin = new Thickness(65, i * 100 + 45, 0, 0);
                 PopupCanvas.Children.Add(CurrentExerciseTime);
             }
 
             Button QuitButton = new Button();
-            QuitButton.Content = "Close";
+            QuitButton.Content = new Image {
+                Source = new BitmapImage(new Uri("C:/Users/anush/source/repos/health-tracker/Images/Close.png"))
+            };
             QuitButton.Click += new RoutedEventHandler(QuitButtonClick);
-            QuitButton.Width = 40;
-            QuitButton.Margin = new Thickness(0, 0, 0, 0);
+            QuitButton.Width = 10;
+            QuitButton.Background = null;
+            QuitButton.BorderThickness = new Thickness(0);
+            QuitButton.Margin = new Thickness(190, 0, 0, 0);
             PopupCanvas.Children.Add(QuitButton);
 
             ExerciseDetailsPopup.Child = PopupCanvas;
